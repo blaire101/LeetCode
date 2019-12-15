@@ -13,7 +13,7 @@
 
 ## Reference
 
-- [数组](https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/)
+- [初级算法 • 数组](https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/)
 
 [0]: https://leetcode.com/
 [1]: https://leetcode.com/explore/interview/card/top-interview-questions-easy/
