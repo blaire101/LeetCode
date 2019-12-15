@@ -2,8 +2,10 @@
 
 # Topic: Best Time to Buy and Sell Stock II
 
+from typing import List
+
 class Solution:
-    def maxProfit(self, prices: list) -> int:
+    def maxProfit(self, prices: List[int]) -> int:
         # @param prices, a list of integer
         # @return an integer
         maxprofit = 0
@@ -12,7 +14,7 @@ class Solution:
                 maxprofit += prices[i] - prices[i - 1]
         return maxprofit
 
-    print(maxProfit.__annotations__)
+    # print(maxProfit.__annotations__)
 
 if __name__ == '__main__':
 

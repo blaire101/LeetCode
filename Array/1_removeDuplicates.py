@@ -3,10 +3,11 @@
 # Topic: Remove Duplicates from Sorted Array
 
 import sys
+from typing import List
 
 class Solution:
 
-    def removeDuplicates(self, nums: list):
+    def removeDuplicates(self, nums: List[int]) -> int:
         """
         :type nums: list[int]
         :rtype: int
