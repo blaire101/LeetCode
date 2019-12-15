@@ -2,6 +2,8 @@
 
 📩 To the one with a hammer, everything looks like a nail.
 
+## Easy Collection
+
 ## [1. top-interview-questions-easy][1]
 
 ### [1.1 Array][1.1]
