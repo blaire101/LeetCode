@@ -1,4 +1,4 @@
-# [LeetCode][0]
+# [LC][0]
 
 📩 To the one with a hammer, everything looks like a nail.
 
