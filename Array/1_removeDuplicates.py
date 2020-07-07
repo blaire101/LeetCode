@@ -5,6 +5,7 @@
 import sys
 from typing import List
 
+
 class Solution:
 
     def removeDuplicates(self, nums: List[int]) -> int:
@@ -22,8 +23,8 @@ class Solution:
 
         return len(nums)
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     print(sys.version)
     # print(sys.version_info)
 

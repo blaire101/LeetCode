@@ -16,6 +16,7 @@ class Solution:
         '''
         8, 5, 4, 9, 2, 3, 6
         '''
+
         def merge(nums, start, mid, end, temp):
             i, j = start, mid + 1
             while i <= mid and j <= end:

@@ -5,6 +5,7 @@
     @https://leetcode-cn.com/company/bytedance/
 """
 
+
 # [5, 5, 3, 9], 10
 
 def two_sum(nums, target):
