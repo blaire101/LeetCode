@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
     @type: dp
-    @file: 1_paint-fence.py
+    @file: s1_paint-fence.py
     @date: 2020-07-07 10:12 AM
 
     @desc: https://leetcode-cn.com/problems/paint-fence/
