@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    @file: l2_merge_sort.py
+    @file: f2_merge_sort.py
     @date: 2020-07-06 12:03 PM
 """
 
