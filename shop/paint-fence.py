@@ -44,17 +44,19 @@
 from functools import lru_cache
 
 
-class Solution:
-    def numWays(self, n: int, k: int) -> int:
-        if n == 0:
-            return 0
+def num_ways(n: int, k: int) -> int:
+    if n == 0:
+        return 0
 
-        @lru_cache(None)
-        def paint(i):
-            if i == 2:
-                return k * k
-            if i == 1:
-                return k
-            return (paint(i - 2) + paint(i - 1)) * (k - 1)
+    @lru_cache(None)
+    def paint(i):
+        if i == 2:
+            return k * k
+        if i == 1:
+            return k
+        return (paint(i - 2) + paint(i - 1)) * (k - 1)
 
-        return paint(n)
+    return paint(n)
+
+# arr = []
+# arr[1] = k, arr[2] = k*k
