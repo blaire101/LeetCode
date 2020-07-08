@@ -58,5 +58,9 @@ def num_ways(n: int, k: int) -> int:
 
     return paint(n)
 
-# arr = []
+# In [3]: arr = [0]*10
+#
+# In [4]: arr
+# Out[4]: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+#
 # arr[1] = k, arr[2] = k*k
