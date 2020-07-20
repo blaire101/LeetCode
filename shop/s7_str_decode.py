@@ -24,7 +24,6 @@
 # 输出："abccdcdcdxyz"
 
 
-
 # 解法一：辅助栈法
 # 本题难点在于括号内嵌套括号，需要从内向外生成与拼接字符串，这与栈的先入后出特性对应。
 
@@ -74,4 +73,3 @@ class Solution:
 #                 i += 1
 #             return res
 #         return dfs(s,0)
-

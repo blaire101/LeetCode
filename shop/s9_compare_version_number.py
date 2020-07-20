@@ -4,6 +4,7 @@
     @date: 2020-07-16 4:52 PM
 """
 
+
 # 比较两个版本号 version1 和 version2。
 # 如果 version1 > version2 返回 1，如果 version1 < version2 返回 -1， 除此之外返回 0。
 #
@@ -60,13 +61,14 @@ class Solution:
 
         return (v1 > v2) - (v1 < v2)
 
+
 if __name__ == '__main__':
     a = Solution()
 
     v1 = '07.5.2.04'
     v2 = '7.5.3'
 
-    t1 = *{1:2, '03':100},
+    t1 = *{1: 2, '03': 100},
     print(t1)
 
     k = *map(int, v1.split('.')),
@@ -80,8 +82,6 @@ if __name__ == '__main__':
     #
     # print(int(False))
 
-
     ret = a.compareVersion(v1, v2)
 
     # print(ret)
-
