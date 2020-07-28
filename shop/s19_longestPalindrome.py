@@ -5,6 +5,7 @@
     @desc: https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/
 """
 
+
 # 5. 最长回文子串
 # 给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
 #
@@ -186,4 +187,3 @@ class Solution:
 # O(n
 # 2
 # )，即存储动态规划状态需要的空间。
-
