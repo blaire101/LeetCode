@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-# Topic: Remove Duplicates from Sorted Array
+# Topic: Remove Duplicates from Sorted Array_and_linkedList
 
 import sys
 from typing import List
