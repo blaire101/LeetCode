@@ -24,6 +24,7 @@
 
 import sys
 
+# Python解释器默认对递归深度设定为998，但可以用sys.setrecursionlimit(99999999)来打破这个限制。
 sys.setrecursionlimit(100000)
 
 
@@ -31,9 +32,20 @@ def f(n, m):
     if n == 0:
         return 0
     x = f(n - 1, m)
-    return (m + x) % n
+    return (m % n + x) % n
+
+    # return (m + x) % n
 
 
 class Solution:
     def lastRemaining(self, n: int, m: int) -> int:
         return f(n, m)
+
+
+# class Solution:
+#     def lastRemaining(self, n: int, m: int) -> int:
+#         f = 0
+#         for i in range(2, n + 1):
+#             f = (m + f) % i
+#         return f
+
