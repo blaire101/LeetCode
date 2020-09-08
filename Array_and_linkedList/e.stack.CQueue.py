@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    @file: e.CQueue.py
+    @file: e.stack.CQueue.py
     @date: 2020-09-08 11:13 AM
     @desc:
     @url： https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/

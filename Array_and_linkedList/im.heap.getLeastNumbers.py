@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    @file: im.getLeastNumbers.py
+    @file: im.heap.getLeastNumbers.py
     @date: 2020-09-08 10:23 AM
     @desc: 剑指 Offer 11. 旋转数组的最小数字
     @url : https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/
