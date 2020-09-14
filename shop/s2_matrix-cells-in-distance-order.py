@@ -3,7 +3,6 @@
     @type: dp
     @file: s2_matrix-cells-in-distance-order.py
     @date: 2020-07-07 10:14 AM
-
     @desc: 距离顺序排列矩阵单元格
 """
 
@@ -56,3 +55,12 @@ class Solution:
             else:
                 break
         return result
+
+
+if __name__ == '__main__':
+    sol = Solution()
+    result = sol.allCellsDistOrder(2, 3, 1, 2)
+    print(result)
+
+    dist_list = [[] for i in range(5)]
+    print(dist_list)
