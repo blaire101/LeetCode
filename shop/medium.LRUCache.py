@@ -1,34 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-    @file: s4_lru.py
-    @date: 2020-07-14 8:02 AM
+    @file: medium.LRUCache.py
+    @date: 2020-09-16 8:02 AM
 """
 
-
-# class LRUCache(collections.OrderedDict):
-#
-#     def __init__(self, capacity: int):
-#         super().__init__()
-#         self.capacity = capacity
-#
-#
-#     def get(self, key: int) -> int:
-#         if key not in self:
-#             return -1
-#         self.move_to_end(key)
-#         return self[key]
-#
-#     def put(self, key: int, value: int) -> None:
-#         if key in self:
-#             self.move_to_end(key)
-#         self[key] = value
-#         if len(self) > self.capacity:
-#             self.popitem(last=False)
-
-# ---------------------------------------------------------------------------
-
-# 进阶:
-#
 # 你是否可以在 O(1) 时间复杂度内完成这两种操作？
 #
 #  
@@ -59,14 +34,13 @@ class DLinkedNode:
 class LRUCache:
 
     def __init__(self, capacity: int):
-        self.cache = dict()
-        # 使用伪头部和伪尾部节点
         self.head = DLinkedNode()
         self.tail = DLinkedNode()
         self.head.next = self.tail
         self.tail.prev = self.head
         self.capacity = capacity
         self.size = 0
+        self.cache = {}
 
     def get(self, key: int) -> int:
         if key not in self.cache:
@@ -97,6 +71,7 @@ class LRUCache:
             node.value = value
             self.moveToHead(node)
 
+
     def addToHead(self, node):
         node.prev = self.head
         node.next = self.head.next
@@ -115,3 +90,8 @@ class LRUCache:
         node = self.tail.prev
         self.removeNode(node)
         return node
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
