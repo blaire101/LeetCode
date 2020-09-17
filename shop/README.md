@@ -28,3 +28,4 @@ https://leetcode-cn.com/company/shopee/
 1. 计算右侧小于当前元素的个数
 2. 分割数组的最大值
 3. 通配符匹配
+4. 鸡蛋掉落 [DP, Hard, 写法也非常值得学习]
