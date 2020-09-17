@@ -12,8 +12,8 @@ https://leetcode-cn.com/company/shopee/
 
 1. 下一个更大元素 III [字符串]
 2. LRU缓存机制 [设计] (1. cache dict 2. DLink 3. head tail Assist 4. get, delete, moveToHead 5. put, in cache or not, addHead)
-3. 复制带随机指针的链表
-4. 394. 字符串解码 decode-string [dfs]
+3. 复制带随机指针的链表 [链表]
+4. 394. 字符串解码 decode-string [递归]
 
 ```
 # 1 5 8 4 7 6 5 3 1
