@@ -54,6 +54,7 @@ class Solution:
         # [7, 5, 2, 4]
         # [7, 5, 3]
         d = len(v2) - len(v1)
+        print(d)
 
         print(v1 + [0] * d)
 

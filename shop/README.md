@@ -6,14 +6,16 @@ https://leetcode-cn.com/company/shopee/
 
 1. paint-fence 栅栏涂色, [dynamic] 
 2. matrix-cells-in-distance-order 距离顺序排列矩阵单元格 [[], [], []], [排序]
-
+3. 两数之和 [数组, 哈希表]
 
 ## Medium
 
-1. 下一个更大元素 III [字符串]
+1. 下一个更大元素 III [String]
 2. LRU缓存机制 [设计] (1. cache dict 2. DLink 3. head tail Assist 4. get, delete, moveToHead 5. put, in cache or not, addHead)
 3. 复制带随机指针的链表 [链表]
-4. 394. 字符串解码 decode-string [递归]
+4. 字符串解码 decode-string [递归]
+5. ~~比较两个版本号 [String]~~
+6. 两数相加 [链表 LinkNode]
 
 ```
 # 1 5 8 4 7 6 5 3 1
