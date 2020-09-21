@@ -6,16 +6,27 @@
     @url : https://leetcode-cn.com/problems/valid-parentheses/
 """
 
+
 class Solution:
     def isValid(self, s: str) -> bool:
-        stack= []
+        stack = []
+        for i in s:
 
-        if not s:
-            return True
+            if i in ['(', '[', '{']:
+                stack.append(i)
+            elif i == ')' and len(stack) > 0 and stack[-1] == '(':
+                stack.pop()
+            elif i == ']' and len(stack) > 0 and stack[-1] == '[':
+                stack.pop()
+            elif i == '}' and len(stack)> 0 and stack[-1] == '{':
+                stack.pop()
+            else:
+                return False
 
-        for c in s:
-            stack.append(c)
+        return len(stack) == 0
+
 
 if __name__ == '__main__':
     sol = Solution()
-    sol.isValid("([])")
+    s = "()"
+    print(sol.isValid(s))
