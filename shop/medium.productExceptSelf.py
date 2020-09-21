@@ -24,7 +24,7 @@
 # 你可以在常数空间复杂度内完成这个题目吗？（ 出于对空间复杂度分析的目的，输出数组不被视为额外空间。）
 from typing import List
 
-
+# 1，2 ，3，4 ，5， 6，7，8
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         pass
