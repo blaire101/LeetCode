@@ -9,13 +9,28 @@ https://leetcode-cn.com/company/shopee/
 3. 两数之和 [数组, 哈希表]
 
 ## Medium
-
 1. 下一个更大元素 III [String]
-2. LRU缓存机制 [设计] (1. cache dict 2. DLink 3. head tail Assist 4. get, delete, moveToHead 5. put, in cache or not, addHead)
-3. 复制带随机指针的链表 [链表]
-4. 字符串解码 decode-string [递归]
+
+1. LRU缓存机制 [设计] (1. cache dict 2. DLink 3. head tail Assist 4. get, delete, moveToHead 5. put, in cache or not, addHead)
+2. 两数相加 [链表 LinkNode]
+3. 两数之和 [哈希 数组]
+4. 有效的括号 [栈]
+5. 最长回文子串
+6. 复制带随机指针的链表 [链表]
+7. 零钱兑换 [DP]
+8. 通配符匹配 [贪心，字符串]
+9. 爬楼梯 [DP]
+10. 除自身以外数组的乘积 [数组]
+11. 删除链表的倒数第N个节点 [链表, 双指针] 
+12. 全排列 [回溯算法]
+13. 无重复字符的最长子串 [哈希表，双指针]
+14. 计算右侧小于当前元素的个数 [排序, 树状数组]
+15. 字符串解码 decode-string [递归]
+16. 排序链表 [排序]
+
+
 5. ~~比较两个版本号 [String]~~
-6. 两数相加 [链表 LinkNode]
+
 
 ```
 # 1 5 8 4 7 6 5 3 1
