@@ -28,6 +28,7 @@ https://leetcode-cn.com/company/shopee/
 15. 字符串解码 decode-string [递归]
 16. 排序链表 [排序]
 
+17. 无重复字符的最长子串 [滑动窗口]
 
 5. ~~比较两个版本号 [String]~~
 
