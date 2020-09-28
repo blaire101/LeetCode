@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    @file: Easy.twoSum.py
+    @file: easy.twoSum.py
     @date: 2020-09-18 08:38 AM
     @desc: 两数之和
     @url : https://leetcode-cn.com/problems/two-sum/

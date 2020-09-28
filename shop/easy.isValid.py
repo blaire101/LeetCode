@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    @file: Easy.isValid.py
+    @file: easy.isValid.py
     @date: 2020-09-18 08:38 AM
     @desc: 有效的括号
     @url : https://leetcode-cn.com/problems/valid-parentheses/
