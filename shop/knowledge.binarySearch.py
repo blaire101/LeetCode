@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    @file: Knowledge.binarySearch.py
+    @file: knowledge.binarySearch.py
     @date: 2020-09-17 10:04 AM
     @url : https://segmentfault.com/a/1190000008699980
 """
