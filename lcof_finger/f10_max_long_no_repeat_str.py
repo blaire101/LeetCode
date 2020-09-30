@@ -32,8 +32,8 @@ class Solution:
         for j in range(len(s)):
             i = j - 1
             while i >= 0 and s[i] != s[j]: i -= 1  # 线性查找 i
-            tmp = tmp + 1 if tmp < j - i else j - i  # dp[j - 1] -> dp[j]
-            res = max(res, tmp)  # max(dp[j - 1], dp[j])
+            tmp = tmp + 1 if tmp < j - i else j - i  # dynamic_programming[j - 1] -> dynamic_programming[j]
+            res = max(res, tmp)  # max(dynamic_programming[j - 1], dynamic_programming[j])
         return res
 
 # 方法二： 动态规划 + 线性遍历
@@ -41,5 +41,5 @@ class Solution:
 # 复杂度分析：
 # 时间复杂度 O(N^2)O(N
 # 2
-#  ) ： 其中 NN 为字符串长度，动态规划需遍历计算 dpdp 列表，占用 O(N)O(N) ；每轮计算 dp[j]dp[j] 时搜索 ii 需要遍历 jj 个字符，占用 O(N)O(N) 。
+#  ) ： 其中 NN 为字符串长度，动态规划需遍历计算 dpdp 列表，占用 O(N)O(N) ；每轮计算 dynamic_programming[j]dynamic_programming[j] 时搜索 ii 需要遍历 jj 个字符，占用 O(N)O(N) 。
 # 空间复杂度 O(1)O(1) ： 几个变量使用常数大小的额外空间。

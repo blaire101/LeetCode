@@ -6,6 +6,7 @@
     @url : https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
 """
 
+
 # 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
 #
 # k 是一个正整数，它的值小于或等于链表的长度。
@@ -23,10 +24,12 @@
 # 当 k = 3 时，应当返回: 3->2->1->4->5
 
 # Definition for singly-linked list.
+
 class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
+
 
 class Solution:
     def medium(self, head: ListNode, k: int) -> ListNode:

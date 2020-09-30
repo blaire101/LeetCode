@@ -6,6 +6,7 @@
     @url : https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
 """
 
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):

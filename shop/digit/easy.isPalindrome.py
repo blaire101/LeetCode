@@ -6,6 +6,7 @@
     @url : https://leetcode-cn.com/problems/palindrome-number/
 """
 
+
 class Solution:
     def isPalindrome(self, x: int) -> bool:
         if x < 0:

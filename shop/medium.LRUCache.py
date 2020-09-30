@@ -4,6 +4,7 @@
     @date: 2020-09-16 8:02 AM
 """
 
+
 # 你是否可以在 O(1) 时间复杂度内完成这两种操作？
 #
 #  
@@ -70,7 +71,6 @@ class LRUCache:
             node = self.cache[key]
             node.value = value
             self.moveToHead(node)
-
 
     def addToHead(self, node):
         node.prev = self.head

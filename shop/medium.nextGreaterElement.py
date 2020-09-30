@@ -67,4 +67,3 @@ if __name__ == '__main__':
     sol = Solution()
     n = 158476531
     sol.nextGreaterElement(n=n)
-

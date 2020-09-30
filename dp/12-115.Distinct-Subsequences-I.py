@@ -31,7 +31,7 @@ if __name__ == '__main__':
     S = "babgbag"
     T = "bag"
 
-    # dp[i][j] 代表 T 前 i 字符串可以由 S j 字符串组成最多个数.
+    # dynamic_programming[i][j] 代表 T 前 i 字符串可以由 S j 字符串组成最多个数.
 
     sol = Solution()
 
@@ -39,7 +39,7 @@ if __name__ == '__main__':
 
     print(res)
 
-    # dp[3][4]
+    # dynamic_programming[3][4]
 
 # [1, 1, 1, 1, 1, 1, 1, 1]
 # [0, 1, 1, 1, 1, 1, 1, 1]

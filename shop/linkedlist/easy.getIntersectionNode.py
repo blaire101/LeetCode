@@ -13,6 +13,7 @@ class ListNode:
         self.val = x
         self.next = None
 
+
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
 
@@ -35,7 +36,6 @@ class Solution:
                 p1 = headB
                 flag1 = 1
 
-
             if p2.next:
                 p2 = p2.next
             else:
@@ -43,6 +43,5 @@ class Solution:
                     return None
                 p2 = headA
                 flag2 == 1
-
 
         return p1

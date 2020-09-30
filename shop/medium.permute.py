@@ -6,6 +6,7 @@
     @url : https://leetcode-cn.com/problems/permutations/
 """
 
+
 class Solution:
     def permute(self, nums):
         """

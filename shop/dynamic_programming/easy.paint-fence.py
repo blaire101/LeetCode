@@ -45,8 +45,8 @@ class Solution:
 
         # 超过3根栏杆动态规划才有意义：
         # 如果超过3根栏杆,才有可能出现,
-        # 1.第三根栏杆刷第二根栏杆颜色(这时候就需要考虑第二根栏杆是不是和第一根栏杆一样颜色) : dp[i] = dp[i-2]*(k-1)
-        # 2.第三根栏杆不刷第二根栏杆颜色 ：dp[i] = dp[i-1]*(k-1)
+        # 1.第三根栏杆刷第二根栏杆颜色(这时候就需要考虑第二根栏杆是不是和第一根栏杆一样颜色) : dynamic_programming[i] = dynamic_programming[i-2]*(k-1)
+        # 2.第三根栏杆不刷第二根栏杆颜色 ：dynamic_programming[i] = dynamic_programming[i-1]*(k-1)
 
         for i in range(2, n):
             dp[i] = dp[i - 2] * (k - 1) + dp[i - 1] * (k - 1)

@@ -6,6 +6,7 @@
     @url : https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 """
 
+
 # 例如，给出
 #
 # 前序遍历 preorder = [3,9,20,15,7]
@@ -38,7 +39,7 @@ class Solution:
 
         i = inorder.index(preorder[0])
 
-        root.left = self.buildTree(preorder[1:i+1], inorder[:i])
-        root.right = self.buildTree(preorder[i+1:], inorder[i+1:])
+        root.left = self.buildTree(preorder[1:i + 1], inorder[:i])
+        root.right = self.buildTree(preorder[i + 1:], inorder[i + 1:])
 
         return root

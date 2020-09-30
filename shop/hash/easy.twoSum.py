@@ -6,7 +6,6 @@
     @url : https://leetcode-cn.com/problems/two-sum/
 """
 
-
 from typing import List
 
 
@@ -17,13 +16,13 @@ class Solution:
 
         for i, num in enumerate(nums):
 
-            if hash.get(target-num) is not None:
-                return [hash.get(target-num), i]
+            if hash.get(target - num) is not None:
+                return [hash.get(target - num), i]
 
             hash[num] = i
 
 
 if __name__ == '__main__':
     sol = Solution()
-    res = sol.twoSum([2,5,7,9], 7)
+    res = sol.twoSum([2, 5, 7, 9], 7)
     print(res)

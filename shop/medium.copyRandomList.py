@@ -26,7 +26,6 @@ class Solution(object):
         # Creating a new weaved list of original and copied nodes.
         ptr = head
         while ptr:
-
             # Cloned node
             new_node = Node(ptr.val, None, None)
 
@@ -48,8 +47,8 @@ class Solution(object):
 
         # Unweave the linked list to get back the original linked list and the cloned list.
         # i.e. A->A'->B->B'->C->C' would be broken to A->B->C and A'->B'->C'
-        ptr_old_list = head # A->B->C
-        ptr_new_list = head.next # A'->B'->C'
+        ptr_old_list = head  # A->B->C
+        ptr_new_list = head.next  # A'->B'->C'
         head_old = head.next
         while ptr_old_list:
             ptr_old_list.next = ptr_old_list.next.next
@@ -57,4 +56,3 @@ class Solution(object):
             ptr_old_list = ptr_old_list.next
             ptr_new_list = ptr_new_list.next
         return head_old
-

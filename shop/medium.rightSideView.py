@@ -17,6 +17,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 # 输入: [1,2,3,null,5,null,4]
 # 输出: [1, 3, 4]
 # 解释:
@@ -46,6 +47,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 # 输入: [1,2,3,null,5,null,4]
 # 输出: [1, 3, 4]
 # 解释:
@@ -71,9 +73,8 @@ class Solution:
             cur_node, cur_level = deq.popleft()
             res[cur_level] = cur_node.val
             if cur_node.left:
-                deq.append([cur_node.left, cur_level+1])
+                deq.append([cur_node.left, cur_level + 1])
             if cur_node.right:
                 deq.append([cur_node.right, cur_level + 1])
 
         return [res[k] for k in res]
-

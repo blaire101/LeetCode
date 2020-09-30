@@ -7,6 +7,7 @@
 """
 from typing import List
 
+
 # 给定一个整数数组  nums，求出数组从索引 i 到 j  (i ≤ j) 范围内元素的总和，包含 i,  j 两点。
 #
 # 示例：
@@ -28,10 +29,10 @@ class NumArray:
         self.dp = {}
         self.dp[0] = 0
         for i in range(len(nums)):
-            self.dp[i+1] = nums[i] + self.dp[i]
+            self.dp[i + 1] = nums[i] + self.dp[i]
 
     def sumRange(self, i: int, j: int) -> int:
-        return self.dp[j+1] - self.dp[i]
+        return self.dp[j + 1] - self.dp[i]
 
 # Your NumArray object will be instantiated and called as such:
 # obj = NumArray(nums)
