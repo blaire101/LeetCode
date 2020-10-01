@@ -22,15 +22,15 @@ https://leetcode-cn.com/company/shopee/
 - [4.1 栅栏涂色](https://leetcode-cn.com/problems/paint-fence/)
 - [4.2 区域和检索](https://leetcode-cn.com/problems/range-sum-query-immutable/)
 
-## 5. Hash
+## 5. hash
 
-## 6. LinkedList
+## 6. linkedList
 
-## 7. Stack
+## 7. stack
 
-## 8. String
+## 8. string
 
-## 9. Tree
+## 9. tree
 
 
 ## Easy
