@@ -8,10 +8,12 @@
 
 
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+# when you submit this code, please comment this class ListNode
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 
 # [1] 1
 # pre is None
