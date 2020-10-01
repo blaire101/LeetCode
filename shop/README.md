@@ -9,9 +9,18 @@ https://leetcode-cn.com/company/shopee/
 
 ## 2. DFS
 
+- [2.1 字符串解码 [a]2[bc]](https://leetcode-cn.com/problems/decode-string/)
+
+> s = "3[a]2[bc]"
+
 ## 3. Digit
 
+- [3.1 回文数](https://leetcode-cn.com/problems/palindrome-number/)
+
 ## 4. DP
+
+- [4.1 栅栏涂色](https://leetcode-cn.com/problems/paint-fence/)
+- [4.2 区域和检索](https://leetcode-cn.com/problems/range-sum-query-immutable/)
 
 ## 5. Hash
 
