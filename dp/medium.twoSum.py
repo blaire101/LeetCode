@@ -27,9 +27,9 @@
 # 首先用数组的第一维来表示阶段，也就是投掷完了几枚骰子。
 # 然后用第二维来表示投掷完这些骰子后，可能出现的点数。
 # 数组的值就表示，该阶段各个点数出现的次数。
-# 所以状态表示就是这样的：dynamic_programming[i][j] ，表示投掷完 i 枚骰子后，点数 j 的出现次数。
+# 所以状态表示就是这样的：DP[i][j] ，表示投掷完 i 枚骰子后，点数 j 的出现次数。
 
-# dynamic_programming[i][j] += dynamic_programming[i-1][j-cur];
+# DP[i][j] += DP[i-1][j-cur];
 
 from typing import List
 
@@ -45,7 +45,7 @@ class Solution:
 
         for i in range(2, n + 1):  # 从第二轮抛掷开始算
             for j in range(2, 6 * i + 1):  # 第二轮抛掷最小和为2，从大到小更新对应的抛掷次数
-                # dynamic_programming[j] = 0  # 每次投掷要从0更新dp[j]大小，点数和出现的次数要重新计算
+                # DP[j] = 0  # 每次投掷要从0更新dp[j]大小，点数和出现的次数要重新计算
                 for cur in range(1, 7):  # 每次抛掷的点数
                     if j - cur <= 0:
                         break

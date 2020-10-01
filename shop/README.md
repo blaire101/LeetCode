@@ -2,6 +2,28 @@
 
 https://leetcode-cn.com/company/shopee/
 
+## 1. binary-search
+
+- [1.1 二分查找](https://leetcode-cn.com/problems/binary-search/)
+- [1.2 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+## 2. DFS
+
+## 3. Digit
+
+## 4. DP
+
+## 5. Hash
+
+## 6. LinkedList
+
+## 7. Stack
+
+## 8. String
+
+## 9. Tree
+
+
 ## Easy
 
 1. paint-fence 栅栏涂色, [dynamic] 

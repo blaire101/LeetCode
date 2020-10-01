@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    @file: m.dynamic_programming..py
+    @file: m.DP..py
     @date: 2020-09-09 10:45 AM
     @desc: 剑指 Offer 60. n个骰子的点数
     @answ: https://leetcode-cn.com/problems/nge-tou-zi-de-dian-shu-lcof/solution/rong-yi-li-jie-de-pythondong-tai-gui-hua-fang-fa-b/
