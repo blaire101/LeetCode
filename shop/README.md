@@ -1,6 +1,4 @@
-# company
-
-https://leetcode-cn.com/company/shopee/
+# [Sea](https://leetcode-cn.com/company/shopee/)
 
 ## 1. binary-search
 
