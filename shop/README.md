@@ -7,13 +7,13 @@ https://leetcode-cn.com/company/shopee/
 - [1.1 二分查找](https://leetcode-cn.com/problems/binary-search/)
 - [1.2 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
-## 2. DFS
+## 2. dfs
 
 - [2.1 字符串解码 [a]2[bc]](https://leetcode-cn.com/problems/decode-string/)
 
 > s = "3[a]2[bc]"
 
-## 3. Digit
+## 3. digit
 
 - [3.1 回文数](https://leetcode-cn.com/problems/palindrome-number/)
 
