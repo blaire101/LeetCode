@@ -1,4 +1,4 @@
-# [Sea](https://leetcode-cn.com/company/shopee/)
+# [大海](https://leetcode-cn.com/company/shopee/)
 
 ## 1. binary-search
 
