@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    @file: m.lengthOfLongestSubstring.py
+    @file: medium.lengthOfLongestSubstring.py
     @date: 2020-09-12 12:50 PM
     @desc: 剑指 Offer 48. 最长不含重复字符的子字符串
     @answ: https://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/solution/tu-jie-hua-dong-chuang-kou-shuang-zhi-zhen-shi-xia/
