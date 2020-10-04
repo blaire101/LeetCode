@@ -41,7 +41,6 @@ class Solution:
     def lastRemaining(self, n: int, m: int) -> int:
         return f(n, m)
 
-
 # class Solution:
 #     def lastRemaining(self, n: int, m: int) -> int:
 #         f = 0

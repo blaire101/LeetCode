@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    @file: e.reverseLeftWords.py
+    @file: easy.reverseLeftWords.py
     @date: 2020-09-06 10:15 PM
 """
 
@@ -11,4 +11,3 @@
 class Solution:
     def reverseLeftWords(self, s: str, n: int) -> str:
         return s[n:] + s[:n]
-

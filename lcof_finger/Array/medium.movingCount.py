@@ -28,7 +28,7 @@ class Solution:
         q = Queue()
         q.put((0, 0))
         s = set()
-        s.add((0,0))
+        s.add((0, 0))
         while not q.empty():
             x, y = q.get()
             for nx, ny in [(x + 1, y), (x, y + 1)]:
@@ -37,4 +37,3 @@ class Solution:
                 s.add((nx, ny))
                 q.put((nx, ny))
         return len(s)
-

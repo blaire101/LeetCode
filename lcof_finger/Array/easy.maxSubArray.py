@@ -29,8 +29,8 @@ class Solution:
 
         for i in range(1, len(nums)):
 
-            if dp[i-1] > 0:
-                dp[i] = dp[i-1] + nums[i]
+            if dp[i - 1] > 0:
+                dp[i] = dp[i - 1] + nums[i]
             else:
                 dp[i] = nums[i]
 
@@ -45,5 +45,5 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    maxNum = sol.maxSubArray(nums = [-3,-2,-2,-3])
+    maxNum = sol.maxSubArray(nums=[-3, -2, -2, -3])
     print(maxNum)

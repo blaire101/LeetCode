@@ -45,8 +45,6 @@ class Solution:
 
         return order
 
-
         # 00 01 02 03
         # 13 23
         # 22 21 20
-
