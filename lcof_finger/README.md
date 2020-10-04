@@ -73,10 +73,10 @@ No. | Diff | Question | Flag
 69 | <font color="#ed7336">medium</font> | 剪绳子 | ✔️ 
 70 | <font color="#ed7336">medium</font> | 把字符串转换成整数 | ✔️ 
 71 | <font color="#ed7336">medium</font> | 表示数值的字符串 | ✔️ 
-72 | <font color="##ec4c47">hard</font> | 数据流中的中位数 | ✔️ 
-73 | <font color="##ec4c47">hard</font> | 序列化二叉树 | ✔️ 
-74 | <font color="##ec4c47">hard</font> | 数组中的逆序对 | ✔️ 
-75 | <font color="##ec4c47">hard</font> | 正则表达式匹配 | ✔️ 
+72 | <font color="#ec4c47">hard</font> | 数据流中的中位数 | ✔️ 
+73 | <font color="#ec4c47">hard</font> | 序列化二叉树 | ✔️ 
+74 | <font color="#ec4c47">hard</font> | 数组中的逆序对 | ✔️ 
+75 | <font color="#ec4c47">hard</font> | 正则表达式匹配 | ✔️ 
 
 ## <font color="#009975">easy</font>
 
