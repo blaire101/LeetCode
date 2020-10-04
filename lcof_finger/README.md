@@ -2,83 +2,83 @@
 
 No. | Diff | Question | Flag
 --- | --- | --- | ---
-1 | easy | 左旋转字符串 | ✔️ 
-2 | easy | 链表中倒数第k个节点 | ✔️ 
-3 | easy | 二叉树的深度 | ✔️ 
-4 | easy | 二叉树的镜像 | ✔️ 
-5 | easy | 打印从1到最大的n位数 | ✔️ 
-6 | easy | 替换空格 | ✔️ 
-7 | easy | 从尾到头打印链表 | ✔️ 
-8 | easy | 反转链表 | ✔️ 
-9 | easy | 二叉搜索树的第k大节点 | ✔️ 
-10 | easy | 合并两个排序的链表 | ✔️ 
-11 | easy | 二进制中1的个数 | ✔️ 
-12 | easy | 用两个栈实现队列 | ✔️ 
-13 | easy | 二叉树的最近公共祖先 | ✔️ 
-14 | easy | 和为s的连续正数序列 | ✔️ 
-15 | easy | 二叉搜索树的最近公共祖先 | ✔️ 
-16 | easy | 从上到下打印二叉树 | ✔️ 
-17 | easy | 数组中出现次数超过一半的数字 | ✔️ 
-18 | easy | 数组中重复的数字 | ✔️ 
-19 | easy | 和为s的两个数字 | ✔️ 
-20 | easy | 调整数组顺序使奇数位于偶数前面 | ✔️ 
-21 | easy | 圆圈中最后剩下的数字 | ✔️ 
-22 | easy | 两个链表的第一个公共节点 | ✔️ 
-23 | easy | 第一个只出现一次的字符 | ✔️ 
-24 | easy | 连续子数组的最大和 | ✔️ 
-25 | easy | 删除链表的节点 | ✔️ 
-26 | easy | 平衡二叉树 | ✔️ 
-27 | easy | 对称的二叉树 | ✔️ 
-28 | easy | 包含min函数的栈 | ✔️ 
-29 | easy | 最小的k个数 | ✔️ 
-30 | easy | 不用加减乘除做加法 | ✔️ 
-31 | easy | n个骰子的点数 | ✔️ 
-32 | easy | 在排序数组中查找数字 | ✔️ 
-33 | easy | 旋转数组的最小数字 | ✔️ 
-34 | easy | 扑克牌中的顺子 | ✔️ 
-35 | easy | 顺时针打印矩阵 | ✔️ 
-36 | easy | 滑动窗口的最大值 | ✔️ 
-37 | easy | 0～n-1中缺失的数字 | ✔️ 
-38 | easy | 翻转单词顺序 | ✔️ 
-39 | easy | 青蛙跳台阶问题 | ✔️ 
-40 | easy | 二维数组中的查找 | ✔️ 
-41 | easy | 斐波那契数列 | ✔️ 
-42 | medium | 求1+2+…+n | ✔️ 
-43 | medium | 数组中数字出现的次数 | ✔️ 
-44 | medium | 复杂链表的复制 | ✔️ 
-45 | medium | 数组中数字出现的次数 | ✔️ 
-46 | medium | 重建二叉树 | ✔️ 
-47 | medium | 礼物的最大价值 | ✔️ 
-48 | medium | 从上到下打印二叉树 | ✔️ 
-49 | medium | 丑数 | ✔️ 
-50 | medium | 二叉搜索树与双向链表 | ✔️ 
-51 | medium | 股票的最大利润 | ✔️ 
-52 | medium | 栈的压入、弹出序列 | ✔️ 
-53 | medium | 从上到下打印二叉树 | ✔️ 
-54 | medium | 构建乘积数组 | ✔️ 
-55 | medium | 二叉树中和为某一值的路径 | ✔️ 
-56 | medium | 把数组排成最小的数 | ✔️ 
-57 | medium | 剪绳子 | ✔️ 
-58 | medium | 字符串的排列 | ✔️ 
-59 | medium | 把数字翻译成字符串 | ✔️ 
-60 | medium | 二叉搜索树的后序遍历序列 | ✔️ 
-61 | medium | 机器人的运动范围 | ✔️ 
-62 | medium | 队列的最大值 | ✔️ 
-63 | medium | 树的子结构 | ✔️ 
-64 | medium | 1～n整数中1出现的次数 | ✔️ 
-65 | medium | 最长不含重复字符的子字符串 | ✔️ 
-66 | medium | 矩阵中的路径 | ✔️ 
-67 | medium | 数字序列中某一位的数字 | ✔️ 
-68 | medium | 数值的整数次方 | ✔️ 
-69 | medium | 剪绳子 | ✔️ 
-70 | medium | 把字符串转换成整数 | ✔️ 
-71 | medium | 表示数值的字符串 | ✔️ 
-72 | hard | 数据流中的中位数 | ✔️ 
-73 | hard | 序列化二叉树 | ✔️ 
-74 | hard | 数组中的逆序对 | ✔️ 
-75 | hard | 正则表达式匹配 | ✔️ 
+1 | <font color="#009975">easy</font> | 左旋转字符串 | ✔️ 
+2 | <font color="#009975">easy</font> | 链表中倒数第k个节点 | ✔️ 
+3 | <font color="#009975">easy</font> | 二叉树的深度 | ✔️ 
+4 | <font color="#009975">easy</font> | 二叉树的镜像 | ✔️ 
+5 | <font color="#009975">easy</font> | 打印从1到最大的n位数 | ✔️ 
+6 | <font color="#009975">easy</font> | 替换空格 | ✔️ 
+7 | <font color="#009975">easy</font> | 从尾到头打印链表 | ✔️ 
+8 | <font color="#009975">easy</font> | 反转链表 | ✔️ 
+9 | <font color="#009975">easy</font> | 二叉搜索树的第k大节点 | ✔️ 
+10 | <font color="#009975">easy</font> | 合并两个排序的链表 | ✔️ 
+11 | <font color="#009975">easy</font> | 二进制中1的个数 | ✔️ 
+12 | <font color="#009975">easy</font> | 用两个栈实现队列 | ✔️ 
+13 | <font color="#009975">easy</font> | 二叉树的最近公共祖先 | ✔️ 
+14 | <font color="#009975">easy</font> | 和为s的连续正数序列 | ✔️ 
+15 | <font color="#009975">easy</font> | 二叉搜索树的最近公共祖先 | ✔️ 
+16 | <font color="#009975">easy</font> | 从上到下打印二叉树 | ✔️ 
+17 | <font color="#009975">easy</font> | 数组中出现次数超过一半的数字 | ✔️ 
+18 | <font color="#009975">easy</font> | 数组中重复的数字 | ✔️ 
+19 | <font color="#009975">easy</font> | 和为s的两个数字 | ✔️ 
+20 | <font color="#009975">easy</font> | 调整数组顺序使奇数位于偶数前面 | ✔️ 
+21 | <font color="#009975">easy</font> | 圆圈中最后剩下的数字 | ✔️ 
+22 | <font color="#009975">easy</font> | 两个链表的第一个公共节点 | ✔️ 
+23 | <font color="#009975">easy</font> | 第一个只出现一次的字符 | ✔️ 
+24 | <font color="#009975">easy</font> | 连续子数组的最大和 | ✔️ 
+25 | <font color="#009975">easy</font> | 删除链表的节点 | ✔️ 
+26 | <font color="#009975">easy</font> | 平衡二叉树 | ✔️ 
+27 | <font color="#009975">easy</font> | 对称的二叉树 | ✔️ 
+28 | <font color="#009975">easy</font> | 包含min函数的栈 | ✔️ 
+29 | <font color="#009975">easy</font> | 最小的k个数 | ✔️ 
+30 | <font color="#009975">easy</font> | 不用加减乘除做加法 | ✔️ 
+31 | <font color="#009975">easy</font> | n个骰子的点数 | ✔️ 
+32 | <font color="#009975">easy</font> | 在排序数组中查找数字 | ✔️ 
+33 | <font color="#009975">easy</font> | 旋转数组的最小数字 | ✔️ 
+34 | <font color="#009975">easy</font> | 扑克牌中的顺子 | ✔️ 
+35 | <font color="#009975">easy</font> | 顺时针打印矩阵 | ✔️ 
+36 | <font color="#009975">easy</font> | 滑动窗口的最大值 | ✔️ 
+37 | <font color="#009975">easy</font> | 0～n-1中缺失的数字 | ✔️ 
+38 | <font color="#009975">easy</font> | 翻转单词顺序 | ✔️ 
+39 | <font color="#009975">easy</font> | 青蛙跳台阶问题 | ✔️ 
+40 | <font color="#009975">easy</font> | 二维数组中的查找 | ✔️ 
+41 | <font color="#009975">easy</font> | 斐波那契数列 | ✔️ 
+42 | <font color="#ed7336">medium</font> | 求1+2+…+n | ✔️ 
+43 | <font color="#ed7336">medium</font> | 数组中数字出现的次数 | ✔️ 
+44 | <font color="#ed7336">medium</font> | 复杂链表的复制 | ✔️ 
+45 | <font color="#ed7336">medium</font> | 数组中数字出现的次数 | ✔️ 
+46 | <font color="#ed7336">medium</font> | 重建二叉树 | ✔️ 
+47 | <font color="#ed7336">medium</font> | 礼物的最大价值 | ✔️ 
+48 | <font color="#ed7336">medium</font> | 从上到下打印二叉树 | ✔️ 
+49 | <font color="#ed7336">medium</font> | 丑数 | ✔️ 
+50 | <font color="#ed7336">medium</font> | 二叉搜索树与双向链表 | ✔️ 
+51 | <font color="#ed7336">medium</font> | 股票的最大利润 | ✔️ 
+52 | <font color="#ed7336">medium</font> | 栈的压入、弹出序列 | ✔️ 
+53 | <font color="#ed7336">medium</font> | 从上到下打印二叉树 | ✔️ 
+54 | <font color="#ed7336">medium</font> | 构建乘积数组 | ✔️ 
+55 | <font color="#ed7336">medium</font> | 二叉树中和为某一值的路径 | ✔️ 
+56 | <font color="#ed7336">medium</font> | 把数组排成最小的数 | ✔️ 
+57 | <font color="#ed7336">medium</font> | 剪绳子 | ✔️ 
+58 | <font color="#ed7336">medium</font> | 字符串的排列 | ✔️ 
+59 | <font color="#ed7336">medium</font> | 把数字翻译成字符串 | ✔️ 
+60 | <font color="#ed7336">medium</font> | 二叉搜索树的后序遍历序列 | ✔️ 
+61 | <font color="#ed7336">medium</font> | 机器人的运动范围 | ✔️ 
+62 | <font color="#ed7336">medium</font> | 队列的最大值 | ✔️ 
+63 | <font color="#ed7336">medium</font> | 树的子结构 | ✔️ 
+64 | <font color="#ed7336">medium</font> | 1～n整数中1出现的次数 | ✔️ 
+65 | <font color="#ed7336">medium</font> | 最长不含重复字符的子字符串 | ✔️ 
+66 | <font color="#ed7336">medium</font> | 矩阵中的路径 | ✔️ 
+67 | <font color="#ed7336">medium</font> | 数字序列中某一位的数字 | ✔️ 
+68 | <font color="#ed7336">medium</font> | 数值的整数次方 | ✔️ 
+69 | <font color="#ed7336">medium</font> | 剪绳子 | ✔️ 
+70 | <font color="#ed7336">medium</font> | 把字符串转换成整数 | ✔️ 
+71 | <font color="#ed7336">medium</font> | 表示数值的字符串 | ✔️ 
+72 | <font color="##ec4c47">hard</font> | 数据流中的中位数 | ✔️ 
+73 | <font color="##ec4c47">hard</font> | 序列化二叉树 | ✔️ 
+74 | <font color="##ec4c47">hard</font> | 数组中的逆序对 | ✔️ 
+75 | <font color="##ec4c47">hard</font> | 正则表达式匹配 | ✔️ 
 
-## easy
+## <font color="#009975">easy</font>
 
 No. | Question | Flag
 --- | --- | ---
