@@ -2,7 +2,7 @@
 
 No. | Diff | Question | Flag
 --- | --- | --- | ---
-1 | <font color=red>easy</font> | 左旋转字符串 | ✔️ 
+1 | <font color="#009975">easy</font> | 左旋转字符串 | ✔️ 
 2 | <font color="#009975">easy</font> | 链表中倒数第k个节点 | ✔️ 
 3 | <font color="#009975">easy</font> | 二叉树的深度 | ✔️ 
 4 | <font color="#009975">easy</font> | 二叉树的镜像 | ✔️ 
@@ -233,4 +233,3 @@ class Solution(object):
         return cur
 ```
 
->>>>>>> b6434487dff62d8263d8f2017921d7207b8e5d2d
