@@ -31,8 +31,8 @@ No. | Question | Flag
 26 | 平衡二叉树 <br> abs(maxHigh(root.left) - maxHigh(root.right)) <= 1 and self.isBalanced(root.left) and self.isBalanced(root.right) | ✔️ 
 27 | 对称的二叉树 | 
 28 | 包含min函数的栈 | 
-29 | 最小的k个数 | 
-30 | 不用加减乘除做加法 | ❎
+29 | 最小的k个数 【堆排序 的逆向思维】| ✔️
+30 | 不用加减乘除做加法 <br> add(a ^ b, (a & b) << 1) | ❎
 31 | n个骰子的点数 | 
 32 | 在排序数组中查找数字I | 
 33 | 旋转数组的最小数字 | 
@@ -209,3 +209,30 @@ class Solution(object):
         return cur
 ```
 
+## Array & Sort
+
+最小的k个数
+
+```python
+import heapq
+from typing import List
+
+class Solution:
+    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+
+        if k == 0:
+            return list()
+
+        hp = [-x for x in arr[:k]]
+
+        heapq.heapify(hp)
+
+        for i in range(k, len(arr)):
+            if -hp[0] > arr[i]:
+                heapq.heappop(hp)
+                heapq.heappush(hp, -arr[i])
+
+        ans = [-x for x in hp]
+
+        return ans
+```
