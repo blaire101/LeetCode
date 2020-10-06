@@ -85,7 +85,7 @@ No. | Question | Flag
 74 | 数组中的逆序对 | 
 75 | 正则表达式匹配 | 
 
-## Tree
+## 1. Tree
 
 二叉树的镜像
 
@@ -177,7 +177,7 @@ class Solution:
         return root == None or isSymmetricHelper(root.left, root.right)
 ```        
 
-## LinkedList
+## 2. LinkedList
 
 7). 从尾到头打印链表
 
@@ -213,7 +213,7 @@ class Solution(object):
         return cur
 ```
 
-## Array & Sort
+## 3. Array & Sort
 
 最小的k个数
 
@@ -354,6 +354,8 @@ class Solution:
 
         return order
 ```
+
+## 4. sliding window
 
 剑指 Offer 59 - I. 滑动窗口的最大值
 
