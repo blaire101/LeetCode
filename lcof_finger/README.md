@@ -357,7 +357,7 @@ class Solution:
 
 ## 4. sliding window
 
-剑指 Offer 59 - I. 滑动窗口的最大值
+剑指 Offer 59 - I. 滑动窗口的最大值 - (同理于包含 min 函数的栈)
 
 ```python
 # -*- coding: utf-8 -*-
@@ -386,7 +386,9 @@ class Solution:
                 deque.pop()
             deque.append(nums[i])
         res = [deque[0]]
+
         for i in range(k, len(nums)): # 形成窗口后
+            #[0~k-1], [1~k], [2~k+1]
             if deque[0] == nums[i - k]:
                 deque.popleft()
             while deque and deque[-1] < nums[i]:
