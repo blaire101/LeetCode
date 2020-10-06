@@ -359,6 +359,8 @@ class Solution:
 
 剑指 Offer 59 - I. 滑动窗口的最大值 - (同理于包含 min 函数的栈)
 
+- [answ](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/solution/mian-shi-ti-59-i-hua-dong-chuang-kou-de-zui-da-1-6/) 
+
 ```python
 # -*- coding: utf-8 -*-
 import collections
