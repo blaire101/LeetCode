@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    @file: medium.levelOrder.py
+    @file: medium.levelOrderFun1.py
     @date: 2020-10-11 5:31 PM
     @desc: 剑指 Offer 32 - III. 从上到下打印二叉树 III
     @url : https://leetcode-cn.com/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/
@@ -35,10 +35,6 @@ class TreeNode:
 
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
         queue = deque()
         queue.append(root)
         res = []
@@ -48,11 +44,11 @@ class Solution:
             level = []
             for _ in range(size):
                 cur = queue.popleft()
-                if not cur:
-                    continue
                 level.append(cur.val)
-                queue.append(cur.left)
-                queue.append(cur.right)
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
             if level:
                 if cnt % 2 == 0:
                     res.append(level)
