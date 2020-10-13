@@ -13,15 +13,15 @@ class Solution:
         if not nums:
             return -1
 
-        l, r = 0, len(nums) - 1
+        low, high = 0, len(nums) - 1
 
-        while l <= r:
-            mid = (r - l) // 2 + l
+        while low <= high:
+            mid = (high - low) // 2 + low
 
             if nums[mid] < target:
-                l = mid + 1
+                low = mid + 1
             elif nums[mid] > target:
-                r = mid - 1
+                high = mid - 1
             else:
                 return mid
 
