@@ -19,23 +19,3 @@
 #
 # 第二个格子之后，路径不能再次进入这个格子
 
-from typing import List
-
-
-class Solution:
-
-
-
-    def exist(self, board: List[List[str]], word: str) -> bool:
-        def dfs(self, i, j, k):
-            if i <
-
-        if not board:
-            return False
-
-        row = len(board)
-        col = len(board[0])
-
-        for i in range(row):
-            for j in range(col):
-                dfs(i, j, 0)
