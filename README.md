@@ -86,7 +86,7 @@ class Solution:
             end -= 1
 ```
 
-## 1.4 Contains Duplicate
+## 1.4 Contains Duplicate - Set
 
 ```python
 from typing import List
