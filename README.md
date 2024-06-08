@@ -8,8 +8,8 @@
 
 ## [1. Array][Array]
 
- 1. [Remove Duplicates from Sorted Array][1.1] 
- 2. [Best Time to Buy and Sell Stock II][1.2]
+ 1. Remove Duplicates from Sorted Array 
+ 2. Best Time to Buy and Sell Stock II
  3. Rotate Array
  4. Contains Duplicate
  5. Single Number
@@ -20,7 +20,7 @@
  10. Valid Sudoku
  11. Rotate Image
  
-## 1.1 [Remove Duplicates from Sorted Array][1.1] 
+## 1.1 Remove Duplicates from Sorted Array
 
 ```python
     def remove_duplicates_elements_from_sort_array(self, nums: List[int]) -> List[int]:
@@ -42,7 +42,7 @@
         return unique_elements
 ```
  
-## 1.2 [Best Time to Buy and Sell Stock II][1.2]
+## 1.2 Best Time to Buy and Sell Stock II
 
 ```python
 from typing import List
