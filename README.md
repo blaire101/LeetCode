@@ -88,7 +88,25 @@ class Solution:
 
 ## 1.4 Contains Duplicate
 
+**XOR (exclusive OR)** is a bitwise operation that operates as follows:
+- It returns 0 if both bits are the same.
+- It returns 1 if the bits are different.
 
+**Rules:**
+- 0 ^ 0 = 0
+- 1 ^ 1 = 0
+- 0 ^ 1 = 1
+- 1 ^ 0 = 1
+
+Example:
+
+For the array `[2, 2, 1]`:
+1. Initialize `single = 0`
+2. `single = 0 ^ 2 = 2`
+3. `single = 2 ^ 2 = 0`
+4. `single = 0 ^ 1 = 1`
+
+Result: The unique number is 1.
 
 ```python
 from typing import List
