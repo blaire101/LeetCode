@@ -56,7 +56,41 @@ class Solution:
         return max_profit
 ``` 
   
+## 1.3 Rotate Array - reverse3times
+
+```python
+from typing import List
+
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        k = k % n  # Handle cases where k >= n
+
+        # Step 1: Reverse the entire array
+        self.reverse(nums, 0, n - 1)
+        # Step 2: Reverse the first k elements
+        self.reverse(nums, 0, k - 1)
+        # Step 3: Reverse the remaining elements
+        self.reverse(nums, k, n - 1)
+
+    def reverse(self, nums: List[int], start: int, end: int) -> None:
+        """
+        Helper function to reverse elements from start to end.
+        """
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start += 1
+            end -= 1
+```
+
+## 1.4 Contains Duplicate
+
+
   
+## 1.5 Single Number
   
 ## Reference
 
