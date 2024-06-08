@@ -88,9 +88,20 @@ class Solution:
 
 ## 1.4 Contains Duplicate
 
+```python
+from typing import List
 
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        seen = set() 
+        for num in nums: 
+            if num in seen:  O(1)
+                return True
+            seen.add(num)    O(1)
+        return False
+```
 
-
+a time complexity of O(n) and a space complexity of O(n) 
   
 ## 1.5 Single Number - XOR
 
@@ -116,6 +127,8 @@ class Solution:
 - 1 ^ 0 = 1
 
 ## 1.6 Intersection of Two Arrays II
+
+## 2. LinkedList
   
 ## Reference
 
