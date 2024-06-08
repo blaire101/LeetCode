@@ -88,6 +88,17 @@ class Solution:
 
 ## 1.4 Contains Duplicate
 
+```python
+from typing import List
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        single = 0
+        for num in nums:
+            single ^= num
+        return single
+```
+
 **XOR (exclusive OR)** is a bitwise operation that operates as follows:
 - It returns 0 if both bits are the same.
 - It returns 1 if the bits are different.
@@ -108,17 +119,6 @@ For the array `[2, 2, 1]`:
 
 Result: The unique number is 1.
 
-```python
-from typing import List
-
-class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
-        single = 0
-        for num in nums:
-            single ^= num
-        return single
-
-```
 
   
 ## 1.5 Single Number
