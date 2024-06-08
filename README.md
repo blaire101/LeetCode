@@ -23,26 +23,26 @@
 ## 1.1 Remove Duplicates from Sorted Array
 
 ```python
-    def remove_duplicates_elements_from_sort_array(self, nums: List[int]) -> List[int]:
-        if not nums:
-            return []
+def remove_duplicates_elements_from_sort_array(self, nums: List[int]) -> List[int]:
+    if not nums:
+        return []
 
-        unique_elements = []
-        i = 0
-        n = len(nums)
+    unique_elements = []
+    i = 0
+    n = len(nums)
 
-        while i < n:
-            if (i == n - 1) or (nums[i] != nums[i + 1]):
-                unique_elements.append(nums[i])
-                i += 1
-            else:
-                while i < n - 1 and nums[i] == nums[i + 1]:
-                    i += 2
+    while i < n:
+        if (i == n - 1) or (nums[i] != nums[i + 1]):
+            unique_elements.append(nums[i])
+            i += 1
+        else:
+            while i < n - 1 and nums[i] == nums[i + 1]:
+                i += 2
 
-        return unique_elements
+    return unique_elements
 ```
  
-## 1.2 Best Time to Buy and Sell Stock II
+## 1.2 Best Time to Buy and Sell Stock II - Greedy Algorithm
 
 ```python
 from typing import List
