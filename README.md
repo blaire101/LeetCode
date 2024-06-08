@@ -114,6 +114,8 @@ class Solution:
 - 1 ^ 1 = 0
 - 0 ^ 1 = 1
 - 1 ^ 0 = 1
+
+## 1.6 Intersection of Two Arrays II
   
 ## Reference
 
