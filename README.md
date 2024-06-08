@@ -88,6 +88,12 @@ class Solution:
 
 ## 1.4 Contains Duplicate
 
+
+
+
+  
+## 1.5 Single Number - XOR
+
 ```python
 from typing import List
 
@@ -108,33 +114,6 @@ class Solution:
 - 1 ^ 1 = 0
 - 0 ^ 1 = 1
 - 1 ^ 0 = 1
-
-Example:
-
-For the array `[2, 2, 1]`:
-1. Initialize `single = 0`
-2. `single = 0 ^ 2 = 2`
-3. `single = 2 ^ 2 = 0`
-4. `single = 0 ^ 1 = 1`
-
-Result: The unique number is 1.
-
-
-  
-## 1.5 Single Number
-
-XOR (exclusive OR) is a bitwise operation that operates as follows:
-
-It returns 0 if both bits are the same.
-It returns 1 if the bits are different.
-
-**Properties of XOR:**
-
-1. **Commutative**: \(a \oplus b = b \oplus a\)
-2. **Associative**: \(a \oplus (b \oplus c) = (a \oplus b) \oplus c\)
-3. **Self-inverse**: \(a \oplus a = 0\)
-4. **Identity**: \(a \oplus 0 = a\)
-
   
 ## Reference
 
