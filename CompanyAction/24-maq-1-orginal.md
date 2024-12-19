@@ -147,3 +147,17 @@ check_udf = udf(check, IntegerType())
 df = df.withColumn('after_checking', check_udf(df['before_checking']))
 df.show()
 ```
+
+**Output**
+
+```
++---------------+--------------+
+|before_checking|after_checking|
++---------------+--------------+
+|          word1|             1|
+|          word4|             0|
+|          word2|             1|
+|          word5|             0|
++---------------+--------------+
+
+```
