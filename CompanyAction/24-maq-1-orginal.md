@@ -91,3 +91,59 @@ common_words=[]
 check_udf = udf(lambda col:check(col,common_words),IntegerType())
 df = df.withColumn('after_checking',check_udf(df['before_checking'],common_words))
 ```
+
+
+
+**Core Key Points Summary**
+
+1. **UDF Definition and Registration Rules:**  
+   - Understand how to define and register User-Defined Functions (UDFs) in PySpark, ensuring correct input and output data types.
+
+2. **Broadcast Variables and External Data Passing:**  
+   - Use broadcast variables to pass external data efficiently in a distributed environment. 
+   - Avoid direct referencing of variables in UDFs.
+
+3. **PySpark DataFrame Column Operations and Parameter Rules:**  
+   - Follow PySpark DataFrame column access rules. 
+   - Ensure correct column referencing when using DataFrame operations.
+   - Avoid passing non-column arguments to UDFs.
+
+4. **Basic Python Syntax in Function Definitions:**  
+   - Follow Python syntax rules, especially for function definitions, indentation, and control statements like `if-else`.  
+
+5. **Data Management and Execution Model in Distributed Environments:**  
+   - Understand PySpark's distributed data management model. 
+   - Be familiar with serialization, task distribution, and data processing on worker nodes.
+
+
+
+```python  
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import udf
+from pyspark.sql.types import IntegerType
+
+# init SparkSession
+spark = SparkSession.builder.appName("Fix UDF").getOrCreate()
+
+# example DataFrame
+data = [("word1",), ("word4",), ("word2",), ("word5",)]
+df = spark.createDataFrame(data, ["before_checking"])
+
+# define common_words, then broadcast
+common_words = ["word1", "word2", "word3"]
+broadcast_common_words = spark.sparkContext.broadcast(common_words)
+
+# define UDF
+def check(col):
+    if col in broadcast_common_words.value:
+        return 1
+    else:
+        return 0
+
+# register UDF
+check_udf = udf(check, IntegerType())
+
+# use UDF and show
+df = df.withColumn('after_checking', check_udf(df['before_checking']))
+df.show()
+```
