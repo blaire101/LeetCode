@@ -74,7 +74,7 @@ The query uses `GROUP BY city, order_date` to aggregate the data and calculate t
 - **Shanghai**: 250 = 250  
 - **Guangzhou**: 180 = 180  
 
-The aggregated (temporary) result is:
+The aggregated (temporary) result is:   /ˈæɡrɪɡeɪtɪd/
 
 | city      | order_date | daily_sales |
 |-----------|------------|-------------|
