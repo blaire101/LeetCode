@@ -22,6 +22,14 @@ WITH ranked_sales AS (
     city,
     order_date
 )
+
+执行顺序：
+1. FROM (选取数据)
+2. WHERE (过滤记录)
+3. GROUP BY (按 city, order_date 分组并聚合)
+4. SELECT (计算窗口函数，生成 rank 等列)
+5. 外层 SELECT 及 ORDER BY (筛选和排序最终结果)
+
 SELECT
   order_date,
   city,
