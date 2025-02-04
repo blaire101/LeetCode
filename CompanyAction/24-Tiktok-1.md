@@ -12,6 +12,7 @@
 3. GROUP BY (Group and aggregate by city and order_date)
 4. SELECT (Calculate window functions and generate columns such as rank)
 5. Outer SELECT and ORDER BY (Filter and sort the final results)
+   
 *(Don't modify the sentences here, just repeat the pronunciation in English.)*
 
 ## Sample Data
