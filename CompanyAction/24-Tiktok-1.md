@@ -42,3 +42,53 @@ ORDER BY
   order_date ASC,
   rank ASC;
 ```
+
+
+# Step 1: Data Aggregation
+
+Assume the `orders` table contains the following data:
+
+| order_id | city     | order_date | sales |
+|----------|----------|------------|-------|
+| 1        | Beijing  | 2025-01-01 | 100   |
+| 2        | Shanghai | 2025-01-01 | 150   |
+| 3        | Guangzhou| 2025-01-01 | 120   |
+| 4        | Beijing  | 2025-01-01 | 200   |
+| 5        | Shanghai | 2025-01-01 | 100   |
+| 6        | Beijing  | 2025-01-02 | 300   |
+| 7        | Shanghai | 2025-01-02 | 250   |
+| 8        | Guangzhou| 2025-01-02 | 180   |
+| 9        | Beijing  | 2025-01-02 | 50    |
+
+The query uses `GROUP BY city, order_date` to aggregate the data and calculate the total sales (`daily_sales`) for each city on each day.
+
+**For 2025-01-01:**
+
+- **Beijing**: 100 + 200 = 300  
+- **Shanghai**: 150 + 100 = 250  
+- **Guangzhou**: 120 = 120  
+
+**For 2025-01-02:**
+
+- **Beijing**: 300 + 50 = 350  
+- **Shanghai**: 250 = 250  
+- **Guangzhou**: 180 = 180  
+
+The aggregated (temporary) result is:
+
+| city      | order_date | daily_sales |
+|-----------|------------|-------------|
+| Beijing   | 2025-01-01 | 300         |
+| Shanghai  | 2025-01-01 | 250         |
+| Guangzhou | 2025-01-01 | 120         |
+| Beijing   | 2025-01-02 | 350         |
+| Shanghai  | 2025-01-02 | 250         |
+| Guangzhou | 2025-01-02 | 180         |
+
+# Step 2: Window Function Ranking
+
+Next, the SQL uses a window function to rank the cities for each day in descending order based on `daily_sales` (sales), assigning a rank:
+
+```sql
+ROW_NUMBER() OVER (PARTITION BY order_date ORDER BY SUM(sales) DESC) AS rank
+```sql
