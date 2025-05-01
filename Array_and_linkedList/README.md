@@ -55,7 +55,7 @@ class Solution:
         return result
 ```
 
-### 2. Search & Merge
+## 2. Search & Merge
 
 [704 Binary Search](https://leetcode.cn/problems/binary-search/)
 
@@ -109,8 +109,6 @@ print("Kth Largest Element (k=2):", kth_largest([3, 2, 1, 5, 6, 4], 2))
 ### 3.2 Find the Smallest k Numbers in an Array
 
 ```python
-python
-複製
 import heapq
 
 def smallest_k(nums, k):
