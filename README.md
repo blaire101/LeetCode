@@ -1,11 +1,8 @@
 # 🌅 [LeetCode][0]
 
-📩 To the one with a hammer, everything looks like a nail.
+📚 Motivation: In life you can choose who you want to be; be very careful with that choice.
 
 ## Part1：Array Problems
-
-Date: 1 May, 2025 7:27 PM
-📚 Motivation: In life you can choose who you want to be; be very careful with that choice.
 
 ### 1. Sorting Algorithms
 
