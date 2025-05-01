@@ -1,13 +1,13 @@
-# [LeetCode][0]
+# 🌅 [LeetCode][0]
 
 📩 To the one with a hammer, everything looks like a nail.
 
-# 🌅 Leetcode - Part1：Array Problems
+## Part1：Array Problems
 
 Date: 1 May, 2025 7:27 PM
 📚 Motivation: In life you can choose who you want to be; be very careful with that choice.
 
-## 1. Sorting Algorithms
+### 1. Sorting Algorithms
 
 [912. SortArray](https://leetcode.cn/problems/sort-an-array/description/)
 
@@ -59,7 +59,7 @@ class Solution:
         return result
 ```
 
-## 2. Search & Merge
+### 2. Search & Merge
 
 [704 Binary Search](https://leetcode.cn/problems/binary-search/)
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
 ## 2025-05-01
 
-### 3. Heap-Related Problems
+## 3. Heap-Related Problems
 
 3.1 Kth Largest Element in an Array
 
@@ -110,7 +110,7 @@ def kth_largest(nums, k):
 print("Kth Largest Element (k=2):", kth_largest([3, 2, 1, 5, 6, 4], 2))
 ```
 
-### 3.2 Find the Smallest k Numbers in an Array
+3.2 Find the Smallest k Numbers in an Array
 
 ```python
 import heapq
