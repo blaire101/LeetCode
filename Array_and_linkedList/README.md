@@ -3,9 +3,9 @@
 Date: 1 May, 2025 7:27 PM
 📚 Motivation: In life you can choose who you want to be; be very careful with that choice.
 
-[912. SortArray](https://leetcode.cn/problems/sort-an-array/description/)
-
 ## 1. Sorting Algorithms
+
+[912. SortArray](https://leetcode.cn/problems/sort-an-array/description/)
 
 **1.1 Quick Sort**  left = [x for x in arr[1:] if x < pivot]
 
