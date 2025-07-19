@@ -1,105 +1,99 @@
-# 🌅 Leetcode
+# 🌅 [LeetCode][0]
 
 📚 Motivation: In life you can choose who you want to be; be very careful with that choice.
 
-### Part1：LeetCode Array Problems
-
----
+## Part1：Array Problems
 
 ### 1. Sorting Algorithms
+
+[912. SortArray](https://leetcode.cn/problems/sort-an-array/description/)
 
 **1.1 Quick Sort**  left = [x for x in arr[1:] if x < pivot]
 
 ```python
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[0]
-    left = [x for x in arr[1:] if x < pivot]
-    right = [x for x in arr[1:] if x >= pivot]
-    return quick_sort(left) + [pivot] + quick_sort(right)
-# Example:
-print("Quick Sort:", quick_sort([3, 6, 2, 8, 1, 5]))
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        return self.quick_sort(arr=nums)
+
+    def quick_sort(self, arr):
+        if len(arr) <= 1:
+            return arr
+        pivot = arr[0]
+        left = [x for x in arr[1:] if x < pivot]
+        right = [x for x in arr[1:] if x >= pivot]
+        return self.quick_sort(left) + [pivot] + self.quick_sort(right)
 ```
 
 **1.2 Merge Sort**
 
 ```python
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    mid = len(arr) // 2
-    left = merge_sort(arr[:mid])
-    right = merge_sort(arr[mid:])
-    return merge(left, right)
+from typing import List
 
-def merge(left, right):
-    result = []
-    i = j = 0
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
-# Example:
-print("Merge Sort:", merge_sort([3, 6, 2, 8, 1, 5]))
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        return self.merge_sort(nums)
+
+    def merge_sort(self, arr: List[int]) -> List[int]:
+        if len(arr) <= 1:
+            return arr
+        mid = len(arr) // 2
+        left = self.merge_sort(arr[:mid]) # [0, mid-1]
+        right = self.merge_sort(arr[mid:])
+        return self.merge(left, right)
+
+    def merge(self, left: List[int], right: List[int]) -> List[int]: -- Merging Two Sorted Arrays
+        result = []
+        i = j = 0
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                result.append(left[i])
+                i += 1
+            else:
+                result.append(right[j])
+                j += 1
+        result.extend(left[i:])
+        result.extend(right[j:])
+        return result
 ```
-
----
 
 ### 2. Search & Merge
 
-2.1 Binary Search
+[704 Binary Search](https://leetcode.cn/problems/binary-search/)
 
 ```python
-def binary_search(arr, target):
-    low, high = 0, len(arr) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if arr[mid] == target:
-            return mid
-        elif arr[mid] < target:
-            low = mid + 1
-        else:
-            high = mid - 1
-    return -1
-# Example (array must be sorted):
-sorted_arr = [1, 2, 3, 5, 6, 8]
-print("Binary Search index of 5:", binary_search(sorted_arr, 5))
-```
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        pos = self.binary_search(arr=nums, target=target)
+        return pos
 
-### 2.2 Merging Two Sorted Arrays
+    def binary_search(self, arr, target):
+        low, high = 0, len(arr) - 1
+        while low <= high:
+            mid = (low + high) // 2
+            if arr[mid] == target:
+                return mid
+            elif arr[mid] < target:
+                low = mid + 1
+            else:
+                high = mid - 1
+        return -1
 
-```python
-python
-複製
-def merge_sorted(arr1, arr2):
-    i = j = 0
-    merged = []
-    while i < len(arr1) and j < len(arr2):
-        if arr1[i] < arr2[j]:
-            merged.append(arr1[i])
-            i += 1
-        else:
-            merged.append(arr2[j])
-            j += 1
-    merged.extend(arr1[i:])
-    merged.extend(arr2[j:])
-    return merged
+if __name__ == "__main__":
+    sol = Solution()
+    nums1 = [1, 2, 3, 4, 5]
+    target1 = 3
+    print(f"Target {target1} found at index:", sol.search(nums1, target1))  # 2
 
-# Example:
-print("Merge Two Sorted Arrays:", merge_sorted([1, 3, 5], [2, 4, 6]))
-
+    nums2 = [1, 2, 3, 4, 5]
+    target2 = 6
+    print(f"Target {target2} found at index:", sol.search(nums2, target2))  # -1
 ```
 
 ---
 
-### 3. Heap-Related Problems
+## 2025-05-01
+
+## 3. Heap-Related Problems
 
 3.1 Kth Largest Element in an Array
 
@@ -113,11 +107,9 @@ def kth_largest(nums, k):
 print("Kth Largest Element (k=2):", kth_largest([3, 2, 1, 5, 6, 4], 2))
 ```
 
-### 3.2 Find the Smallest k Numbers in an Array
+3.2 Find the Smallest k Numbers in an Array
 
 ```python
-python
-複製
 import heapq
 
 def smallest_k(nums, k):
@@ -178,71 +170,6 @@ def sliding_window_max(nums, k):
 # Example:
 print("Sliding window maximum:", sliding_window_max([1, 3, -1, -3, 5, 3, 6, 7], 3))
 
-```
-
-**1.1** quick sort (left = [x for x in arr if x < pivot]) ✅
-
-```python
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[0]
-    left = [x for x in arr[1:] if x < pivot]
-    right = [x for x in arr[1:] if x >= pivot]
-    return quick_sort(left) + [pivot] + quick_sort(right)
-
-# Example:
-print("Quick Sort:", quick_sort([3, 6, 2, 8, 1, 5]))
-```
-
-**1.2** merge sort (merge_sort(arr),  return merge(left, right)) ✅
-
-```python
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    mid = len(arr) // 2
-    left = merge_sort(arr[:mid])
-    right = merge_sort(arr[mid:])
-    return merge(left, right)
-
-def merge(left, right):
-    result = []
-    i = j = 0
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
-
-# Example:
-print("Merge Sort:", merge_sort([3, 6, 2, 8, 1, 5]))
-
-```
-
-1.3 Binary Search ✅
-
-```python
-def binary_search(arr, target):
-    low, high = 0, len(arr) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if arr[mid] == target:
-            return mid
-        elif arr[mid] < target:
-            low = mid + 1
-        else:
-            high = mid - 1
-    return -1
-
-# Example (on a sorted array):
-sorted_arr = [1, 2, 3, 5, 6, 8]
-print("Binary Search index of 5:", binary_search(sorted_arr, 5))
 ```
 
 1. Merging two sorted arrays ✅
@@ -831,3 +758,143 @@ def maxProfit(prices, fee):
     print(sorted_arr)  # 输出: [1, 1, 2, 3, 6, 8, 10]
     
     ```
+  
+  
+# Easy Collection
+
+# [1. top-interview-questions-easy][1]
+
+## [1. Array][Array]
+
+ 1. Remove Duplicates from Sorted Array 
+ 2. Best Time to Buy and Sell Stock II
+ 3. Rotate Array
+ 4. Contains Duplicate
+ 5. Single Number
+ 6. Intersection of Two Arrays II
+ 7. Plus One
+ 8. Move Zeroes
+ 9. Two Sum
+ 10. Valid Sudoku
+ 11. Rotate Image
+ 
+## 1.1 Remove Duplicates from Sorted Array
+
+```python
+def remove_duplicates_elements_from_sort_array(self, nums: List[int]) -> List[int]:
+    if not nums:
+        return []
+
+    unique_elements = []
+    i = 0
+    n = len(nums)
+
+    while i < n:
+        if (i == n - 1) or (nums[i] != nums[i + 1]):
+            unique_elements.append(nums[i])
+            i += 1
+        else:
+            while i < n - 1 and nums[i] == nums[i + 1]:
+                i += 2
+
+    return unique_elements
+```
+ 
+## 1.2 Best Time to Buy and Sell Stock II - Greedy Algorithm
+
+```python
+from typing import List
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        max_profit = 0
+        for i in range(1, len(prices)):
+            if prices[i] > prices[i - 1]:
+                max_profit += prices[i] - prices[i - 1]
+        return max_profit
+``` 
+  
+## 1.3 Rotate Array - reverse3times
+
+```python
+from typing import List
+
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        k = k % n  # Handle cases where k >= n
+
+        # Step 1: Reverse the entire array
+        self.reverse(nums, 0, n - 1)
+        # Step 2: Reverse the first k elements
+        self.reverse(nums, 0, k - 1)
+        # Step 3: Reverse the remaining elements
+        self.reverse(nums, k, n - 1)
+
+    def reverse(self, nums: List[int], start: int, end: int) -> None:
+        """
+        Helper function to reverse elements from start to end.
+        """
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start += 1
+            end -= 1
+```
+
+## 1.4 Contains Duplicate - Set
+
+```python
+from typing import List
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        seen = set() 
+        for num in nums: 
+            if num in seen:  O(1)
+                return True
+            seen.add(num)    O(1)
+        return False
+```
+
+a time complexity of O(n) and a space complexity of O(n) 
+  
+## 1.5 Single Number - XOR
+
+```python
+from typing import List
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        single = 0
+        for num in nums:
+            single ^= num
+        return single
+```
+
+**XOR (exclusive OR)** is a bitwise operation that operates as follows:
+- It returns 0 if both bits are the same.
+- It returns 1 if the bits are different.
+
+**Rules:**
+- 0 ^ 0 = 0
+- 1 ^ 1 = 0
+- 0 ^ 1 = 1
+- 1 ^ 0 = 1
+
+## 1.6 Intersection of Two Arrays II
+
+## 2. LinkedList
+  
+## Reference
+
+- [初级算法 • 数组](https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/)
+
+[0]: https://leetcode.com/
+[1]: https://leetcode.com/explore/interview/card/top-interview-questions-easy/
+
+[Array]: https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/
+[1.1]: https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/727/
+[1.2]: https://leetcode-cn.com/articles/best-time-to-buy-and-sell-stock-ii/
