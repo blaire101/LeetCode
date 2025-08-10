@@ -195,7 +195,7 @@ def sliding_window_max(nums: List[int], k: int) -> List[int]:
     res = []
 
     for i, num in enumerate(nums):
-        # Remove indices outside the current window
+        # [i-k+1, i] , Remove indices outside the current window
         while dq and dq[0] <= i - k:
             dq.popleft()
         # Maintain decreasing order in deque
@@ -203,7 +203,7 @@ def sliding_window_max(nums: List[int], k: int) -> List[int]:
             dq.pop()
         dq.append(i)
         # Append max for the current window
-        if i >= k - 1:
+        if i >= k - 1: # i = k-1
             res.append(nums[dq[0]])
     return res
 
