@@ -167,14 +167,9 @@ print("Continuous sequences summing to 15:", find_continuous_sequence(15))
 # [[1, 2, 3, 4, 5], [4, 5, 6], [7, 8]]
 ```
 
-### 4.2 Sliding Window Maximum
+#### 4.2 Sliding Window Maximum
 
-
-## 4.2 Sliding Window Maximum
-
-**Problem**  
-
-- Given an integer array `nums` and a window size `k`, return the maximum value in each sliding window of size `k`.
+Given an integer array `nums` and a window size `k`, return the maximum value in each sliding window of size `k`.
 
 **Sample**  
 
