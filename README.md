@@ -156,8 +156,6 @@ def find_continuous_sequence(target: int):
             left += 1
         elif curr < target:
             right += 1
-            if right > limit:
-                break
             curr += right
         else:  # curr > target
             curr -= left
