@@ -2,9 +2,13 @@
 
 📚 Motivation: In life you can choose who you want to be; be very careful with that choice.
 
-### Part1：LeetCode Array Problems
+## Part1：LeetCode Array Problems
 
----
+1. Merging two sorted arrays ✅
+2. Kth Largest Element in an Array (from heapq import heapify, heappush, heappop) ✅
+3. To find the smallest k numbers in an array (heapq) ✅
+4. find_continuous_sequence， Slide windows （while left < right:)  ✅
+5. Slide Windows ✅
 
 ### 1. Sorting Algorithms
 
@@ -173,79 +177,7 @@ def sliding_window_max(nums, k):
 
 # Example:
 print("Sliding window maximum:", sliding_window_max([1, 3, -1, -3, 5, 3, 6, 7], 3))
-
 ```
-
-**1.1** quick sort (left = [x for x in arr if x < pivot]) ✅
-
-```python
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[0]
-    left = [x for x in arr[1:] if x < pivot]
-    right = [x for x in arr[1:] if x >= pivot]
-    return quick_sort(left) + [pivot] + quick_sort(right)
-
-# Example:
-print("Quick Sort:", quick_sort([3, 6, 2, 8, 1, 5]))
-```
-
-**1.2** merge sort (merge_sort(arr),  return merge(left, right)) ✅
-
-```python
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    mid = len(arr) // 2
-    left = merge_sort(arr[:mid])
-    right = merge_sort(arr[mid:])
-    return merge(left, right)
-
-def merge(left, right):
-    result = []
-    i = j = 0
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
-
-# Example:
-print("Merge Sort:", merge_sort([3, 6, 2, 8, 1, 5]))
-
-```
-
-1.3 Binary Search ✅
-
-```python
-def binary_search(arr, target):
-    low, high = 0, len(arr) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if arr[mid] == target:
-            return mid
-        elif arr[mid] < target:
-            low = mid + 1
-        else:
-            high = mid - 1
-    return -1
-
-# Example (on a sorted array):
-sorted_arr = [1, 2, 3, 5, 6, 8]
-print("Binary Search index of 5:", binary_search(sorted_arr, 5))
-```
-
-1. Merging two sorted arrays ✅
-2. Kth Largest Element in an Array (from heapq import heapify, heappush, heappop) ✅
-3. To find the smallest k numbers in an array (heapq) ✅
-4. find_continuous_sequence， Slide windows （while left < right:)  ✅
-5. Slide Windows ✅
 
 ### 2. d**ynamic programming**
 
