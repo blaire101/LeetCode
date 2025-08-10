@@ -192,6 +192,316 @@ print("Sliding window maximum:", sliding_window_max([1, 3, -1, -3, 5, 3, 6, 7], 
 9. **Best Time to Buy and Sell Stock II** - LeetCode 122 -  max_profit += prices[i] - prices[i - 1]
 10. **Best Time to Buy and Sell Stock with Cooldown** - LeetCode 309 难
 
+
+#### 1) Climbing Stairs — LeetCode 70
+
+**Sample**  
+
+- Input: `n = 3`  
+- Output: `3`  (ways: `[1+1+1], [1+2], [2+1]`)
+
+**Approach**  
+
+- DP relation: `dp[i] = dp[i-1] + dp[i-2]`  
+- Base: `dp[1] = 1`, `dp[2] = 2`
+
+**Python**
+
+```python
+def climbStairs(n: int) -> int:
+    if n <= 2:
+        return n
+    dp = [0] * (n + 1)
+    dp[1], dp[2] = 1, 2
+    for i in range(3, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+    return dp[n]
+```
+
+#### 2) House Robber — LeetCode 198
+**Problem**  
+Given a row of houses with non-negative integer money, you cannot rob adjacent houses. Return the maximum amount you can rob.
+
+**Sample**  
+
+- Input: `nums = [2,7,9,3,1]`  
+- Output: `12` (rob houses with 2, 9, 1)
+
+**Approach**  
+
+- DP: `dp[i] = max(dp[i-1], dp[i-2] + nums[i])`  
+- Base: `dp[0] = nums[0]`, `dp[1] = max(nums[0], nums[1])`
+
+**Python**
+
+```python
+from typing import List
+
+def rob(nums: List[int]) -> int:
+    if not nums:
+        return 0
+    if len(nums) == 1:
+        return nums[0]
+    dp = [0] * len(nums)
+    dp[0] = nums[0]
+    dp[1] = max(nums[0], nums[1])
+    for i in range(2, len(nums)):
+        dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
+    return dp[-1]
+```
+
+
+#### 3) Longest Increasing Subsequence — LeetCode 300
+**Problem**  
+Given an integer array `nums`, return the length of the longest strictly increasing subsequence.
+
+**Sample**  
+
+- Input: `nums = [10,9,2,5,3,7,101,18]`  
+- Output: `4` (one LIS is `[2,3,7,101]`)
+
+**Approach**  
+
+- O(n²) DP: `dp[i] = max(dp[i], dp[j]+1)` for all `j < i` where `nums[i] > nums[j]`  
+- Initialize `dp[i] = 1`
+
+**Python**
+
+```python
+from typing import List
+
+def lengthOfLIS(nums: List[int]) -> int:
+    n = len(nums)
+    if n == 0:
+        return 0
+    dp = [1] * n
+    for i in range(n):
+        for j in range(i):
+            if nums[i] > nums[j]:
+                dp[i] = max(dp[i], dp[j] + 1)
+    return max(dp)
+```
+
+#### 4) Coin Change — LeetCode 322
+
+**Problem**  
+Given coins of different denominations and a total amount, return the fewest number of coins to make up that amount. If not possible, return `-1`.
+
+**Sample**  
+
+- Input: `coins = [1,2,5], amount = 11`  
+- Output: `3` (11 = 5 + 5 + 1)
+
+**Approach**  
+
+- Unbounded knapsack DP.  
+- Initialize `dp = [0] + [inf] * amount`.  
+- Transition: `dp[x] = min(dp[x], dp[x - c] + 1)` for each coin `c` and `x >= c`.
+
+**Python**
+
+```python
+from typing import List
+import math
+
+def coinChange(coins: List[int], amount: int) -> int:
+    dp = [math.inf] * (amount + 1)
+    dp[0] = 0
+    for c in coins:
+        for x in range(c, amount + 1):
+            dp[x] = min(dp[x], dp[x - c] + 1)
+    return dp[amount] if dp[amount] != math.inf else -1
+```
+
+#### 5) Longest Palindromic Substring — LeetCode 5
+
+**Problem**  
+Given a string `s`, return the longest palindromic substring in `s`.
+
+**Sample**  
+
+- Input: `s = "babad"`  
+- Output: `"bab"` or `"aba"`
+
+**Approach**  
+
+- DP: `dp[i][j] = True` if `s[i] == s[j]` and `(j - i < 3 or dp[i+1][j-1])`.  
+- Track longest range.
+
+**Python**
+
+```python
+def longestPalindrome(s: str) -> str:
+    n = len(s)
+    if n <= 1:
+        return s
+    dp = [[False] * n for _ in range(n)]
+    start, max_len = 0, 1
+    for j in range(n):
+        for i in range(j + 1):
+            if s[i] == s[j] and (j - i < 3 or dp[i + 1][j - 1]):
+                dp[i][j] = True
+                if j - i + 1 > max_len:
+                    start, max_len = i, j - i + 1
+    return s[start:start + max_len]
+```
+
+## 6) Edit Distance — LeetCode 72
+**Problem**  
+Return the minimum number of operations (insert, delete, replace) to convert `word1` into `word2`.
+
+**Sample**  
+
+- Input: `word1 = "horse", word2 = "ros"`  
+- Output: `3`
+
+**Approach**  
+
+- Let `dp[i][j]` be the edit distance between `word1[:i]` and `word2[:j]`.  
+- If last chars equal: `dp[i][j] = dp[i-1][j-1]`; else `1 + min(delete, insert, replace)`.
+
+**Python**
+
+```python
+def minDistance(word1: str, word2: str) -> int:
+    m, n = len(word1), len(word2)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    for i in range(m + 1):
+        dp[i][0] = i
+    for j in range(n + 1):
+        dp[0][j] = j
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if word1[i - 1] == word2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1]
+            else:
+                dp[i][j] = 1 + min(
+                    dp[i - 1][j],    # delete
+                    dp[i][j - 1],    # insert
+                    dp[i - 1][j - 1] # replace
+                )
+    return dp[m][n]
+```
+
+#### 7) Unique Paths — LeetCode 62
+
+**Problem**  
+A robot is located at the top-left of an `m x n` grid and can only move right or down. How many unique paths to bottom-right?
+
+**Sample**  
+
+- Input: `m = 3, n = 7`  
+- Output: `28`
+
+**Approach**  
+
+- DP with `dp[i][j] = dp[i-1][j] + dp[i][j-1]`, initialize first row/column to 1.
+
+**Python**
+
+```python
+def uniquePaths(m: int, n: int) -> int:
+    dp = [[1] * n for _ in range(m)]
+    for i in range(1, m):
+        for j in range(1, n):
+            dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+    return dp[-1][-1]
+```
+
+#### 8) Best Time to Buy and Sell Stock I — LeetCode 121
+**Problem**  
+One transaction allowed: buy once and sell once. Maximize profit.
+
+**Sample**  
+
+- Input: `prices = [7,1,5,3,6,4]`  
+- Output: `5` (buy at 1, sell at 6)
+
+**Approach**  
+
+- Track `min_price` so far and `max_profit = max(max_profit, price - min_price)`.
+
+**Python**
+
+```python
+from typing import List
+
+def maxProfit_121(prices: List[int]) -> int:
+    min_price, max_profit = float('inf'), 0
+    for p in prices:
+        min_price = min(min_price, p)
+        max_profit = max(max_profit, p - min_price)
+    return max_profit
+```
+
+#### 9) Best Time to Buy and Sell Stock II — LeetCode 122
+**Problem**  
+Unlimited transactions (but must sell before buying again). Maximize profit.
+
+**Sample**  
+
+- Input: `prices = [7,1,5,3,6,4]`  
+- Output: `7` (profits: (5-1) + (6-3))
+
+**Approach**  
+
+- Greedy: sum all positive price differences.
+
+**Python**
+
+```python
+from typing import List
+
+def maxProfit_122(prices: List[int]) -> int:
+    profit = 0
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i - 1]:
+            profit += prices[i] - prices[i - 1]
+    return profit
+```
+
+#### 10) Best Time to Buy and Sell Stock with Cooldown — LeetCode 309
+**Problem**  
+Unlimited transactions, but after you sell, you must cooldown one day before buying again.
+
+**Sample**  
+
+- Input: `prices = [1,2,3,0,2]`  
+- Output: `3`
+
+**Approach**  
+
+- State DP with three states:  
+  - `hold`: holding stock  
+  - `sold`: just sold today  
+  - `rest`: not holding and not in cooldown  
+- Transitions:  
+  - `new_hold = max(hold, rest - price)`  
+  - `new_sold = hold + price`  
+  - `new_rest = max(rest, sold)`  
+- Initialize: `hold = -prices[0]`, `sold = 0`, `rest = 0`  
+- Answer: `max(sold, rest)`
+
+**Python**
+
+```python
+from typing import List
+
+def maxProfit_309(prices: List[int]) -> int:
+    if not prices:
+        return 0
+    hold, sold, rest = -prices[0], 0, 0
+    for price in prices[1:]:
+        new_hold = max(hold, rest - price)
+        new_sold = hold + price
+        new_rest = max(rest, sold)
+        hold, sold, rest = new_hold, new_sold, new_rest
+    return max(sold, rest)
+```
+
+
+
+---
 ***Approach***: Solve using dynamic programming, maintaining three states:
 
 - `hold[i]`: The maximum profit on day `i` when holding a stock.
