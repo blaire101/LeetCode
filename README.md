@@ -148,7 +148,7 @@ def find_continuous_sequence(target):
     return result
 
 # Example:
-print("Continuous sequences summing to 15:", find_continuous_sequence(15))
+print("Continuous sequences summing to 15:", find_continuous_sequence(15)) # [[1,2,3,4,5], [4,5,6], [7,8]]
 ```
 
 ### 4.2 Sliding Window Maximum
