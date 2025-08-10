@@ -76,8 +76,6 @@ print("Binary Search index of 5:", binary_search(sorted_arr, 5))
 ### 2.2 Merging Two Sorted Arrays
 
 ```python
-python
-複製
 def merge_sorted(arr1, arr2):
     i = j = 0
     merged = []
