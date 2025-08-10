@@ -22,7 +22,7 @@ def quick_sort(arr):
 print("Quick Sort:", quick_sort([3, 6, 2, 8, 1, 5]))
 ```
 
-**1.2 Merge Sort**
+**1.2 Merge Sort** - recursion， append， extend
 
 ```python
 def merge_sort(arr):
