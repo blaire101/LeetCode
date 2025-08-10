@@ -169,26 +169,52 @@ print("Continuous sequences summing to 15:", find_continuous_sequence(15))
 
 ### 4.2 Sliding Window Maximum
 
+
+## 4.2 Sliding Window Maximum
+
+**Problem**  
+
+- Given an integer array `nums` and a window size `k`, return the maximum value in each sliding window of size `k`.
+
+**Sample**  
+
+- Input:  `nums = [1,3,-1,-3,5,3,6,7], k = 3`  
+- Output:  `[3, 3, 5, 5, 6, 7]`
+
+**Solution (Monotonic Queue)**  
+
+Use a deque to store indices of elements in decreasing order of values:  
+
+1. Remove indices out of the current window from the front.  
+2. Remove smaller elements from the back before adding the new one.  
+3. The front of deque always holds the index of the current max.  
+
+**Python**
+
 ```python
 from collections import deque
+from typing import List
 
-def sliding_window_max(nums, k):
+def sliding_window_max(nums: List[int], k: int) -> List[int]:
     dq = deque()
-    result = []
+    res = []
+
     for i, num in enumerate(nums):
-        # Remove indices that are out of the current window
+        # Remove indices outside the current window
         while dq and dq[0] <= i - k:
             dq.popleft()
-        # Remove elements smaller than current number
+        # Maintain decreasing order in deque
         while dq and nums[dq[-1]] < num:
             dq.pop()
         dq.append(i)
+        # Append max for the current window
         if i >= k - 1:
-            result.append(nums[dq[0]])
-    return result
+            res.append(nums[dq[0]])
+    return res
 
 # Example:
-print("Sliding window maximum:", sliding_window_max([1, 3, -1, -3, 5, 3, 6, 7], 3))
+print(sliding_window_max([1, 3, -1, -3, 5, 3, 6, 7], 3))
+# Output: [3, 3, 5, 5, 6, 7]
 ```
 
 ### 2. d**ynamic programming**
