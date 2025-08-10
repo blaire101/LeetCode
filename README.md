@@ -136,23 +136,37 @@ print("Smallest k numbers (k=3):", smallest_k([3, 2, 1, 5, 6, 4], 3))
 
 *(Find all sequences of consecutive positive integers that sum to a given target)*
 
-```python
-def find_continuous_sequence(target):
-    result = []
-    left, right = 1, 2
-    while left < right:
-        current_sum = (left + right) * (right - left + 1) // 2
-        if current_sum == target:
-            result.append(list(range(left, right + 1)))
-            left += 1
-        elif current_sum < target:
-            right += 1
-        else:
-            left += 1
-    return result
+- Keep a running curr instead of recomputing the arithmetic series each loop.
+- Bound right to at most target // 2 + 1 because any valid window (length ≥ 2) starts ≤ target//2.
 
-# Example:
-print("Continuous sequences summing to 15:", find_continuous_sequence(15)) # [[1,2,3,4,5], [4,5,6], [7,8]]
+```python
+def find_continuous_sequence(target: int):
+    # sequences of consecutive positive ints with length >= 2
+    if target < 3:
+        return []
+    res = []
+    left, right, curr = 1, 2, 3  # window [left, right], curr is sum
+    # right needn't exceed target//2 + 1 (since at least two numbers)
+    limit = target // 2 + 1
+
+    while left < right and right <= limit:
+        if curr == target:
+            res.append(list(range(left, right + 1)))
+            curr -= left
+            left += 1
+        elif curr < target:
+            right += 1
+            if right > limit:
+                break
+            curr += right
+        else:  # curr > target
+            curr -= left
+            left += 1
+    return res
+
+# Example
+print("Continuous sequences summing to 15:", find_continuous_sequence(15))
+# [[1, 2, 3, 4, 5], [4, 5, 6], [7, 8]]
 ```
 
 ### 4.2 Sliding Window Maximum
