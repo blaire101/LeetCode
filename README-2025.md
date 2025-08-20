@@ -85,3 +85,46 @@
 - Best Time to Buy and Sell Stock III
 
 #### Strings
+- Longest Palindromic Substring
+- Edit Distance
+- Longest Common Subsequence
+- Word Break
+
+---
+
+### Phase 5: DFS / BFS
+- Word Search in Matrix
+- Robot Movement Range (BFS)
+- Number of Islands
+- Course Schedule
+- Course Schedule II
+- Word Ladder
+- Clone Graph
+- Network Delay Time
+
+---
+
+### Phase 6: Greedy
+- Jump Game I
+- Jump Game II
+- Gas Station
+- Assign Cookies
+
+---
+
+### Phase 7: Backtracking
+- Subsets
+- Subsets II
+- Permutations
+- Permutations II
+- Combination Sum
+- Combination Sum II
+- Palindrome Partitioning
+
+---
+
+### Phase 8: Trie & Advanced Strings
+- Implement Trie (Prefix Tree)
+- Word Search II
+- Add and Search Word (Trie + Regex)
+- Word Break II
