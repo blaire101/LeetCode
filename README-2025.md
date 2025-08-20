@@ -1,4 +1,4 @@
-# 🌅 LeetCode Handbook (Easy + Medium Focus)
+# 🌅 LeetCode Handbook
 
 ### Phase 1: Fundamentals
 
