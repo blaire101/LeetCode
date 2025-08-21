@@ -370,8 +370,7 @@ Problem: Minimum number of conference rooms required given meeting intervals.
    - Push this meeting’s `end` time into heap (room occupied).
 4) The **max heap size** reached is the answer.
 
-<details>
-<summary><strong>Python (Heap) — Readable & Annotated</strong></summary>
+**Python (Heap) — Readable & Annotated**
 
 ```python
 from typing import List
@@ -399,8 +398,6 @@ def min_meeting_rooms(intervals: List[List[int]]) -> int:
     # Heap size equals the number of rooms needed at the peak
     return len(end_times)
 ```
-
-</details>
     
 #### Binary Search
 - Binary Search
