@@ -718,7 +718,74 @@ print("Smallest k numbers (k=3):", smallest_k([3, 2, 1, 5, 6, 4], 3))
 - Gas Station
 - Assign Cookies
 
----
+
+**Jump Game I & II → very high frequency, must-do.**
+**Gas Station → high frequency, common greedy interview.**
+
+🔹 1. Jump Game I (LeetCode 55)
+
+Problem: Can you reach the last index?
+
+```
+Input: nums = [2,3,1,1,4]
+Output: True   # can jump 0→1→4
+
+Input: nums = [3,2,1,0,4]
+Output: False  # stuck at index 3
+```
+
+```python
+def canJump(nums):
+    farthest = 0
+    for i, step in enumerate(nums):
+        if i > farthest:   
+            return False
+        farthest = max(farthest, i + step)
+    return True
+print(canJump([2,3,1,1,4]))  # True
+print(canJump([3,2,1,0,4]))  # False
+```
+
+🔹 2. Jump Game II (LeetCode 45)
+
+Problem: Minimum jumps to reach last index.
+
+```
+Input: nums = [2,3,1,1,4]
+Output: 2   # jump 0→1→4
+
+Input: nums = [1,2,1,1,1]
+Output: 3   # jump 0→1→2→4
+```
+
+🔹 3. Gas Station (LeetCode 134)
+
+Problem: Find start index if you can complete a full circle.
+
+```
+Input: gas  = [1,2,3,4,5]
+       cost = [3,4,5,1,2]
+Output: 3   # start at station 3 (index 3, gas=4)
+
+Input: gas  = [2,3,4]
+       cost = [3,4,3]
+Output: -1  # impossible
+```
+
+```
+from typing import List
+
+def canCompleteCircuit(gas: List[int], cost: List[int]) -> int:
+    total, tank, start = 0, 0, 0
+    for i in range(len(gas)):
+        diff = gas[i] - cost[i]
+        total += diff
+        tank += diff
+        if tank < 0:   # The current section cannot be continued, change the starting point
+            start = i + 1
+            tank = 0
+    return start if total >= 0 else -1
+```
 
 ### Phase 7: Backtracking
 - Subsets
