@@ -330,6 +330,10 @@ print(merge_intervals([[1,3],[2,6],[8,10],[15,18]]))
 
 #### 1.9 Insert Interval
 
+**Sample**  
+- Input: `intervals = [[1,3],[6,9]]`, `newInterval = [2,5]`   --- Output: `[[1,5],[6,9]]`  
+- Input: `intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]]`, `newInterval = [4,8]`  --- Output: `[[1,2],[3,10],[12,16]]`
+
 #### 1.10 Meeting Rooms I
 
 Problem: Given intervals (meeting times), determine if a person can attend all meetings (no overlaps).
@@ -350,11 +354,17 @@ print(can_attend_meetings([[0,30],[5,10],[15,20]]))  # False
 print(can_attend_meetings([[7,10],[2,4]]))           # True
 ```
 
-#### 1.11 Meeting Rooms II
+#### 1.11 Meeting Rooms II - heapq.heappush(end_times, end)
 
 Problem: Minimum number of conference rooms required given meeting intervals.
 
+- Input: [[0,30],[5,10],[15,20]]
+- Output：2
+
 Python (Heap) — Readable & Annotated
+
+<details>
+<summary><strong>Python (Heap) — Readable & Annotated</strong></summary>
 
 ```python
 from typing import List
@@ -383,8 +393,8 @@ def min_meeting_rooms(intervals: List[List[int]]) -> int:
     return len(end_times)
 ```
 
-
-
+</details>
+    
 #### Binary Search
 - Binary Search
 - Find First and Last Position of Element in Sorted Array
