@@ -570,6 +570,45 @@ def max_area(height: List[int]) -> int:
 print(max_area([1,8,6,2,5,4,8,3,7]))  # 49
 ```
 
+**String to Integer (atoi)**
+
+```python
+def myAtoi(s: str) -> int:
+    s = s.lstrip()  # 1) remove leading spaces
+    if not s:
+        return 0
+    
+    # 2) check sign
+    sign = 1
+    i = 0
+    if s[0] in ['-', '+']:
+        sign = -1 if s[0] == '-' else 1
+        i += 1
+    
+    # 3) read digits
+    num = 0
+    while i < len(s) and s[i].isdigit():
+        num = num * 10 + int(s[i])
+        i += 1
+    
+    num *= sign
+    
+    # 4) clamp to 32-bit
+    INT_MIN, INT_MAX = -2**31, 2**31 - 1
+    if num < INT_MIN:
+        return INT_MIN
+    if num > INT_MAX:
+        return INT_MAX
+    return num
+
+# Quick checks
+print(myAtoi("42"))             # 42
+print(myAtoi("   -42"))         # -42
+print(myAtoi("4193 with words"))# 4193
+print(myAtoi("words and 987"))  # 0
+print(myAtoi("-91283472332"))   # -2147483648
+```
+
 
 #### Sliding Window
 - Longest Substring Without Repeating Characters
