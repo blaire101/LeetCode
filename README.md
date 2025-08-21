@@ -393,7 +393,14 @@ Problem: Minimum number of conference rooms required given meeting intervals.
 - Input: [[0,30],[5,10],[15,20]]
 - Output：2
 
-Python (Heap) — Readable & Annotated
+**Idea A — Min-Heap of end times (Greedy, O(n log n))**
+
+1) Sort meetings by **start**.  
+2) Keep a **min-heap** of current room **end times**.  
+3) For each meeting:
+   - If the **earliest ending** room `end <= start`, pop it (room freed) and reuse.
+   - Push this meeting’s `end` time into heap (room occupied).
+4) The **max heap size** reached is the answer.
 
 <details>
 <summary><strong>Python (Heap) — Readable & Annotated</strong></summary>
