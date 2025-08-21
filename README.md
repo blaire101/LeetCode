@@ -400,10 +400,80 @@ def min_meeting_rooms(intervals: List[List[int]]) -> int:
 ```
     
 #### Binary Search
+
 - Binary Search
 - Find First and Last Position of Element in Sorted Array
 
+```python
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+# Example (array must be sorted):
+sorted_arr = [1, 2, 3, 5, 6, 8]
+print("Binary Search index of 5:", binary_search(sorted_arr, 5))
+```
 
+**Find First and Last Position of Element in Sorted Array**
+
+```python
+from typing import List
+def search_range(nums: List[int], target: int) -> List[int]:
+    """
+    Find the first and last index of target in sorted nums.
+    If not found, return [-1, -1].
+    """
+    def find_bound(is_first: bool) -> int:
+        left, right = 0, len(nums) - 1
+        bound = -1
+        while left <= right:
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                bound = mid
+                if is_first:
+                    right = mid - 1  # shrink left side
+                else:
+                    left = mid + 1   # shrink right side
+            elif nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return bound
+
+    return [find_bound(True), find_bound(False)]
+
+# Example
+print(search_range([5,7,7,8,8,10], 8))   # [3, 4]
+print(search_range([5,7,7,8,8,10], 6))   # [-1, -1]
+```
+
+**Merging Two Sorted Arrays**
+
+```python
+def merge_sorted(arr1, arr2):
+    i = j = 0
+    merged = []
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] < arr2[j]:
+            merged.append(arr1[i])
+            i += 1
+        else:
+            merged.append(arr2[j])
+            j += 1
+    merged.extend(arr1[i:])
+    merged.extend(arr2[j:])
+    return merged
+
+# Example:
+print("Merge Two Sorted Arrays:", merge_sorted([1, 3, 5], [2, 4, 6]))
+```
 
 
 #### Two Pointers
@@ -419,10 +489,35 @@ def min_meeting_rooms(intervals: List[List[int]]) -> int:
 
 ---
 
-### Phase 2: Heap, Stack & Queue
-#### Heap
+## Phase 2: Heap, Stack & Queue
+
 - Kth Largest Element in an Array
 - Find Smallest k Numbers (heapq)
+
+#### 2.1 Kth Largest Element in an Array
+
+```python
+import heapq
+
+def kth_largest(nums, k):
+    return heapq.nlargest(k, nums)[-1]
+
+# Example:
+print("Kth Largest Element (k=2):", kth_largest([3, 2, 1, 5, 6, 4], 2))
+```
+
+#### 2.2 Find the Smallest k Numbers in an Array
+
+```python
+import heapq
+
+def smallest_k(nums, k):
+    return heapq.nsmallest(k, nums)
+
+# Example:
+print("Smallest k numbers (k=3):", smallest_k([3, 2, 1, 5, 6, 4], 3))
+```
+
 
 #### Stack & Queue
 - Valid Parentheses
