@@ -287,48 +287,16 @@ print(spiral_order([[1,2,3],[4,5,6],[7,8,9]]))  # [1,2,3,6,9,8,7,4,5]
 
 </details>
  
-#### 1.8 Merge Intervals
 
-Problem: Merge overlapping intervals.
+#### 1.8 Merge Intervals & 1.9 Insert Interval
+
+Problem: **Merge overlapping intervals**.
 Sample :
 - Input: [[1,3],[2,6],[8,10],[15,18]]
 - Output: [[1,6],[8,10],[15,18]]  
 Idea (Sort + One Pass): Sort by start; if current.start ≤ last.end → merge; else append.
 
-```python
-from typing import List
-
-def merge_intervals(intervals: List[List[int]]) -> List[List[int]]:
-    # If no intervals, return empty list
-    if not intervals:
-        return []
-    
-    # Sort intervals by their start time
-    intervals.sort(key=lambda interval: interval[0])
-    
-    # Initialize the merged list with the first interval
-    merged_intervals = [intervals[0]]
-    
-    # Iterate through the rest of the intervals
-    for current_start, current_end in intervals[1:]:
-        last_start, last_end = merged_intervals[-1]  # get the last merged interval
-        
-        # Check if the current interval overlaps with the last one
-        if current_start <= last_end:
-            # Merge them by extending the end
-            merged_intervals[-1][1] = max(last_end, current_end)
-        else:
-            # Otherwise, no overlap → append as a new interval
-            merged_intervals.append([current_start, current_end])
-    
-    return merged_intervals
-
-# Example
-print(merge_intervals([[1,3],[2,6],[8,10],[15,18]]))  
-# [[1,6],[8,10],[15,18]]
-```
-
-#### 1.9 Insert Interval
+Problem: **Insert overlapping intervals Then Merge**.
 
 **Sample**  
 - Input: `intervals = [[1,3],[6,9]]`, `newInterval = [2,5]`   --- Output: `[[1,5],[6,9]]`  
