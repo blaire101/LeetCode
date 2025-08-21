@@ -354,6 +354,34 @@ print(can_attend_meetings([[7,10],[2,4]]))           # True
 
 Problem: Minimum number of conference rooms required given meeting intervals.
 
+Python (Heap) — Readable & Annotated
+
+```python
+from typing import List
+import heapq
+
+def min_meeting_rooms(intervals: List[List[int]]) -> int:
+    """
+    Return the minimum number of conference rooms needed.
+    intervals: List of [start, end], where 'end' is exclusive (standard LeetCode convention).
+    """
+    if not intervals:
+        return 0
+    # 1) Sort by start time
+    intervals.sort(key=lambda itv: itv[0])
+    # 2) Min-heap of end times for rooms currently in use
+    end_times = []  # heap stores the 'end' time of each ongoing meeting
+
+    for start, end in intervals:
+        # If the earliest finishing room is free by 'start', reuse it
+        if end_times and end_times[0] <= start:
+            heapq.heappop(end_times)  # free that room
+
+        # Assign (or reuse) a room for the current meeting until 'end'
+        heapq.heappush(end_times, end)
+    # Heap size equals the number of rooms needed at the peak
+    return len(end_times)
+```
 
 
 
