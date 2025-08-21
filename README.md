@@ -334,6 +334,38 @@ print(merge_intervals([[1,3],[2,6],[8,10],[15,18]]))
 - Input: `intervals = [[1,3],[6,9]]`, `newInterval = [2,5]`   --- Output: `[[1,5],[6,9]]`  
 - Input: `intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]]`, `newInterval = [4,8]`  --- Output: `[[1,2],[3,10],[12,16]]`
 
+**Idea (super easy to write):**  
+Just append the new interval, sort by start, then do a single pass to merge overlaps (reuse the classic “merge intervals” logic).  
+Time `O(n log n)` (due to sorting), code is tiny and reliable.
+
+**Python (short & readable)**
+
+```python
+from typing import List
+
+def insert_interval_easy(intervals: List[List[int]], new_interval: List[int]) -> List[List[int]]:
+    # 1) Put the new interval in
+    intervals = intervals + [new_interval]
+    # 2) Sort by start
+    intervals.sort(key=lambda x: x[0])
+
+    # 3) Merge in one pass
+    merged: List[List[int]] = []
+    for start, end in intervals:
+        if not merged or start > merged[-1][1]:
+            # no overlap → push
+            merged.append([start, end])
+        else:
+            # overlap → extend the last interval's end
+            merged[-1][1] = max(merged[-1][1], end)
+    return merged
+
+# Quick checks
+print(insert_interval_easy([[1,3],[6,9]], [2,5]))                           # [[1,5],[6,9]]
+print(insert_interval_easy([[1,2],[3,5],[6,7],[8,10],[12,16]], [4,8]))      # [[1,2],[3,10],[12,16]]
+```
+
+
 #### 1.10 Meeting Rooms I
 
 Problem: Given intervals (meeting times), determine if a person can attend all meetings (no overlaps).
@@ -398,6 +430,9 @@ def min_meeting_rooms(intervals: List[List[int]]) -> int:
 #### Binary Search
 - Binary Search
 - Find First and Last Position of Element in Sorted Array
+
+
+
 
 #### Two Pointers
 - 3Sum (two-pointers squeeze)
