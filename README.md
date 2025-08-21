@@ -287,7 +287,7 @@ print(spiral_order([[1,2,3],[4,5,6],[7,8,9]]))  # [1,2,3,6,9,8,7,4,5]
 
 </details>
  
-- Merge Intervals
+#### 1.8 Merge Intervals
 
 Problem: Merge overlapping intervals.
 Sample :
@@ -328,9 +328,32 @@ print(merge_intervals([[1,3],[2,6],[8,10],[15,18]]))
 # [[1,6],[8,10],[15,18]]
 ```
 
-- Insert Interval
-- Meeting Rooms I
-- Meeting Rooms II
+#### 1.9 Insert Interval
+
+#### 1.10 Meeting Rooms I
+
+Problem: Given intervals (meeting times), determine if a person can attend all meetings (no overlaps).
+
+- Input: [[0,30],[5,10],[15,20]] → Output: False
+- Input: [[7,10],[2,4]] → Output: True
+
+```python
+from typing import List
+def can_attend_meetings(intervals: List[List[int]]) -> bool:
+    intervals.sort(key=lambda x: x[0])
+    for i in range(1, len(intervals)):
+        if intervals[i][0] < intervals[i-1][1]:
+            return False
+    return True
+# Examples
+print(can_attend_meetings([[0,30],[5,10],[15,20]]))  # False
+print(can_attend_meetings([[7,10],[2,4]]))           # True
+```
+
+#### 1.11 Meeting Rooms II
+
+Problem: Minimum number of conference rooms required given meeting intervals.
+
 
 
 
@@ -437,10 +460,4 @@ print(merge_intervals([[1,3],[2,6],[8,10],[15,18]]))
 - Combination Sum II
 - Palindrome Partitioning
 
----
 
-### Phase 8: Trie & Advanced Strings
-- Implement Trie (Prefix Tree)
-- Word Search II
-- Add and Search Word (Trie + Regex)
-- Word Break II
