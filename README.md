@@ -481,6 +481,96 @@ print("Merge Two Sorted Arrays:", merge_sorted([1, 3, 5], [2, 4, 6]))
 - Container With Most Water
 - String to Integer (atoi)
 
+
+**1) 3Sum (two-pointers squeeze)**
+
+**Problem**  
+Given an integer array `nums`, return all unique triplets `[a,b,c]` such that `a + b + c = 0`. Triplets must be unique (no duplicates).
+
+**Sample**  
+Input: `nums = [-1,0,1,2,-1,-4]`  
+Output: `[[-1,-1,2],[-1,0,1]]`
+
+**Idea**  
+- Sort the array.  
+- Fix index `i` (as `a`), then use two pointers `l` and `r` to find pairs (`b`,`c`) that sum to `-nums[i]`.  
+- Skip duplicates for `i`, `l`, `r`.
+
+
+```python
+from typing import List
+
+def three_sum(nums: List[int]) -> List[List[int]]:
+    nums.sort()
+    n = len(nums)
+    res: List[List[int]] = []
+
+    for i in range(n):
+        # a) skip duplicate first element
+        if i > 0 and nums[i] == nums[i - 1]:
+            continue
+        # b) two pointers for the remaining subarray
+        target = -nums[i]
+        l, r = i + 1, n - 1
+        while l < r:
+            s = nums[l] + nums[r]
+            if s == target:
+                res.append([nums[i], nums[l], nums[r]])
+                # move both pointers skipping duplicates
+                l += 1
+                while l < r and nums[l] == nums[l - 1]:
+                    l += 1
+                r -= 1
+                while l < r and nums[r] == nums[r + 1]:
+                    r -= 1
+            elif s < target:
+                l += 1
+            else:
+                r -= 1
+    return res
+# Quick check
+print(three_sum([-1,0,1,2,-1,-4]))  # [[-1,-1,2],[-1,0,1]]
+```
+
+**Container With Most Water**
+
+- Input: height = [1,8,6,2,5,4,8,3,7] Output: 49
+
+**Idea (Two Pointers)**
+
+```
+Start with l=0, r=n-1. Area = (r - l) * min(height[l], height[r]).
+```
+
+| l | r | height\[l] | height\[r] | min | width | area | best | move |
+| - | - | ---------- | ---------- | --- | ----- | ---- | ---- | ---- |
+| 0 | 8 | 1          | 7          | 1   | 8     | 8    | 8    | l++  |
+| 1 | 8 | 8          | 7          | 7   | 7     | 49   | 49   | r--  |
+| 1 | 7 | 8          | 3          | 3   | 6     | 18   | 49   | r--  |
+| 1 | 6 | 8          | 8          | 8   | 5     | 40   | 49   | r--  |
+| 1 | 5 | 8          | 4          | 4   | 4     | 16   | 49   | r--  |
+| … | … | …          | …          | …   | …     | …    | 49   | …    |
+
+```python
+from typing import List
+def max_area(height: List[int]) -> int:
+    l, r = 0, len(height) - 1
+    best = 0
+    while l < r:
+        # Current container is limited by the shorter line
+        h = min(height[l], height[r])
+        width = r - l
+        best = max(best, h * width)
+        # Greedy move: discard the shorter side
+        if height[l] < height[r]:
+            l += 1
+        else:
+            r -= 1
+    return best
+print(max_area([1,8,6,2,5,4,8,3,7]))  # 49
+```
+
+
 #### Sliding Window
 - Longest Substring Without Repeating Characters
 - Continuous Sequence Sum Equals Target
