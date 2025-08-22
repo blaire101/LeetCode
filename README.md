@@ -1,7 +1,112 @@
 # 🌅 LeetCode Handbook 
 
-## 1: Fundamentals 
+## Phase 1: Fundamentals 
+	
+### Arrays & Hashing
+- Two Sum (1) - HF  
+- Maximum Subarray / Kadane (53) - HF  
+- Product of Array Except Self (238) - HF  
+	
+### Arrays & Sorting
+- Sort Array (912, Quick Sort / Merge Sort)  
+- Merge Sorted Array (88)  
+- Arrange Array to Minimum Number (剑指 Offer)  
+- Search Insert Position (35)  
+- Merge Intervals (56) - HF  
+- Insert Interval (57) - HF  
+- Meeting Rooms I (252)  
+- Meeting Rooms II (253) - HF  
+	
+### Binary Search
+- Binary Search (704) - HF  
+- Find First and Last Position of Element in Sorted Array (34) - HF  
+	
+### Two Pointers
+- 3Sum (15) - HF  
+- Container With Most Water (11) - HF  
+- String to Integer (8, atoi)  
+	
+### Sliding Window
+- Longest Substring Without Repeating Characters (3 / Offer 48) - HF  
+- Continuous Sequence Sum Equals Target (剑指 Offer)  
+- Sliding Window Maximum (239) - HF  
+- Minimum Window Substring (76) - HF  
 
+## Phase 2: Heap, Stack & Queue
+
+### Heap
+- Kth Largest Element in an Array (215) - HF  
+- Find Smallest k Numbers (剑指 Offer)  
+
+### Stack & Queue
+- Valid Parentheses (20) - HF  
+- Implement Queue using Stacks (232)  
+- Daily Temperatures (739) - HF  
+- Decode String (394)  
+- LRU Cache (146) - HF  
+- Flatten Nested List Iterator (341)  
+
+
+## Phase 3: Linked List
+- Merge Two Sorted Lists (21) - HF  
+- Reverse Linked List (206) - HF  
+- Remove Duplicates from Sorted List II (82)  
+- Linked List Cycle (141) - HF  
+
+
+## Phase 4: Dynamic Programming
+
+### Basics
+- Climbing Stairs (70) - HF  
+- House Robber (198) - HF  
+- Longest Increasing Subsequence (300)  
+- Coin Change (322) - HF  
+
+### Grid / Paths
+- Unique Paths (62) - HF  
+- Unique Paths II (63)  
+- Minimum Path Sum (64) - HF  
+
+### Stocks
+- Best Time to Buy and Sell Stock I (121) - HF  
+- Best Time to Buy and Sell Stock II (122) - HF  
+- Best Time to Buy and Sell Stock with Cooldown (309)  
+- Best Time to Buy and Sell Stock with Fee (714)  
+- Best Time to Buy and Sell Stock III (123)  
+
+### Strings
+- Longest Palindromic Substring (5)  
+- Edit Distance (72) - HF  
+- Longest Common Subsequence (1143)  
+- Word Break (139) - HF  
+
+## Phase 5: DFS / BFS
+- Word Search in Matrix (79) - HF  
+- Robot Movement Range (Offer 13)  
+- Number of Islands (200) - HF  
+- Course Schedule (207) - HF  
+- Course Schedule II (210)  
+- Word Ladder (127) - HF  
+- Clone Graph (133)  
+- Network Delay Time (743)  
+
+## Phase 6: Greedy
+- Jump Game I (55) - HF  
+- Jump Game II (45) - HF  
+- Gas Station (134) - HF  
+
+
+## Phase 7: Backtracking
+- Subsets (78) - HF  
+- Subsets II (90) - HF  
+- Permutations (46) - HF  
+- Permutations II (47)  
+- Combination Sum (39) - HF  
+- Combination Sum II (40)  
+
+# 🌅 LeetCode Handbook 
+
+## Phase 1: Fundamentals 
 ### Arrays & Hashing
 
 - Two Sum (HashMap)
@@ -246,46 +351,6 @@ def search_insert(nums: List[int], target: int) -> int:
 print(search_insert([1,3,5,6], 5))  # 2
 print(search_insert([1,3,5,6], 2))  # 1
 ```
-
-#### 1.7 Spiral Matrix Printing
-
-<details>
-<summary><strong>Spiral Matrix Printing</strong></summary>
-
-```
-Input:
-[[1,2,3],
- [4,5,6],
- [7,8,9]]
-Output: [1,2,3,6,9,8,7,4,5]
-```
-
-Idea (Layer-by-layer): Keep boundaries top, bottom, left, right and peel the matrix in rounds.
-
-```python
-from typing import List
-def spiral_order(matrix: List[List[int]]) -> List[int]:
-    if not matrix or not matrix[0]:
-        return []
-    res = []
-    top, bottom = 0, len(matrix) - 1
-    left, right = 0, len(matrix[0]) - 1
-    while top <= bottom and left <= right:
-        for j in range(left, right + 1): res.append(matrix[top][j])
-        top += 1
-        for i in range(top, bottom + 1): res.append(matrix[i][right])
-        right -= 1
-        if top <= bottom:
-            for j in range(right, left - 1, -1): res.append(matrix[bottom][j])
-            bottom -= 1
-        if left <= right:
-            for i in range(bottom, top - 1, -1): res.append(matrix[i][left])
-            left += 1
-    return res
-print(spiral_order([[1,2,3],[4,5,6],[7,8,9]]))  # [1,2,3,6,9,8,7,4,5]
-```
-
-</details>
  
 
 #### 1.8 Merge Intervals & 1.9 Insert Interval
@@ -543,13 +608,14 @@ Start with l=0, r=n-1. Area = (r - l) * min(height[l], height[r]).
 ```
 
 | l | r | height\[l] | height\[r] | min | width | area | best | move |
-| - | - | ---------- | ---------- | --- | ----- | ---- | ---- | ---- |
+| --- | --- | ---------- | ---------- | --- | ----- | ---- | ---- | ---- |
 | 0 | 8 | 1          | 7          | 1   | 8     | 8    | 8    | l++  |
 | 1 | 8 | 8          | 7          | 7   | 7     | 49   | 49   | r--  |
 | 1 | 7 | 8          | 3          | 3   | 6     | 18   | 49   | r--  |
 | 1 | 6 | 8          | 8          | 8   | 5     | 40   | 49   | r--  |
 | 1 | 5 | 8          | 4          | 4   | 4     | 16   | 49   | r--  |
 | … | … | …          | …          | …   | …     | …    | 49   | …    |
+
 
 ```python
 from typing import List
@@ -616,7 +682,150 @@ print(myAtoi("-91283472332"))   # -2147483648
 - Sliding Window Maximum
 - Minimum Window Substring
 
----
+#### 1) Longest Substring Without Repeating Characters — LeetCode 3 (HF)
+
+**Problem**  
+Given a string `s`, find the length of the longest substring without repeating characters.
+
+**Sample**  
+- Input: `s = "abcabcbb"`  
+- Output: `3`  (substring `"abc"`)
+
+**Approach (Sliding Window + Hash Map)**  
+Expand right; if a char repeats inside the window, move left to `last_index[char] + 1`. Track max length.
+
+```python
+def lengthOfLongestSubstring(s: str) -> int:
+    last = {}         # char -> last seen index
+    left = 0
+    best = 0
+    for right, ch in enumerate(s):
+        if ch in last and last[ch] >= left:
+            left = last[ch] + 1
+        last[ch] = right
+        best = max(best, right - left + 1)
+    return best
+
+# Example
+print(lengthOfLongestSubstring("abcabcbb"))  # 3
+```
+
+#### 2) Continuous Sequence Sum Equals Target — (Consecutive Positive Integers)
+
+**Problem**  
+Find all sequences of consecutive positive integers (length ≥ 2) that sum to `target`.
+
+**Sample**  
+- Input: `target = 15`  
+- Output: `[[1,2,3,4,5], [4,5,6], [7,8]]`
+
+**Approach (Two Pointers Sliding Window)**  
+Use a window `[left, right]` over positive integers, maintain current sum, expand/shrink accordingly.
+
+```python
+def find_continuous_sequence(target: int):
+    if target < 3:
+        return []
+    res = []
+    left, right = 1, 2
+    curr = left + right
+    limit = target // 2 + 1  # shortest window has length 2
+
+    while left < right and right <= limit:
+        if curr == target:
+            res.append(list(range(left, right + 1)))
+            curr -= left
+            left += 1
+        elif curr < target:
+            right += 1
+            curr += right
+        else:
+            curr -= left
+            left += 1
+    return res
+
+# Example
+print(find_continuous_sequence(15))  # [[1,2,3,4,5],[4,5,6],[7,8]]
+```
+
+#### 3) Sliding Window Maximum — LeetCode 239 (HF)
+
+**Problem**  
+Given an array `nums` and an integer `k`, return a list of the max value in each window of size `k`.
+
+**Sample**  
+- Input: `nums = [1,3,-1,-3,5,3,6,7], k = 3`  
+- Output: `[3,3,5,5,6,7]`
+
+**Approach (Monotonic Deque)**  
+Keep a deque of indices with values in decreasing order; pop out-of-window indices and smaller tails.
+
+```python
+from collections import deque
+from typing import List
+
+def maxSlidingWindow(nums: List[int], k: int) -> List[int]:
+    dq = deque()   # store indices, values monotone decreasing
+    ans = []
+    for i, x in enumerate(nums):
+        # remove indices out of window
+        while dq and dq[0] <= i - k:
+            dq.popleft()
+        # maintain decreasing values
+        while dq and nums[dq[-1]] < x:
+            dq.pop()
+        dq.append(i)
+        # output when window is formed
+        if i >= k - 1:
+            ans.append(nums[dq[0]])
+    return ans
+
+# Example
+print(maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))  # [3,3,5,5,6,7]
+```
+
+#### 4) Minimum Window Substring — LeetCode 76 (HF)
+
+**Problem**  
+Given strings `s` and `t`, return the minimum window in `s` that contains all characters of `t`. If not found, return `""`.
+
+**Sample**  
+- Input: `s = "ADOBECODEBANC"`, `t = "ABC"`  
+- Output: `"BANC"`
+
+**Approach (Sliding Window + Frequency Counters)**  
+Expand right to satisfy all `t` counts; then shrink left to minimize. Track best window.
+
+```python
+from collections import Counter
+
+def minWindow(s: str, t: str) -> str:
+    need = Counter(t)
+    missing = len(t)       # how many chars still missing to satisfy need
+    left = 0
+    best_len = float('inf')
+    best = (0, 0)
+    for right, ch in enumerate(s):
+        if need[ch] > 0:
+            missing -= 1
+        need[ch] -= 1
+
+        # When all required chars are covered, try to shrink from left
+        while missing == 0:
+            if right - left + 1 < best_len:
+                best_len = right - left + 1
+                best = (left, right + 1)
+            # Move left: restore need for s[left]
+            need[s[left]] += 1
+            if need[s[left]] > 0:
+                missing += 1
+            left += 1
+
+    return s[best[0]:best[1]] if best_len != float('inf') else ""
+
+# Example
+print(minWindow("ADOBECODEBANC", "ABC"))  # "BANC"
+```
 
 ## Phase 2: Heap, Stack & Queue
 
@@ -657,49 +866,144 @@ print("Smallest k numbers (k=3):", smallest_k([3, 2, 1, 5, 6, 4], 3))
 - LRU Cache
 - Flatten Nested List Iterator
 
----
 
 ## Phase 3: Linked List
 
-- Merge Two Sorted Lists
-- Reverse Linked List
-- Reverse Linked List II
-- Remove Duplicates from Sorted List II
-- Partition List
-- Rotate Linked List
-- Linked List Addition (e.g., 617 + 295)
-- Linked List Cycle
-- Linked List Cycle II
-- Palindrome Linked List
+- Merge Two Sorted Lists (21) - HF  
+- Reverse Linked List (206) - HF  
+- Remove Duplicates from Sorted List II (82)  
+- Linked List Cycle (141) - HF  
 
----
+#### 3.1 Merge Two Sorted Lists — LeetCode 21 (HF)
+
+**Problem**  
+Merge two sorted linked lists into one sorted list.
+
+**Sample**  
+- Input: l1 = [1,2,4], l2 = [1,3,4]  
+- Output: [1,1,2,3,4,4]
+
+**Approach**  
+Use dummy head + two pointers. Attach smaller node each time.
+
+**Python**
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def mergeTwoLists(l1, l2):
+    dummy = ListNode()
+    cur = dummy
+    while l1 and l2:
+        if l1.val < l2.val:
+            cur.next, l1 = l1, l1.next
+        else:
+            cur.next, l2 = l2, l2.next
+        cur = cur.next
+    cur.next = l1 or l2
+    return dummy.next
+```
+
+#### 3.2 Reverse Linked List — LeetCode 206 (HF)
+
+**Problem**  
+Reverse a singly linked list.
+
+**Sample**  
+- Input: [1,2,3,4,5]  
+- Output: [5,4,3,2,1]
+
+**Approach**  
+Iterative: track `prev, cur`. At each step reverse `cur.next`.  
+
+**Python**
+```python
+def reverseList(head):
+    prev, cur = None, head
+    while cur:
+        nxt = cur.next
+        cur.next = prev
+        prev, cur = cur, nxt
+    return prev
+```
+
+#### 3.3 Remove Duplicates from Sorted List II — LeetCode 82
+
+**Problem**  
+Given sorted linked list, delete all nodes that appear more than once.
+
+**Sample**  
+- Input: [1,2,3,3,4,4,5]  
+- Output: [1,2,5]
+
+**Approach**  
+Dummy head + two pointers. Skip nodes with duplicates.  
+
+**Python**
+```python
+def deleteDuplicates(head):
+    dummy = ListNode(0, head)
+    prev, cur = dummy, head
+    while cur:
+        if cur.next and cur.val == cur.next.val:
+            while cur.next and cur.val == cur.next.val:
+                cur = cur.next
+            prev.next = cur.next
+        else:
+            prev = prev.next
+        cur = cur.next
+    return dummy.next
+```
+
+
+#### 3.4 Linked List Cycle — LeetCode 141 (HF)
+
+**Problem**  
+Detect if a linked list has a cycle.  
+
+**Sample**  
+- Input: head = [3,2,0,-4], tail connects to node index 1  
+- Output: True  
+
+**Approach**  
+Fast and slow pointers. If they meet → cycle.  
+
+```python
+def hasCycle(head):
+    slow = fast = head
+    while fast and fast.next:
+        slow, fast = slow.next, fast.next.next
+        if slow == fast: return True
+    return False
+```
 
 ## Phase 4: Dynamic Programming
 
 ### Basics
-
-- Climbing Stairs
-- House Robber
-- Longest Increasing Subsequence
-- Coin Change
+- Climbing Stairs (70) - HF  
+- House Robber (198) - HF  
+- Longest Increasing Subsequence (300)  
+- Coin Change (322) - HF  
 
 ### Grid / Paths
-- Unique Paths
-- Unique Paths II
-- Minimum Path Sum
+- Unique Paths (62) - HF  
+- Unique Paths II (63)  
+- Minimum Path Sum (64) - HF  
 
 ### Stocks
-- Best Time to Buy and Sell Stock I
-- Best Time to Buy and Sell Stock II
-- Best Time to Buy and Sell Stock with Cooldown
-- Best Time to Buy and Sell Stock with Fee
-- Best Time to Buy and Sell Stock III
+- Best Time to Buy and Sell Stock I (121) - HF  
+- Best Time to Buy and Sell Stock II (122) - HF  
+- Best Time to Buy and Sell Stock with Cooldown (309)  
+- Best Time to Buy and Sell Stock with Fee (714)  
+- Best Time to Buy and Sell Stock III (123)  
 
 ### Strings
-- Longest Palindromic Substring
-- Edit Distance
-- Longest Common Subsequence
-- Word Break
+- Longest Palindromic Substring (5)  
+- Edit Distance (72)  
+- Longest Common Subsequence (1143)  
+- Word Break (139) - HF  
 
 ### 4.1 Basics
 
@@ -714,8 +1018,6 @@ print("Smallest k numbers (k=3):", smallest_k([3, 2, 1, 5, 6, 4], 3))
 
 - DP relation: `dp[i] = dp[i-1] + dp[i-2]`  
 - Base: `dp[1] = 1`, `dp[2] = 2`
-
-**Python**
 
 ```python
 def climbStairs(n: int) -> int:
@@ -741,8 +1043,6 @@ Given a row of houses with non-negative integer money, you cannot rob adjacent h
 
 - DP: `dp[i] = max(dp[i-1], dp[i-2] + nums[i])`  
 - Base: `dp[0] = nums[0]`, `dp[1] = max(nums[0], nums[1])`
-
-**Python**
 
 ```python
 from typing import List
@@ -774,8 +1074,6 @@ Given an integer array `nums`, return the length of the longest strictly increas
 - O(n²) DP: `dp[i] = max(dp[i], dp[j]+1)` for all `j < i` where `nums[i] > nums[j]`  
 - Initialize `dp[i] = 1`
 
-**Python**
-
 ```python
 from typing import List
 
@@ -806,8 +1104,6 @@ Given coins of different denominations and a total amount, return the fewest num
 - Unbounded knapsack DP.  
 - Initialize `dp = [0] + [inf] * amount`.  
 - Transition: `dp[x] = min(dp[x], dp[x - c] + 1)` for each coin `c` and `x >= c`.
-
-**Python**
 
 ```python
 from typing import List
@@ -842,8 +1138,6 @@ A robot is located at the top-left of an `m x n` grid and can only move right or
 - DP with `dp[i][j] = dp[i-1][j] + dp[i][j-1]`.     
 - Initialize the first row/column to 1.  
 
-**Python**
-
 ```python
 def uniquePaths(m: int, n: int) -> int:
     dp = [[1] * n for _ in range(m)]
@@ -855,8 +1149,6 @@ def uniquePaths(m: int, n: int) -> int:
 # Example
 print(uniquePaths(3, 7))  # 28
 ```
-
----
 
 #### 2) Unique Paths II — LeetCode 63
 
@@ -882,8 +1174,6 @@ Find the number of unique paths to bottom-right.
 
 * DP with `dp[i][j] = dp[i-1][j] + dp[i][j-1]` if no obstacle.
 * If obstacle at `[i][j]`, set `dp[i][j] = 0`.
-
-**Python**
 
 ```python
 from typing import List
@@ -939,8 +1229,6 @@ You can only move right or down.
 * DP with `dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])`.
 * Initialize first row and first column.
 
-**Python**
-
 ```python
 from typing import List
 
@@ -985,8 +1273,6 @@ Given an array of prices, find the maximum profit with **one transaction** (buy 
 - Profit = `price - min_price`.  
 - Update max profit each day.  
 
-**Python**
-
 ```python
 from typing import List
 
@@ -1019,8 +1305,6 @@ Find the maximum profit.
 * Every increase contributes to profit.
 * Sum all `prices[i] - prices[i-1]` where positive.
 
-**Python**
-
 ```python
 def maxProfit_II(prices: List[int]) -> int:
     profit = 0
@@ -1048,8 +1332,6 @@ You may not buy stock the day right after selling (cooldown 1 day).
 * `hold[i]`: max profit when holding stock.
 * `sold[i]`: max profit when just sold.
 * `rest[i]`: max profit when cooldown.
-
-**Python**
 
 ```python
 def maxProfit_cooldown(prices: List[int]) -> int:
@@ -1087,8 +1369,6 @@ You pay a transaction fee for each trade.
 * `hold`: max profit when holding stock.
 * `cash`: max profit when not holding.
 
-**Python**
-
 ```python
 def maxProfit_fee(prices: List[int], fee: int) -> int:
     hold, cash = -prices[0], 0
@@ -1116,8 +1396,6 @@ At most 2 transactions.
 **Approach (DP)**
 
 * Track 4 states: buy1, sell1, buy2, sell2.
-
-**Python**
 
 ```python
 def maxProfit_III(prices: List[int]) -> int:
@@ -1150,8 +1428,6 @@ Find the longest palindromic substring in a given string.
 
 * `dp[i][j] = True` if `s[i] == s[j]` and inside substring is palindrome.
 
-**Python**
-
 ```python
 def longestPalindrome(s: str) -> str:
     n = len(s)
@@ -1170,8 +1446,6 @@ def longestPalindrome(s: str) -> str:
 print(longestPalindrome("babad"))  # "bab" or "aba"
 ```
 
----
-
 #### 2) Edit Distance — LeetCode 72
 
 **Problem**
@@ -1185,8 +1459,6 @@ Given two words, find the minimum operations (insert, delete, replace) to conver
 **Approach (DP)**
 
 * `dp[i][j]`: min ops to convert `word1[:i]` to `word2[:j]`.
-
-**Python**
 
 ```python
 def minDistance(word1: str, word2: str) -> int:
@@ -1224,8 +1496,6 @@ Find the length of longest subsequence common to two strings.
 
 * `dp[i][j]`: LCS of `text1[:i]`, `text2[:j]`.
 
-**Python**
-
 ```python
 def longestCommonSubsequence(text1: str, text2: str) -> int:
     m, n = len(text1), len(text2)
@@ -1242,8 +1512,6 @@ def longestCommonSubsequence(text1: str, text2: str) -> int:
 print(longestCommonSubsequence("abcde", "ace"))  # 3
 ```
 
----
-
 #### 4) Word Break — LeetCode 139
 
 **Problem**
@@ -1257,8 +1525,6 @@ Given a string and a dictionary of words, determine if the string can be segment
 **Approach (DP)**
 
 * `dp[i]`: can `s[:i]` be segmented.
-
-**Python**
 
 ```python
 from typing import List
@@ -1279,20 +1545,13 @@ def wordBreak(s: str, wordDict: List[str]) -> bool:
 print(wordBreak("leetcode", ["leet","code"]))  # True
 ```
 
----
-
-
 ## Phase 5: DFS / BFS
 
-- Word Search in Matrix
-- Robot Movement Range (BFS)
-- Number of Islands
-- Course Schedule
-- Course Schedule II
-- Word Ladder
-- Clone Graph
-- Network Delay Time
-
+- Word Search in Matrix (LeetCode 79) → HF
+- Robot Movement Range (Offer 13) → HF
+- Number of Islands (200) → HF
+- Course Schedule (207) → HF
+- Course Schedule II (210) → HF
 
 #### 5.1 Word Search in Matrix — LeetCode 79
 
@@ -1307,7 +1566,6 @@ Given a 2D board and a word, find if the word exists in the grid. The word can b
 - Use DFS with backtracking.  
 - Mark visited cell temporarily, explore 4 directions, then restore.  
 
-**Python**
 ```python
 def exist(board, word):
     rows, cols = len(board), len(board[0])
@@ -1343,8 +1601,6 @@ A robot starts at (0,0) in an m×n grid. It can move up/down/left/right, but can
 
 * BFS from (0,0).
 * Check digit sum constraint, use visited set.
-
-**Python**
 
 ```python
 def movingCount(m: int, n: int, k: int) -> int:
@@ -1384,7 +1640,6 @@ Given a 2D grid of '1' (land) and '0' (water), count the number of islands.
 
 * DFS flood fill. Mark visited as '0'.
 
-**Python**
 
 ```python
 def numIslands(grid):
@@ -1418,8 +1673,6 @@ Given numCourses and prerequisites, check if you can finish all courses (detect 
 
 * Use topological sort (BFS indegree).
 * If processed count == numCourses → True.
-
-**Python**
 
 ```python
 from collections import deque
@@ -1455,8 +1708,6 @@ Return one valid order to finish all courses (topological ordering).
 
 * BFS topological sort, collect order.
 
-**Python**
-
 ```python
 def findOrder(numCourses, prerequisites):
     from collections import deque
@@ -1474,179 +1725,103 @@ def findOrder(numCourses, prerequisites):
     return order if len(order)==numCourses else []
 ```
 
-#### 5.6 Word Ladder — LeetCode 127
 
-**Problem**
-Shortest transformation sequence from beginWord to endWord by changing one letter at a time, each intermediate word must be in wordList.
+## Phase 6: Greedy
 
-**Sample**
-
-* Input: beginWord="hit", endWord="cog", wordList=\["hot","dot","dog","lot","log","cog"]
-* Output: 5 ("hit"→"hot"→"dot"→"dog"→"cog")
-
-**Approach**
-
-* BFS from beginWord, generate neighbors by replacing each letter.
-
-**Python**
-
-```python
-from collections import deque
-
-def ladderLength(beginWord, endWord, wordList):
-    wordSet=set(wordList)
-    if endWord not in wordSet: return 0
-    q=deque([(beginWord,1)])
-    while q:
-        word,steps=q.popleft()
-        if word==endWord: return steps
-        for i in range(len(word)):
-            for c in "abcdefghijklmnopqrstuvwxyz":
-                nxt=word[:i]+c+word[i+1:]
-                if nxt in wordSet:
-                    wordSet.remove(nxt)
-                    q.append((nxt,steps+1))
-    return 0
-```
-
-
-#### 5.7 Clone Graph — LeetCode 133
-
-**Problem**
-Clone an undirected graph given a reference node.
-
-**Sample**
-
-* Input: Node 1 connected to \[2,4]...
-* Output: Deep copy graph.
-
-**Approach**
-
-* DFS/BFS with hashmap old→new node.
-
-**Python**
-
-```python
-class Node:
-    def __init__(self, val=0, neighbors=None):
-        self.val=val
-        self.neighbors=neighbors if neighbors else []
-
-def cloneGraph(node):
-    if not node: return None
-    old2new={}
-    def dfs(n):
-        if n in old2new: return old2new[n]
-        copy=Node(n.val)
-        old2new[n]=copy
-        for nei in n.neighbors:
-            copy.neighbors.append(dfs(nei))
-        return copy
-    return dfs(node)
-```
-
----
-
-#### 5.8 Network Delay Time — LeetCode 743
-
-**Problem**
-Given travel times on directed weighted edges, find time for all nodes to receive signal sent from source k. Return -1 if impossible.
-
-**Sample**
-
-* Input: times=\[\[2,1,1],\[2,3,1],\[3,4,1]], n=4, k=2
-* Output: 2
-
-**Approach**
-
-* Dijkstra with min-heap.
-
-**Python**
-
-```python
-import heapq
-
-def networkDelayTime(times, n, k):
-    g=[[] for _ in range(n+1)]
-    for u,v,w in times:
-        g[u].append((v,w))
-    dist={i:float('inf') for i in range(1,n+1)}
-    dist[k]=0
-    h=[(0,k)]
-    while h:
-        d,u=heapq.heappop(h)
-        if d>dist[u]: continue
-        for v,w in g[u]:
-            if d+w<dist[v]:
-                dist[v]=d+w
-                heapq.heappush(h,(dist[v],v))
-    ans=max(dist.values())
-    return ans if ans<float('inf') else -1
-```
+- Jump Game I (55) - HF
+- Jump Game II (45) - HF
+- Gas Station (134) - HF
 
 
 ## Phase 6: Greedy
 
-- Jump Game I
-- Jump Game II
-- Gas Station
-- Assign Cookies
+#### 6.1 Jump Game I — LeetCode 55
 
+**Problem**  
+Given an array `nums` where each element represents your maximum jump length at that position, determine if you can reach the last index.
 
-**Jump Game I & II → very high frequency, must-do.**
-**Gas Station → high frequency, common greedy interview.**
+**Sample**  
+- Input: `nums = [2,3,1,1,4]`  
+  Output: `True`   # can jump 0→1→4  
+- Input: `nums = [3,2,1,0,4]`  
+  Output: `False`  # stuck at index 3  
 
-🔹 1. Jump Game I (LeetCode 55)
-
-Problem: Can you reach the last index?
-
-```
-Input: nums = [2,3,1,1,4]
-Output: True   # can jump 0→1→4
-
-Input: nums = [3,2,1,0,4]
-Output: False  # stuck at index 3
-```
+**Approach**  
+- Track the farthest index you can reach.  
+- If at any point `i > farthest`, you cannot proceed → return False.  
+- Otherwise, update `farthest = max(farthest, i + nums[i])`.  
 
 ```python
-def canJump(nums):
+from typing import List
+
+def canJump(nums: List[int]) -> bool:
     farthest = 0
     for i, step in enumerate(nums):
-        if i > farthest:   
+        if i > farthest:   # cannot reach this position
             return False
         farthest = max(farthest, i + step)
     return True
+
+# Quick checks
 print(canJump([2,3,1,1,4]))  # True
 print(canJump([3,2,1,0,4]))  # False
 ```
 
-🔹 2. Jump Game II (LeetCode 45)
+#### 6.2 Jump Game II — LeetCode 45
 
-Problem: Minimum jumps to reach last index.
+**Problem**  
+Given an array `nums` where each element represents your maximum jump length, return the minimum number of jumps to reach the last index.
 
+**Sample**  
+- Input: `nums = [2,3,1,1,4]`  
+  Output: `2`   # jump 0→1→4  
+- Input: `nums = [1,2,1,1,1]`  
+  Output: `3`   # jump 0→1→2→4  
+
+**Approach**  
+- Greedy: Track `current_end` (farthest we can reach in current jump) and `farthest` (max reach so far).  
+- When index `i == current_end`, we need one more jump and update `current_end = farthest`.  
+
+```python
+from typing import List
+
+def jump(nums: List[int]) -> int:
+    jumps = 0
+    farthest = 0
+    current_end = 0
+    for i in range(len(nums) - 1):  # no need to jump from last index
+        farthest = max(farthest, i + nums[i])
+        if i == current_end:
+            jumps += 1
+            current_end = farthest
+    return jumps
+
+# Quick checks
+print(jump([2,3,1,1,4]))  # 2
+print(jump([1,2,1,1,1]))  # 3
 ```
-Input: nums = [2,3,1,1,4]
-Output: 2   # jump 0→1→4
 
-Input: nums = [1,2,1,1,1]
-Output: 3   # jump 0→1→2→4
-```
+#### 6.3 Gas Station — LeetCode 134
 
-🔹 3. Gas Station (LeetCode 134)
+**Problem**  
+There are `n` gas stations along a circular route, where `gas[i]` is the gas at station `i`, and `cost[i]` is the cost to travel from `i` to `i+1`.  
+Return the starting gas station’s index if you can travel around the circuit once in the clockwise direction, otherwise return `-1`.
 
-Problem: Find start index if you can complete a full circle.
+**Sample**  
+- Input:  
+  `gas  = [1,2,3,4,5]`  
+  `cost = [3,4,5,1,2]`  
+  Output: `3`   # start at station 3  
+- Input:  
+  `gas  = [2,3,4]`  
+  `cost = [3,4,3]`  
+  Output: `-1`  # impossible  
 
-```
-Input: gas  = [1,2,3,4,5]
-       cost = [3,4,5,1,2]
-Output: 3   # start at station 3 (index 3, gas=4)
+**Approach**  
+- If `total gas < total cost`, impossible → return -1.  
+- Otherwise, greedy: if `tank < 0` at station `i`, reset `start = i+1` and `tank = 0`.  
 
-Input: gas  = [2,3,4]
-       cost = [3,4,3]
-Output: -1  # impossible
-```
-
-```
+```python
 from typing import List
 
 def canCompleteCircuit(gas: List[int], cost: List[int]) -> int:
@@ -1655,28 +1830,249 @@ def canCompleteCircuit(gas: List[int], cost: List[int]) -> int:
         diff = gas[i] - cost[i]
         total += diff
         tank += diff
-        if tank < 0:   # The current section cannot be continued, change the starting point
+        if tank < 0:   # cannot continue, reset starting point
             start = i + 1
             tank = 0
     return start if total >= 0 else -1
+
+# Quick checks
+print(canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2]))  # 3
+print(canCompleteCircuit([2,3,4], [3,4,3]))          # -1
 ```
 
 ## Phase 7: Backtracking
 
-- Subsets
-- Subsets II
-- Permutations
-- Permutations II
-- Combination Sum
-- Combination Sum II
-- Palindrome Partitioning
+- Subsets (78) — HF
+- Subsets II (90) — HF
+- Permutations (46) — HF
+- Permutations II (47) — HF
+- Combination Sum (39) — HF
+- Combination Sum II (40) — HF
 
-#### 7.1 Subsets
-#### 7.2 Subsets II
-#### 7.3 Permutations
-#### 7.4 Permutations II
-#### 7.5 Combination Sum
-#### 7.6 Combination Sum II
-#### 7.7 Palindrome Partitioning
+#### 7.1 Subsets — LeetCode 78
 
+**Problem**  
+Return all possible subsets (the power set) of an array of distinct integers.
+
+**Sample**  
+- Input: `nums = [1,2,3]`  
+- Output: `[[],[1],[2],[3],[1,2],[1,3],[2,3],[1,2,3]]`
+
+**Approach**  
+Backtrack over indices; at each index choose “take” or “not take”.
+
+```python
+from typing import List
+
+def subsets(nums: List[int]) -> List[List[int]]:
+    res, path = [], []
+    def dfs(i: int):
+        if i == len(nums):
+            res.append(path[:]); return
+        # not take
+        dfs(i + 1)
+        # take
+        path.append(nums[i])
+        dfs(i + 1)
+        path.pop()
+    dfs(0)
+    return res
+```
+
+#### 7.2 Subsets II — LeetCode 90
+
+**Problem**
+Return all subsets where `nums` may contain duplicates (results must be unique).
+
+**Sample**
+
+* Input: `nums = [1,2,2]`
+* Output: `[[],[1],[2],[1,2],[2,2],[1,2,2]]`
+
+**Approach**
+Sort first; during a level, skip same values: if `i > start and nums[i]==nums[i-1]` → continue.
+
+
+```python
+from typing import List
+
+def subsetsWithDup(nums: List[int]) -> List[List[int]]:
+    nums.sort()
+    res, path = [], []
+    def dfs(start: int):
+        res.append(path[:])
+        for i in range(start, len(nums)):
+            if i > start and nums[i] == nums[i-1]:
+                continue
+            path.append(nums[i])
+            dfs(i + 1)
+            path.pop()
+    dfs(0)
+    return res
+
+# Quick check
+print(subsetsWithDup([1,2,2]))
+```
+
+#### 7.3 Permutations — LeetCode 46
+
+**Problem**
+Return all permutations of distinct integers.
+
+**Sample**
+
+* Input: `nums = [1,2,3]`
+* Output: `[[1,2,3],[1,3,2],[2,1,3],...]`
+
+**Approach**
+Backtrack with a `used` array or swap in-place.
+
+
+```python
+from typing import List
+
+def permute(nums: List[int]) -> List[List[int]]:
+    res, path = [], []
+    used = [False] * len(nums)
+
+    def dfs():
+        if len(path) == len(nums):
+            res.append(path[:]); return
+        for i, v in enumerate(nums):
+            if used[i]: 
+                continue
+            used[i] = True
+            path.append(v)
+            dfs()
+            path.pop()
+            used[i] = False
+    dfs()
+    return res
+
+# Quick check
+print(permute([1,2,3]))
+```
+
+#### 7.4 Permutations II — LeetCode 47
+
+**Problem**
+Return all unique permutations when `nums` can contain duplicates.
+
+**Sample**
+
+* Input: `nums = [1,1,2]`
+* Output: `[[1,1,2],[1,2,1],[2,1,1]]`
+
+**Approach**
+Sort; skip duplicates within the same depth:
+`if i>0 and nums[i]==nums[i-1] and not used[i-1]: continue`.
+
+
+```python
+from typing import List
+
+def permuteUnique(nums: List[int]) -> List[List[int]]:
+    nums.sort()
+    res, path = [], []
+    used = [False] * len(nums)
+
+    def dfs():
+        if len(path) == len(nums):
+            res.append(path[:]); return
+        for i in range(len(nums)):
+            if used[i]: 
+                continue
+            if i > 0 and nums[i] == nums[i-1] and not used[i-1]:
+                # avoid generating duplicates at this depth
+                continue
+            used[i] = True
+            path.append(nums[i])
+            dfs()
+            path.pop()
+            used[i] = False
+    dfs()
+    return res
+
+# Quick check
+print(permuteUnique([1,1,2]))
+```
+
+#### 7.5 Combination Sum — LeetCode 39
+
+**Problem**
+Given distinct candidates and a target, find all unique combinations where the chosen numbers sum to target (a number may be used unlimited times).
+
+**Sample**
+
+* Input: `candidates = [2,3,6,7], target = 7`
+* Output: `[[7],[2,2,3]]`
+
+**Approach**
+Backtrack with index `start`; allow reuse by passing same `i` in next call. Prune when sum exceeds target.
+
+
+```python
+from typing import List
+
+def combinationSum(candidates: List[int], target: int) -> List[List[int]]:
+    candidates.sort()
+    res, path = [], []
+
+    def dfs(start: int, remain: int):
+        if remain == 0:
+            res.append(path[:]); return
+        for i in range(start, len(candidates)):
+            v = candidates[i]
+            if v > remain:
+                break
+            path.append(v)
+            dfs(i, remain - v)  # reuse allowed
+            path.pop()
+    dfs(0, target)
+    return res
+
+# Quick check
+print(combinationSum([2,3,6,7], 7))
+```
+
+
+#### 7.6 Combination Sum II — LeetCode 40
+
+**Problem**
+Given candidates (may contain duplicates) and a target, each number can be used once. Return unique combinations.
+
+**Sample**
+
+* Input: `candidates = [10,1,2,7,6,1,5], target = 8`
+* Output: `[[1,1,6],[1,2,5],[1,7],[2,6]]`
+
+**Approach**
+Sort, skip duplicates at the same `start` level, and advance index (`i+1`) to avoid reusing same element.
+
+
+```python
+from typing import List
+
+def combinationSum2(candidates: List[int], target: int) -> List[List[int]]:
+    candidates.sort()
+    res, path = [], []
+
+    def dfs(start: int, remain: int):
+        if remain == 0:
+            res.append(path[:]); return
+        for i in range(start, len(candidates)):
+            if i > start and candidates[i] == candidates[i-1]:
+                continue  # skip same value at this depth
+            v = candidates[i]
+            if v > remain:
+                break
+            path.append(v)
+            dfs(i + 1, remain - v)  # each element used once
+            path.pop()
+    dfs(0, target)
+    return res
+
+# Quick check
+print(combinationSum2([10,1,2,7,6,1,5], 8))
+```
 
