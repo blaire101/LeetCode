@@ -659,7 +659,8 @@ print("Smallest k numbers (k=3):", smallest_k([3, 2, 1, 5, 6, 4], 3))
 
 ---
 
-### Phase 3: Linked List
+## Phase 3: Linked List
+
 - Merge Two Sorted Lists
 - Reverse Linked List
 - Reverse Linked List II
@@ -673,34 +674,616 @@ print("Smallest k numbers (k=3):", smallest_k([3, 2, 1, 5, 6, 4], 3))
 
 ---
 
-### Phase 4: Dynamic Programming
-#### Basics
+## Phase 4: Dynamic Programming
+
+### Basics
+
 - Climbing Stairs
 - House Robber
 - Longest Increasing Subsequence
 - Coin Change
 
-#### Grid / Paths
+### Grid / Paths
 - Unique Paths
 - Unique Paths II
 - Minimum Path Sum
 
-#### Stocks
+### Stocks
 - Best Time to Buy and Sell Stock I
 - Best Time to Buy and Sell Stock II
 - Best Time to Buy and Sell Stock with Cooldown
 - Best Time to Buy and Sell Stock with Fee
 - Best Time to Buy and Sell Stock III
 
-#### Strings
+### Strings
 - Longest Palindromic Substring
 - Edit Distance
 - Longest Common Subsequence
 - Word Break
 
+### 4.1 Basics
+
+#### 1) Climbing Stairs — LeetCode 70
+
+**Sample**  
+
+- Input: `n = 3`  
+- Output: `3`  (ways: `[1+1+1], [1+2], [2+1]`)
+
+**Approach**  
+
+- DP relation: `dp[i] = dp[i-1] + dp[i-2]`  
+- Base: `dp[1] = 1`, `dp[2] = 2`
+
+**Python**
+
+```python
+def climbStairs(n: int) -> int:
+    if n <= 2:
+        return n
+    dp = [0] * (n + 1)
+    dp[1], dp[2] = 1, 2
+    for i in range(3, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+    return dp[n]
+```
+
+#### 2) House Robber — LeetCode 198
+**Problem**  
+Given a row of houses with non-negative integer money, you cannot rob adjacent houses. Return the maximum amount you can rob.
+
+**Sample**  
+
+- Input: `nums = [2,7,9,3,1]`  
+- Output: `12` (rob houses with 2, 9, 1)
+
+**Approach**  
+
+- DP: `dp[i] = max(dp[i-1], dp[i-2] + nums[i])`  
+- Base: `dp[0] = nums[0]`, `dp[1] = max(nums[0], nums[1])`
+
+**Python**
+
+```python
+from typing import List
+
+def rob(nums: List[int]) -> int:
+    if not nums:
+        return 0
+    if len(nums) == 1:
+        return nums[0]
+    dp = [0] * len(nums)
+    dp[0] = nums[0]
+    dp[1] = max(nums[0], nums[1])
+    for i in range(2, len(nums)):
+        dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])
+    return dp[-1]
+```
+
+#### 3) Longest Increasing Subsequence — LeetCode 300
+**Problem**  
+Given an integer array `nums`, return the length of the longest strictly increasing subsequence.
+
+**Sample**  
+
+- Input: `nums = [10,9,2,5,3,7,101,18]`  
+- Output: `4` (one LIS is `[2,3,7,101]`)
+
+**Approach**  
+
+- O(n²) DP: `dp[i] = max(dp[i], dp[j]+1)` for all `j < i` where `nums[i] > nums[j]`  
+- Initialize `dp[i] = 1`
+
+**Python**
+
+```python
+from typing import List
+
+def lengthOfLIS(nums: List[int]) -> int:
+    n = len(nums)
+    if n == 0:
+        return 0
+    dp = [1] * n
+    for i in range(n):
+        for j in range(i):
+            if nums[i] > nums[j]:
+                dp[i] = max(dp[i], dp[j] + 1)
+    return max(dp)
+```
+
+#### 4) Coin Change — LeetCode 322
+
+**Problem**  
+Given coins of different denominations and a total amount, return the fewest number of coins to make up that amount. If not possible, return `-1`.
+
+**Sample**  
+
+- Input: `coins = [1,2,5], amount = 11`  
+- Output: `3` (11 = 5 + 5 + 1)
+
+**Approach**  
+
+- Unbounded knapsack DP.  
+- Initialize `dp = [0] + [inf] * amount`.  
+- Transition: `dp[x] = min(dp[x], dp[x - c] + 1)` for each coin `c` and `x >= c`.
+
+**Python**
+
+```python
+from typing import List
+import math
+
+def coinChange(coins: List[int], amount: int) -> int:
+    dp = [math.inf] * (amount + 1)
+    dp[0] = 0
+    for c in coins:
+        for x in range(c, amount + 1):
+            dp[x] = min(dp[x], dp[x - c] + 1)
+    return dp[amount] if dp[amount] != math.inf else -1
+```
+
+### 4.2 Grid / Paths
+- Unique Paths
+- Unique Paths II
+- Minimum Path Sum
+
+### 4.2 Grid / Paths
+
+#### 1) Unique Paths — LeetCode 62
+
+**Problem**  
+A robot is located at the top-left of an `m x n` grid and can only move right or down. How many unique paths to bottom-right?
+
+**Sample**  
+- Input: `m = 3, n = 7`  
+- Output: `28`
+
+**Approach**  
+- DP with `dp[i][j] = dp[i-1][j] + dp[i][j-1]`.     
+- Initialize the first row/column to 1.  
+
+**Python**
+
+```python
+def uniquePaths(m: int, n: int) -> int:
+    dp = [[1] * n for _ in range(m)]
+    for i in range(1, m):
+        for j in range(1, n):
+            dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+    return dp[-1][-1]
+
+# Example
+print(uniquePaths(3, 7))  # 28
+```
+
 ---
 
-### Phase 5: DFS / BFS
+#### 2) Unique Paths II — LeetCode 63
+
+**Problem**
+A robot is located at the top-left of an `m x n` grid and can only move right or down. Some cells are blocked by obstacles (`1`).
+Find the number of unique paths to bottom-right.
+
+**Sample**
+
+* Input:
+
+  ```
+  obstacleGrid =
+  [
+    [0,0,0],
+    [0,1,0],
+    [0,0,0]
+  ]
+  ```
+* Output: `2`
+
+**Approach**
+
+* DP with `dp[i][j] = dp[i-1][j] + dp[i][j-1]` if no obstacle.
+* If obstacle at `[i][j]`, set `dp[i][j] = 0`.
+
+**Python**
+
+```python
+from typing import List
+
+def uniquePathsWithObstacles(obstacleGrid: List[List[int]]) -> int:
+    m, n = len(obstacleGrid), len(obstacleGrid[0])
+    dp = [[0] * n for _ in range(m)]
+    
+    # Start position
+    dp[0][0] = 1 if obstacleGrid[0][0] == 0 else 0
+    
+    # Fill dp table
+    for i in range(m):
+        for j in range(n):
+            if obstacleGrid[i][j] == 1:
+                dp[i][j] = 0
+            else:
+                if i > 0:
+                    dp[i][j] += dp[i - 1][j]
+                if j > 0:
+                    dp[i][j] += dp[i][j - 1]
+    
+    return dp[-1][-1]
+
+# Example
+print(uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]]))  # 2
+```
+
+
+#### 3) Minimum Path Sum — LeetCode 64
+
+**Problem**
+Given a grid filled with non-negative numbers, find a path from top-left to bottom-right that minimizes the sum of all numbers along the path.
+You can only move right or down.
+
+**Sample**
+
+* Input:
+
+  ```
+  grid =
+  [
+    [1,3,1],
+    [1,5,1],
+    [4,2,1]
+  ]
+  ```
+* Output: `7`
+  (Path = `1 → 3 → 1 → 1 → 1`)
+
+**Approach**
+
+* DP with `dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])`.
+* Initialize first row and first column.
+
+**Python**
+
+```python
+from typing import List
+
+def minPathSum(grid: List[List[int]]) -> int:
+    m, n = len(grid), len(grid[0])
+    dp = [[0] * n for _ in range(m)]
+    
+    dp[0][0] = grid[0][0]
+    
+    # First row
+    for j in range(1, n):
+        dp[0][j] = dp[0][j - 1] + grid[0][j]
+    
+    # First column
+    for i in range(1, m):
+        dp[i][0] = dp[i - 1][0] + grid[i][0]
+    
+    # Rest of grid
+    for i in range(1, m):
+        for j in range(1, n):
+            dp[i][j] = grid[i][j] + min(dp[i - 1][j], dp[i][j - 1])
+    
+    return dp[-1][-1]
+
+print(minPathSum([[1,3,1],[1,5,1],[4,2,1]]))  # 7
+```
+
+
+### 4.3 Stocks
+
+#### 1) Best Time to Buy and Sell Stock I — LeetCode 121
+
+**Problem**  
+Given an array of prices, find the maximum profit with **one transaction** (buy once, sell once).
+
+**Sample**  
+- Input: `prices = [7,1,5,3,6,4]`  
+- Output: `5` (buy at 1, sell at 6)
+
+**Approach**  
+- Track minimum price seen so far.  
+- Profit = `price - min_price`.  
+- Update max profit each day.  
+
+**Python**
+
+```python
+from typing import List
+
+def maxProfit_I(prices: List[int]) -> int:
+    min_price = float('inf')
+    max_profit = 0
+    for price in prices:
+        min_price = min(min_price, price)
+        max_profit = max(max_profit, price - min_price)
+    return max_profit
+
+# Example
+print(maxProfit_I([7,1,5,3,6,4]))  # 5
+```
+
+
+#### 2) Best Time to Buy and Sell Stock II — LeetCode 122
+
+**Problem**
+You can complete multiple transactions (buy and sell many times).
+Find the maximum profit.
+
+**Sample**
+
+* Input: `prices = [7,1,5,3,6,4]`
+* Output: `7` (buy at 1→sell at 5, buy at 3→sell at 6)
+
+**Approach**
+
+* Every increase contributes to profit.
+* Sum all `prices[i] - prices[i-1]` where positive.
+
+**Python**
+
+```python
+def maxProfit_II(prices: List[int]) -> int:
+    profit = 0
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i - 1]:
+            profit += prices[i] - prices[i - 1]
+    return profit
+
+# Example
+print(maxProfit_II([7,1,5,3,6,4]))  # 7
+```
+
+#### 3) Best Time to Buy and Sell Stock with Cooldown — LeetCode 309
+
+**Problem**
+You may not buy stock the day right after selling (cooldown 1 day).
+
+**Sample**
+
+* Input: `prices = [1,2,3,0,2]`
+* Output: `3`
+
+**Approach (DP)**
+
+* `hold[i]`: max profit when holding stock.
+* `sold[i]`: max profit when just sold.
+* `rest[i]`: max profit when cooldown.
+
+**Python**
+
+```python
+def maxProfit_cooldown(prices: List[int]) -> int:
+    if not prices:
+        return 0
+    n = len(prices)
+    hold = [-float('inf')] * n
+    sold = [0] * n
+    rest = [0] * n
+
+    hold[0] = -prices[0]
+    for i in range(1, n):
+        hold[i] = max(hold[i - 1], rest[i - 1] - prices[i])
+        sold[i] = hold[i - 1] + prices[i]
+        rest[i] = max(rest[i - 1], sold[i - 1])
+    return max(sold[-1], rest[-1])
+
+# Example
+print(maxProfit_cooldown([1,2,3,0,2]))  # 3
+```
+
+
+#### 4) Best Time to Buy and Sell Stock with Fee — LeetCode 714
+
+**Problem**
+You pay a transaction fee for each trade.
+
+**Sample**
+
+* Input: `prices = [1,3,2,8,4,9]`, `fee = 2`
+* Output: `8`
+
+**Approach (DP)**
+
+* `hold`: max profit when holding stock.
+* `cash`: max profit when not holding.
+
+**Python**
+
+```python
+def maxProfit_fee(prices: List[int], fee: int) -> int:
+    hold, cash = -prices[0], 0
+    for price in prices[1:]:
+        hold = max(hold, cash - price)
+        cash = max(cash, hold + price - fee)
+    return cash
+
+# Example
+print(maxProfit_fee([1,3,2,8,4,9], 2))  # 8
+```
+
+---
+
+#### 5) Best Time to Buy and Sell Stock III — LeetCode 123
+
+**Problem**
+At most 2 transactions.
+
+**Sample**
+
+* Input: `prices = [3,3,5,0,0,3,1,4]`
+* Output: `6`
+
+**Approach (DP)**
+
+* Track 4 states: buy1, sell1, buy2, sell2.
+
+**Python**
+
+```python
+def maxProfit_III(prices: List[int]) -> int:
+    buy1, sell1 = float('-inf'), 0
+    buy2, sell2 = float('-inf'), 0
+    for p in prices:
+        buy1 = max(buy1, -p)
+        sell1 = max(sell1, buy1 + p)
+        buy2 = max(buy2, sell1 - p)
+        sell2 = max(sell2, buy2 + p)
+    return sell2
+
+# Example
+print(maxProfit_III([3,3,5,0,0,3,1,4]))  # 6
+```
+
+### 4.4 Strings
+
+#### 1) Longest Palindromic Substring — LeetCode 5
+
+**Problem**
+Find the longest palindromic substring in a given string.
+
+**Sample**
+
+* Input: `s = "babad"`
+* Output: `"bab"` (or `"aba"`)
+
+**Approach (DP)**
+
+* `dp[i][j] = True` if `s[i] == s[j]` and inside substring is palindrome.
+
+**Python**
+
+```python
+def longestPalindrome(s: str) -> str:
+    n = len(s)
+    dp = [[False] * n for _ in range(n)]
+    ans = ""
+    for l in range(n):
+        for i in range(n - l):
+            j = i + l
+            if s[i] == s[j] and (l < 2 or dp[i + 1][j - 1]):
+                dp[i][j] = True
+                if l + 1 > len(ans):
+                    ans = s[i:j+1]
+    return ans
+
+# Example
+print(longestPalindrome("babad"))  # "bab" or "aba"
+```
+
+---
+
+#### 2) Edit Distance — LeetCode 72
+
+**Problem**
+Given two words, find the minimum operations (insert, delete, replace) to convert word1 to word2.
+
+**Sample**
+
+* Input: `word1 = "horse"`, `word2 = "ros"`
+* Output: `3`
+
+**Approach (DP)**
+
+* `dp[i][j]`: min ops to convert `word1[:i]` to `word2[:j]`.
+
+**Python**
+
+```python
+def minDistance(word1: str, word2: str) -> int:
+    m, n = len(word1), len(word2)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    for i in range(m + 1):
+        dp[i][0] = i
+    for j in range(n + 1):
+        dp[0][j] = j
+
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if word1[i - 1] == word2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1]
+            else:
+                dp[i][j] = 1 + min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1])
+    return dp[m][n]
+
+# Example
+print(minDistance("horse", "ros"))  # 3
+```
+
+
+#### 3) Longest Common Subsequence — LeetCode 1143
+
+**Problem**
+Find the length of longest subsequence common to two strings.
+
+**Sample**
+
+* Input: `text1 = "abcde"`, `text2 = "ace"`
+* Output: `3`
+
+**Approach (DP)**
+
+* `dp[i][j]`: LCS of `text1[:i]`, `text2[:j]`.
+
+**Python**
+
+```python
+def longestCommonSubsequence(text1: str, text2: str) -> int:
+    m, n = len(text1), len(text2)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if text1[i - 1] == text2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+    return dp[m][n]
+
+# Example
+print(longestCommonSubsequence("abcde", "ace"))  # 3
+```
+
+---
+
+#### 4) Word Break — LeetCode 139
+
+**Problem**
+Given a string and a dictionary of words, determine if the string can be segmented into dictionary words.
+
+**Sample**
+
+* Input: `s = "leetcode"`, `wordDict = ["leet","code"]`
+* Output: `True`
+
+**Approach (DP)**
+
+* `dp[i]`: can `s[:i]` be segmented.
+
+**Python**
+
+```python
+from typing import List
+
+def wordBreak(s: str, wordDict: List[str]) -> bool:
+    wordSet = set(wordDict)
+    n = len(s)
+    dp = [False] * (n + 1)
+    dp[0] = True
+    for i in range(1, n + 1):
+        for j in range(i):
+            if dp[j] and s[j:i] in wordSet:
+                dp[i] = True
+                break
+    return dp[n]
+
+# Example
+print(wordBreak("leetcode", ["leet","code"]))  # True
+```
+
+---
+
+
+## Phase 5: DFS / BFS
+
 - Word Search in Matrix
 - Robot Movement Range (BFS)
 - Number of Islands
@@ -710,9 +1293,300 @@ print("Smallest k numbers (k=3):", smallest_k([3, 2, 1, 5, 6, 4], 3))
 - Clone Graph
 - Network Delay Time
 
+
+#### 5.1 Word Search in Matrix — LeetCode 79
+
+**Problem**  
+Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from sequentially adjacent cells (horizontally or vertically), but the same letter cell cannot be used more than once.
+
+**Sample**  
+- Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"  
+- Output: True  
+
+**Approach**  
+- Use DFS with backtracking.  
+- Mark visited cell temporarily, explore 4 directions, then restore.  
+
+**Python**
+```python
+def exist(board, word):
+    rows, cols = len(board), len(board[0])
+
+    def dfs(i, j, k):
+        if k == len(word):
+            return True
+        if i < 0 or i >= rows or j < 0 or j >= cols or board[i][j] != word[k]:
+            return False
+        tmp, board[i][j] = board[i][j], "#"
+        found = (dfs(i+1,j,k+1) or dfs(i-1,j,k+1) or dfs(i,j+1,k+1) or dfs(i,j-1,k+1))
+        board[i][j] = tmp
+        return found
+
+    for i in range(rows):
+        for j in range(cols):
+            if dfs(i,j,0):
+                return True
+    return False
+```
+
+#### 5.2 Robot Movement Range (BFS) — Offer 13
+
+**Problem**
+A robot starts at (0,0) in an m×n grid. It can move up/down/left/right, but cannot enter a cell where the sum of digits of row+col > k. Count how many cells can be reached.
+
+**Sample**
+
+* Input: m=2, n=3, k=1
+* Output: 3
+
+**Approach**
+
+* BFS from (0,0).
+* Check digit sum constraint, use visited set.
+
+**Python**
+
+```python
+def movingCount(m: int, n: int, k: int) -> int:
+    from collections import deque
+    def digit_sum(x): return sum(map(int, str(x)))
+    q = deque([(0,0)])
+    visited = set()
+    while q:
+        i,j = q.popleft()
+        if not (0 <= i < m and 0 <= j < n): continue
+        if digit_sum(i)+digit_sum(j) > k or (i,j) in visited: continue
+        visited.add((i,j))
+        q.append((i+1,j)); q.append((i,j+1))
+    return len(visited)
+```
+
+
+#### 5.3 Number of Islands — LeetCode 200
+
+**Problem**
+Given a 2D grid of '1' (land) and '0' (water), count the number of islands.
+
+**Sample**
+
+* Input: grid =
+
+```
+11110
+11010
+11000
+00000
+```
+
+* Output: 1
+
+**Approach**
+
+* DFS flood fill. Mark visited as '0'.
+
+**Python**
+
+```python
+def numIslands(grid):
+    if not grid: return 0
+    rows, cols = len(grid), len(grid[0])
+    def dfs(i,j):
+        if i<0 or j<0 or i>=rows or j>=cols or grid[i][j] != "1": return
+        grid[i][j] = "0"
+        dfs(i+1,j); dfs(i-1,j); dfs(i,j+1); dfs(i,j-1)
+
+    count=0
+    for i in range(rows):
+        for j in range(cols):
+            if grid[i][j]=="1":
+                dfs(i,j); count+=1
+    return count
+```
+
+
+#### 5.4 Course Schedule — LeetCode 207
+
+**Problem**
+Given numCourses and prerequisites, check if you can finish all courses (detect cycle in directed graph).
+
+**Sample**
+
+* Input: numCourses=2, prerequisites=\[\[1,0]]
+* Output: True
+
+**Approach**
+
+* Use topological sort (BFS indegree).
+* If processed count == numCourses → True.
+
+**Python**
+
+```python
+from collections import deque
+
+def canFinish(numCourses, prerequisites):
+    indeg = [0]*numCourses
+    g = [[] for _ in range(numCourses)]
+    for a,b in prerequisites:
+        g[b].append(a)
+        indeg[a]+=1
+    q = deque([i for i in range(numCourses) if indeg[i]==0])
+    visited=0
+    while q:
+        u=q.popleft(); visited+=1
+        for v in g[u]:
+            indeg[v]-=1
+            if indeg[v]==0: q.append(v)
+    return visited==numCourses
+```
+
+
+#### 5.5 Course Schedule II — LeetCode 210
+
+**Problem**
+Return one valid order to finish all courses (topological ordering).
+
+**Sample**
+
+* Input: numCourses=2, prerequisites=\[\[1,0]]
+* Output: \[0,1]
+
+**Approach**
+
+* BFS topological sort, collect order.
+
+**Python**
+
+```python
+def findOrder(numCourses, prerequisites):
+    from collections import deque
+    indeg = [0]*numCourses
+    g=[[] for _ in range(numCourses)]
+    for a,b in prerequisites:
+        g[b].append(a); indeg[a]+=1
+    q=deque([i for i in range(numCourses) if indeg[i]==0])
+    order=[]
+    while q:
+        u=q.popleft(); order.append(u)
+        for v in g[u]:
+            indeg[v]-=1
+            if indeg[v]==0: q.append(v)
+    return order if len(order)==numCourses else []
+```
+
+#### 5.6 Word Ladder — LeetCode 127
+
+**Problem**
+Shortest transformation sequence from beginWord to endWord by changing one letter at a time, each intermediate word must be in wordList.
+
+**Sample**
+
+* Input: beginWord="hit", endWord="cog", wordList=\["hot","dot","dog","lot","log","cog"]
+* Output: 5 ("hit"→"hot"→"dot"→"dog"→"cog")
+
+**Approach**
+
+* BFS from beginWord, generate neighbors by replacing each letter.
+
+**Python**
+
+```python
+from collections import deque
+
+def ladderLength(beginWord, endWord, wordList):
+    wordSet=set(wordList)
+    if endWord not in wordSet: return 0
+    q=deque([(beginWord,1)])
+    while q:
+        word,steps=q.popleft()
+        if word==endWord: return steps
+        for i in range(len(word)):
+            for c in "abcdefghijklmnopqrstuvwxyz":
+                nxt=word[:i]+c+word[i+1:]
+                if nxt in wordSet:
+                    wordSet.remove(nxt)
+                    q.append((nxt,steps+1))
+    return 0
+```
+
+
+#### 5.7 Clone Graph — LeetCode 133
+
+**Problem**
+Clone an undirected graph given a reference node.
+
+**Sample**
+
+* Input: Node 1 connected to \[2,4]...
+* Output: Deep copy graph.
+
+**Approach**
+
+* DFS/BFS with hashmap old→new node.
+
+**Python**
+
+```python
+class Node:
+    def __init__(self, val=0, neighbors=None):
+        self.val=val
+        self.neighbors=neighbors if neighbors else []
+
+def cloneGraph(node):
+    if not node: return None
+    old2new={}
+    def dfs(n):
+        if n in old2new: return old2new[n]
+        copy=Node(n.val)
+        old2new[n]=copy
+        for nei in n.neighbors:
+            copy.neighbors.append(dfs(nei))
+        return copy
+    return dfs(node)
+```
+
 ---
 
-### Phase 6: Greedy
+#### 5.8 Network Delay Time — LeetCode 743
+
+**Problem**
+Given travel times on directed weighted edges, find time for all nodes to receive signal sent from source k. Return -1 if impossible.
+
+**Sample**
+
+* Input: times=\[\[2,1,1],\[2,3,1],\[3,4,1]], n=4, k=2
+* Output: 2
+
+**Approach**
+
+* Dijkstra with min-heap.
+
+**Python**
+
+```python
+import heapq
+
+def networkDelayTime(times, n, k):
+    g=[[] for _ in range(n+1)]
+    for u,v,w in times:
+        g[u].append((v,w))
+    dist={i:float('inf') for i in range(1,n+1)}
+    dist[k]=0
+    h=[(0,k)]
+    while h:
+        d,u=heapq.heappop(h)
+        if d>dist[u]: continue
+        for v,w in g[u]:
+            if d+w<dist[v]:
+                dist[v]=d+w
+                heapq.heappush(h,(dist[v],v))
+    ans=max(dist.values())
+    return ans if ans<float('inf') else -1
+```
+
+
+## Phase 6: Greedy
+
 - Jump Game I
 - Jump Game II
 - Gas Station
@@ -787,7 +1661,8 @@ def canCompleteCircuit(gas: List[int], cost: List[int]) -> int:
     return start if total >= 0 else -1
 ```
 
-### Phase 7: Backtracking
+## Phase 7: Backtracking
+
 - Subsets
 - Subsets II
 - Permutations
@@ -795,5 +1670,13 @@ def canCompleteCircuit(gas: List[int], cost: List[int]) -> int:
 - Combination Sum
 - Combination Sum II
 - Palindrome Partitioning
+
+#### 7.1 Subsets
+#### 7.2 Subsets II
+#### 7.3 Permutations
+#### 7.4 Permutations II
+#### 7.5 Combination Sum
+#### 7.6 Combination Sum II
+#### 7.7 Palindrome Partitioning
 
 
