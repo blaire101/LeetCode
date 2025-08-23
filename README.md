@@ -297,6 +297,9 @@ print("Merge Sort:", merge_sort([3, 6, 2, 8, 1, 5]))
 
 #### 1.5 Arrange Array to Minimum Number (cmp_to_key)
 
+👉 If you can use key, always use key (more efficient).
+👉 Only use <mark>cmp_to_key when you need a custom comparison rule.</mark>
+
 **Sample**
 - Input: `[3, 30, 34, 5, 9]`
 - Output: `"3033459"`
@@ -321,6 +324,25 @@ def min_number(nums: List[int]) -> str:
     return res or "0"
 # Example
 print(min_number([3, 30, 34, 5, 9]))  # "3033459"
+```
+
+**📌 Difference: <mark>sorted() vs list.sort()</mark>**
+
+- list.sort(): Sorts in place, directly modifies the original list, and returns None.
+- sorted(): Creates a new list, does not modify the original object, and returns the sorted list.
+
+```python
+nums = [3, 1, 4, 1, 5, 9]
+print(sorted(nums))         # [1, 1, 3, 4, 5, 9]
+print(sorted(nums, reverse=True))  # [9, 5, 4, 3, 1, 1]
+
+scores = {"Tom": 90, "Alice": 85, "Bob": 95}
+
+print(sorted(scores))  
+# ['Alice', 'Bob', 'Tom']
+
+print(sorted(scores.items(), key=lambda x: x[1]))  
+# [('Alice', 85), ('Tom', 90), ('Bob', 95)]
 ```
 
 #### 1.6 Search Insert Position - Binary Search lower_bound
