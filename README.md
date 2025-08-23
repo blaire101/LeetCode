@@ -309,7 +309,7 @@ from functools import cmp_to_key
 from typing import List
 
 def min_number(nums: List[int]) -> str:
-    strs = list(map(str, nums))
+    strs = list(map(str, nums))  # map(func, iterable)
 
     def cmp(a: str, b: str) -> int:
         if a + b < b + a: return -1
