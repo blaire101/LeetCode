@@ -332,7 +332,7 @@ Input: nums = [1,3,5,6], target = 5 → Output: 2
 Input: nums = [1,3,5,6], target = 2 → Output: 1
 ```
 
-Idea (Binary Search): Standard lower_bound.
+Idea (Binary Search): Standard lower_bound. - nums[m] >= target
 
 ```python
 from typing import List
@@ -341,9 +341,9 @@ def search_insert(nums: List[int], target: int) -> int:
     l, r = 0, len(nums)
     while l < r:
         m = (l + r) // 2
-        if nums[m] < target:
+        if nums[m] < target:   # The answer is on the right.
             l = m + 1
-        else:
+        else:          # nums[m] >= target
             r = m
     return l
 
