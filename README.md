@@ -9,7 +9,7 @@
 	
 ### Arrays & Sorting
 - Sort Array (912, Quick Sort / Merge Sort)  
-- Merge Sorted Array (88)  
+- Merge Sorted Array (88)    **append, pop, extend**
 - Arrange Array to Minimum Number (剑指 Offer)  
 - Search Insert Position (35)  
 - Merge Intervals (56) - HF  
