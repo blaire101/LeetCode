@@ -1111,7 +1111,7 @@ def lengthOfLIS(nums: List[int]) -> int:
     return max(dp)
 ```
 
-#### 4) Coin Change — LeetCode 322
+#### 4) Coin Change — LeetCode 322 （Unbounded knapsack DP）
 
 **Problem**  
 Given coins of different denominations and a total amount, return the fewest number of coins to make up that amount. If not possible, return `-1`.
