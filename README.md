@@ -1322,7 +1322,7 @@ Find the maximum profit.
 * Input: `prices = [7,1,5,3,6,4]`
 * Output: `7` (buy at 1→sell at 5, buy at 3→sell at 6)
 
-**Approach**
+**Approach - Greedy**
 
 * Every increase contributes to profit.
 * Sum all `prices[i] - prices[i-1]` where positive.
@@ -1337,6 +1337,16 @@ def maxProfit_II(prices: List[int]) -> int:
 
 # Example
 print(maxProfit_II([7,1,5,3,6,4]))  # 7
+```
+
+**Approach - DP**
+
+```python
+hold, cash = -prices[0], 0
+for price in prices[1:]:
+    hold = max(hold, cash - price)
+    cash = max(cash, hold + price)
+return cash
 ```
 
 #### 3) Best Time to Buy and Sell Stock with Cooldown — LeetCode 309
