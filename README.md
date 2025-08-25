@@ -7,7 +7,7 @@
 - [Phase 3: Linked List](#phase-3-linked-list)
 - [Phase 4: Dynamic Programming](#phase-4-dynamic-programming)
 - [Phase 5: DFS / BFS](#phase-5-dfs--bfs)
-- [Phase 6: Greedy](#phase-6-greedy)
+- [Phase 6: Greedy](#phase-6-greedy-2)
 - [Phase 7: Backtracking](#phase-7-backtracking)
 
 ## Phase 1: Fundamentals 
