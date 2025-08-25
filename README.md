@@ -2,7 +2,7 @@
 
 ## 📚 Table of Contents
 
-- [Phase 1: Fundamentals ](#phase-1-fundamentals-1)
+- [Phase 1: Fundamentals](#phase-1-fundamentals-1)
 - [Phase 2: Heap, Stack & Queue](#phase-2-heap-stack--queue-1)
 - [Phase 3: Linked List](#phase-3-linked-list)
 - [Phase 4: Dynamic Programming](#phase-4-dynamic-programming)
@@ -42,7 +42,7 @@
 - Sliding Window Maximum (239) - HF  
 - Minimum Window Substring (76) - HF  
 
-## Phase 2: Heap, Stack & Queue
+## Phase 2: Heap & Stack & Queue
 
 ### Heap
 - Kth Largest Element in an Array (215) - HF  
@@ -57,14 +57,15 @@
 - Flatten Nested List Iterator (341)  
 
 
-## Phase 3: Linked List
+## Phase 3: Linked List QA
+
 - Merge Two Sorted Lists (21) - HF  
 - Reverse Linked List (206) - HF  
 - Remove Duplicates from Sorted List II (82)  
 - Linked List Cycle (141) - HF  
 
 
-## Phase 4: Dynamic Programming
+## Phase 4: Dynamic Programming - DP
 
 ### Basics
 - Climbing Stairs (70) - HF  
@@ -106,7 +107,8 @@
 - Gas Station (134) - HF  
 
 
-## Phase 7: Backtracking
+## Phase 7: Backtracking HF
+
 - Subsets (78) - HF  
 - Subsets II (90) - HF  
 - Permutations (46) - HF  
