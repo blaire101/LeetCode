@@ -6,7 +6,7 @@
 - [Phase 2: Heap, Stack & Queue](#phase-2-heap-stack--queue-1)
 - [Phase 3: Linked List](#phase-3-linked-list)
 - [Phase 4: Dynamic Programming](#phase-4-dynamic-programming)
-- [Phase 5: DFS / BFS](#phase-5-dfs--bfs)
+- [Phase 5: DFS / BFS](#phase-5-dfs--bfs-1)
 - [Phase 6: Greedy](#phase-6-greedy-2)
 - [Phase 7: Backtracking](#phase-7-backtracking)
 
