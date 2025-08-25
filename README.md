@@ -1,5 +1,14 @@
 # 🌅 LeetCode Handbook 
 
+## 📚 Table of Contents
+
+- [Phase 1: Fundamentals ](#phase-1-fundamentals-1)
+- [Phase 2: Heap, Stack & Queue](#-2-execution-model)
+- [Phase 3: Linked List](#-3-shuffle--partitioning)
+- [Phase 4: Dynamic Programming](#4-data-skewskewness)
+- [Phase 5: DFS / BFS](#5-general-spark-tuning-skew-indirectly-helpful)
+- [Phase 7: Backtracking](#6--spark-qa)
+
 ## Phase 1: Fundamentals 
 	
 ### Arrays & Hashing
