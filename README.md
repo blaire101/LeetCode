@@ -3,7 +3,7 @@
 ## 📚 Table of Contents
 
 - [Phase 1: Fundamentals](#phase-1-fundamentals-1)
-- [Phase 2: Heap, Stack & Queue](#phase-2-heap-stack--queue-1)
+- [Phase 2: Heap, Stack & Queue](#phase-2-heap-stack--queue)
 - [Phase 3: Linked List](#phase-3-linked-list)
 - [Phase 4: Dynamic Programming](#phase-4-dynamic-programming)
 - [Phase 5: DFS / BFS](#phase-5-dfs--bfs)
@@ -42,7 +42,7 @@
 - Sliding Window Maximum (239) - HF  
 - Minimum Window Substring (76) - HF  
 
-## Phase 2: Heap & Stack & Queue
+## Phase 2: Heap, Stack & Queue
 
 ### Heap
 - Kth Largest Element in an Array (215) - HF  
