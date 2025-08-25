@@ -4,11 +4,11 @@
 
 - [Phase 1: Fundamentals](#phase-1-fundamentals-1)
 - [Phase 2: Heap, Stack & Queue](#phase-2-heap-stack--queue-1)
-- [Phase 3: Linked List](#phase-3-linked-list)
-- [Phase 4: Dynamic Programming](#phase-4-dynamic-programming)
+- [Phase 3: Linked List](#phase-3-linked-list-1)
+- [Phase 4: Dynamic Programming](#phase-4-dynamic-programming-1)
 - [Phase 5: DFS / BFS](#phase-5-dfs--bfs-1)
 - [Phase 6: Greedy](#phase-6-greedy-2)
-- [Phase 7: Backtracking](#phase-7-backtracking)
+- [Phase 7: Backtracking](#phase-7-backtracking-1)
 
 ## Phase 1: Fundamentals 
 	
@@ -57,7 +57,7 @@
 - Flatten Nested List Iterator (341)  
 
 
-## Phase 3: Linked List QA
+## Phase 3: Linked List
 
 - Merge Two Sorted Lists (21) - HF  
 - Reverse Linked List (206) - HF  
@@ -65,7 +65,7 @@
 - Linked List Cycle (141) - HF  
 
 
-## Phase 4: Dynamic Programming - DP
+## Phase 4: Dynamic Programming
 
 ### Basics
 - Climbing Stairs (70) - HF  
@@ -107,7 +107,7 @@
 - Gas Station (134) - HF  
 
 
-## Phase 7: Backtracking HF
+## Phase 7: Backtracking
 
 - Subsets (78) - HF  
 - Subsets II (90) - HF  
