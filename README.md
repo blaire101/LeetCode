@@ -1,6 +1,8 @@
 # 🌅 LeetCode Handbook 
 
 ```python
+from collections import deque # dq = deque()  dq.popleft()  dq.pop()  dq.append(i)  # maintain decreasing values
+from typing import List
 strs = list(map(str, nums)) # map(func, iterable)
 strs = [str(x) for x in nums]
 
@@ -8,6 +10,8 @@ scores = {"Alice": 90, "Bob": 85, "Cathy": 92}
 print(scores.items()) # Output: dict_items([('Alice', 90), ('Bob', 85), ('Cathy', 92)])
 heapq.heappush(end_times, end)
 heapq.heappop(end_times)
+
+res.append(list(range(left, right + 1)))
 ```
 
 ## 📚 Table of Contents
