@@ -13,7 +13,8 @@ heapq.heappop(end_times)
 
 res.append(list(range(left, right + 1)))
 from collections import Counter # t = "ABC" need = Counter(t) is Counter({'A': 1, 'B': 1, 'C': 1})
-return heapq.nlargest(k, nums) # heapq.nlargest(2, [3, 2, 1, 5, 6, 4]) → [6, 5]
+
+heapq.nlargest(k, nums) # heapq.nlargest(2, [3, 2, 1, 5, 6, 4]) → [6, 5]
 ```
 
 ## 📚 Table of Contents
