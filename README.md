@@ -20,6 +20,7 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+# O(n²) DP: dp[i] = max(dp[i], dp[j]+1) for all j < i where nums[i] > nums[j]
 ```
 
 ## 📚 Table of Contents
