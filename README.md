@@ -2,7 +2,11 @@
 
 ```python
 strs = list(map(str, nums)) # map(func, iterable)
-strs = [str(x) for x in nums]  
+strs = [str(x) for x in nums]
+
+scores = {"Alice": 90, "Bob": 85, "Cathy": 92}
+print(scores.items())
+# Output: dict_items([('Alice', 90), ('Bob', 85), ('Cathy', 92)])
 ```
 
 ## 📚 Table of Contents
