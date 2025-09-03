@@ -1,5 +1,10 @@
 # 🌅 LeetCode Handbook 
 
+```python
+strs = list(map(str, nums)) # map(func, iterable)
+strs = [str(x) for x in nums]  
+```
+
 ## 📚 Table of Contents
 
 - [Phase 1: Fundamentals](#phase-1-fundamentals-1)
