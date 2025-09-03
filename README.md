@@ -5,8 +5,9 @@ strs = list(map(str, nums)) # map(func, iterable)
 strs = [str(x) for x in nums]
 
 scores = {"Alice": 90, "Bob": 85, "Cathy": 92}
-print(scores.items())
-# Output: dict_items([('Alice', 90), ('Bob', 85), ('Cathy', 92)])
+print(scores.items()) # Output: dict_items([('Alice', 90), ('Bob', 85), ('Cathy', 92)])
+heapq.heappush(end_times, end)
+heapq.heappop(end_times)
 ```
 
 ## 📚 Table of Contents
