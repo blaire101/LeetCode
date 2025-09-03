@@ -22,6 +22,7 @@ class ListNode:
         self.next = next
 # O(n²) DP: dp[i] = max(dp[i], dp[j]+1) for all j < i where nums[i] > nums[j]
 # dp = [math.inf] * (amount + 1)， dp[x] = min(dp[x], dp[x - c] + 1)
+# DP: dp = [[1] * n for _ in range(m)]
 ```
 
 ## 📚 Table of Contents
