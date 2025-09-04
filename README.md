@@ -1452,6 +1452,28 @@ def maxProfit_fee(prices: List[int], fee: int) -> int:
 print(maxProfit_fee([1,3,2,8,4,9], 2))  # 8
 ```
 
+```python
+from typing import List
+
+def maxProfit_fee(prices: List[int], fee: int) -> int:
+    n = len(prices)
+    if n == 0:
+        return 0
+    hold = [0] * n
+    cash = [0] * n
+    # Day 0
+    hold[0] = -prices[0]    # buy stock
+    cash[0] = 0             # no stock
+    for i in range(1, n):
+        # Either keep holding or buy today
+        hold[i] = max(hold[i-1], cash[i-1] - prices[i])
+        # Either keep not holding or sell today (pay fee)
+        cash[i] = max(cash[i-1], hold[i-1] + prices[i] - fee)
+    return cash[-1]
+# Example
+print(maxProfit_fee([1,3,2,8,4,9], 2))  # Output: 8
+```
+
 ---
 
 #### 5) Best Time to Buy and Sell Stock III — LeetCode 123
