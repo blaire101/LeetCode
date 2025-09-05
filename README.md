@@ -15,6 +15,9 @@ res.append(list(range(left, right + 1)))
 from collections import Counter # t = "ABC" need = Counter(t) is Counter({'A': 1, 'B': 1, 'C': 1})
 
 heapq.nlargest(k, nums) # heapq.nlargest(2, [3, 2, 1, 5, 6, 4]) → [6, 5]
+d = {"a": 3, "b": 1, "c": 2, "d": 8, "e": 5}
+k = 2
+topk_keys = heapq.nlargest(k, d, key=d.get)
 
 class ListNode:
     def __init__(self, val=0, next=None):
