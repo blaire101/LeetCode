@@ -166,19 +166,19 @@ Output: [[0,1]]
 Solution (HashMap / Dictionary)
 
 ```python
-def two_sum_all(nums, target):
-    hashmap = {}
-    results = []
-    for i, num in enumerate(nums):
-        if target - num in hashmap:
-            results.append([hashmap[target - num], i])
-        hashmap[num] = i
-    return results
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
+        for i, num in enumerate(nums):
+            if target - num in hashmap:
+                return [hashmap[target - num], i]
+            hashmap[num] = i
+        return None
 
 nums = [2, 7, 10, 15]
-target = 17
-print(two_sum_all(nums, target))  
-# Output: [[1, 2]]   (7 + 10 = 17)
+target = 9
+print(Solution.twoSum(nums, target))  
+# Output: [0, 1]   (2 + 7 = 9)
 ```
 
 
