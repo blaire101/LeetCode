@@ -103,7 +103,7 @@ class ListNode:
 - Sliding Window Maximum (239) - HF  
 - Minimum Window Substring (76) - HF  
 
->>>>>>> 4ca1e85 (readme)
+
 ## Phase 2: Heap, Stack & Queue
 
 ### Heap
