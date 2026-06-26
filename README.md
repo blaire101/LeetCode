@@ -1,5 +1,6 @@
 # 🌅 LeetCode Handbook 
 
+<<<<<<< HEAD
 ```python
 from collections import deque # dq = deque()  dq.popleft()  dq.pop()  dq.append(i)  # maintain decreasing values
 from typing import List
@@ -70,6 +71,40 @@ class ListNode:
 - Sliding Window Maximum (239) - HF  
 - Minimum Window Substring (76) - HF  
 
+=======
+## Phase 1: Fundamentals 
+	
+### Arrays & Hashing
+- Two Sum (1) - HF  
+- Maximum Subarray / Kadane (53) - HF  
+- Product of Array Except Self (238) - HF  
+	
+### Arrays & Sorting
+- Sort Array (912, Quick Sort / Merge Sort)  
+- Merge Sorted Array (88)  
+- Arrange Array to Minimum Number (剑指 Offer)  
+- Search Insert Position (35)  
+- Merge Intervals (56) - HF  
+- Insert Interval (57) - HF  
+- Meeting Rooms I (252)  
+- Meeting Rooms II (253) - HF  
+	
+### Binary Search
+- Binary Search (704) - HF  
+- Find First and Last Position of Element in Sorted Array (34) - HF  
+	
+### Two Pointers
+- 3Sum (15) - HF  
+- Container With Most Water (11) - HF  
+- String to Integer (8, atoi)  
+	
+### Sliding Window
+- Longest Substring Without Repeating Characters (3 / Offer 48) - HF  
+- Continuous Sequence Sum Equals Target (剑指 Offer)  
+- Sliding Window Maximum (239) - HF  
+- Minimum Window Substring (76) - HF  
+
+>>>>>>> 4ca1e85 (readme)
 ## Phase 2: Heap, Stack & Queue
 
 ### Heap
@@ -86,7 +121,10 @@ class ListNode:
 
 
 ## Phase 3: Linked List
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4ca1e85 (readme)
 - Merge Two Sorted Lists (21) - HF  
 - Reverse Linked List (206) - HF  
 - Remove Duplicates from Sorted List II (82)  
@@ -136,7 +174,10 @@ class ListNode:
 
 
 ## Phase 7: Backtracking
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4ca1e85 (readme)
 - Subsets (78) - HF  
 - Subsets II (90) - HF  
 - Permutations (46) - HF  
@@ -976,8 +1017,13 @@ def mergeTwoLists(l1, l2):
 Reverse a singly linked list.
 
 **Sample**  
+<<<<<<< HEAD
 - Input: [1,2,3,4,5]   ：  **1 → 2 → 3 → 4 → 5 → None**
 - Output: [5,4,3,2,1]  ：  **5 → 4 → 3 → 2 → 1 → None**
+=======
+- Input: [1,2,3,4,5]  
+- Output: [5,4,3,2,1]
+>>>>>>> 4ca1e85 (readme)
 
 **Approach**  
 Iterative: track `prev, cur`. At each step reverse `cur.next`.  
@@ -1153,7 +1199,11 @@ def lengthOfLIS(nums: List[int]) -> int:
     return max(dp)
 ```
 
+<<<<<<< HEAD
 #### 4) Coin Change — LeetCode 322 （Unbounded knapsack DP）
+=======
+#### 4) Coin Change — LeetCode 322
+>>>>>>> 4ca1e85 (readme)
 
 **Problem**  
 Given coins of different denominations and a total amount, return the fewest number of coins to make up that amount. If not possible, return `-1`.
@@ -1201,6 +1251,7 @@ A robot is located at the top-left of an `m x n` grid and can only move right or
 **Approach**  
 - DP with `dp[i][j] = dp[i-1][j] + dp[i][j-1]`.     
 - Initialize the first row/column to 1.  
+<<<<<<< HEAD
 
 ```python
 def uniquePaths(m: int, n: int) -> int:
@@ -1475,6 +1526,250 @@ def maxProfit_fee(prices: List[int], fee: int) -> int:
     return cash[-1]
 # Example
 print(maxProfit_fee([1,3,2,8,4,9], 2))  # Output: 8
+=======
+
+```python
+def uniquePaths(m: int, n: int) -> int:
+    dp = [[1] * n for _ in range(m)]
+    for i in range(1, m):
+        for j in range(1, n):
+            dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
+    return dp[-1][-1]
+
+# Example
+print(uniquePaths(3, 7))  # 28
+```
+
+#### 2) Unique Paths II — LeetCode 63
+
+**Problem**
+A robot is located at the top-left of an `m x n` grid and can only move right or down. Some cells are blocked by obstacles (`1`).
+Find the number of unique paths to bottom-right.
+
+**Sample**
+
+* Input:
+
+  ```
+  obstacleGrid =
+  [
+    [0,0,0],
+    [0,1,0],
+    [0,0,0]
+  ]
+  ```
+* Output: `2`
+
+**Approach**
+
+* DP with `dp[i][j] = dp[i-1][j] + dp[i][j-1]` if no obstacle.
+* If obstacle at `[i][j]`, set `dp[i][j] = 0`.
+
+```python
+from typing import List
+
+def uniquePathsWithObstacles(obstacleGrid: List[List[int]]) -> int:
+    m, n = len(obstacleGrid), len(obstacleGrid[0])
+    dp = [[0] * n for _ in range(m)]
+    
+    # Start position
+    dp[0][0] = 1 if obstacleGrid[0][0] == 0 else 0
+    
+    # Fill dp table
+    for i in range(m):
+        for j in range(n):
+            if obstacleGrid[i][j] == 1:
+                dp[i][j] = 0
+            else:
+                if i > 0:
+                    dp[i][j] += dp[i - 1][j]
+                if j > 0:
+                    dp[i][j] += dp[i][j - 1]
+    
+    return dp[-1][-1]
+
+# Example
+print(uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]]))  # 2
+```
+
+
+#### 3) Minimum Path Sum — LeetCode 64
+
+**Problem**
+Given a grid filled with non-negative numbers, find a path from top-left to bottom-right that minimizes the sum of all numbers along the path.
+You can only move right or down.
+
+**Sample**
+
+* Input:
+
+  ```
+  grid =
+  [
+    [1,3,1],
+    [1,5,1],
+    [4,2,1]
+  ]
+  ```
+* Output: `7`
+  (Path = `1 → 3 → 1 → 1 → 1`)
+
+**Approach**
+
+* DP with `dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])`.
+* Initialize first row and first column.
+
+```python
+from typing import List
+
+def minPathSum(grid: List[List[int]]) -> int:
+    m, n = len(grid), len(grid[0])
+    dp = [[0] * n for _ in range(m)]
+    
+    dp[0][0] = grid[0][0]
+    
+    # First row
+    for j in range(1, n):
+        dp[0][j] = dp[0][j - 1] + grid[0][j]
+    
+    # First column
+    for i in range(1, m):
+        dp[i][0] = dp[i - 1][0] + grid[i][0]
+    
+    # Rest of grid
+    for i in range(1, m):
+        for j in range(1, n):
+            dp[i][j] = grid[i][j] + min(dp[i - 1][j], dp[i][j - 1])
+    
+    return dp[-1][-1]
+
+print(minPathSum([[1,3,1],[1,5,1],[4,2,1]]))  # 7
+```
+
+
+### 4.3 Stocks
+
+#### 1) Best Time to Buy and Sell Stock I — LeetCode 121
+
+**Problem**  
+Given an array of prices, find the maximum profit with **one transaction** (buy once, sell once).
+
+**Sample**  
+- Input: `prices = [7,1,5,3,6,4]`  
+- Output: `5` (buy at 1, sell at 6)
+
+**Approach**  
+- Track minimum price seen so far.  
+- Profit = `price - min_price`.  
+- Update max profit each day.  
+
+```python
+from typing import List
+
+def maxProfit_I(prices: List[int]) -> int:
+    min_price = float('inf')
+    max_profit = 0
+    for price in prices:
+        min_price = min(min_price, price)
+        max_profit = max(max_profit, price - min_price)
+    return max_profit
+
+# Example
+print(maxProfit_I([7,1,5,3,6,4]))  # 5
+```
+
+
+#### 2) Best Time to Buy and Sell Stock II — LeetCode 122
+
+**Problem**
+You can complete multiple transactions (buy and sell many times).
+Find the maximum profit.
+
+**Sample**
+
+* Input: `prices = [7,1,5,3,6,4]`
+* Output: `7` (buy at 1→sell at 5, buy at 3→sell at 6)
+
+**Approach**
+
+* Every increase contributes to profit.
+* Sum all `prices[i] - prices[i-1]` where positive.
+
+```python
+def maxProfit_II(prices: List[int]) -> int:
+    profit = 0
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i - 1]:
+            profit += prices[i] - prices[i - 1]
+    return profit
+
+# Example
+print(maxProfit_II([7,1,5,3,6,4]))  # 7
+```
+
+#### 3) Best Time to Buy and Sell Stock with Cooldown — LeetCode 309
+
+**Problem**
+You may not buy stock the day right after selling (cooldown 1 day).
+
+**Sample**
+
+* Input: `prices = [1,2,3,0,2]`
+* Output: `3`
+
+**Approach (DP)**
+
+* `hold[i]`: max profit when holding stock.
+* `sold[i]`: max profit when just sold.
+* `rest[i]`: max profit when cooldown.
+
+```python
+def maxProfit_cooldown(prices: List[int]) -> int:
+    if not prices:
+        return 0
+    n = len(prices)
+    hold = [-float('inf')] * n
+    sold = [0] * n
+    rest = [0] * n
+
+    hold[0] = -prices[0]
+    for i in range(1, n):
+        hold[i] = max(hold[i - 1], rest[i - 1] - prices[i])
+        sold[i] = hold[i - 1] + prices[i]
+        rest[i] = max(rest[i - 1], sold[i - 1])
+    return max(sold[-1], rest[-1])
+
+# Example
+print(maxProfit_cooldown([1,2,3,0,2]))  # 3
+```
+
+
+#### 4) Best Time to Buy and Sell Stock with Fee — LeetCode 714
+
+**Problem**
+You pay a transaction fee for each trade.
+
+**Sample**
+
+* Input: `prices = [1,3,2,8,4,9]`, `fee = 2`
+* Output: `8`
+
+**Approach (DP)**
+
+* `hold`: max profit when holding stock.
+* `cash`: max profit when not holding.
+
+```python
+def maxProfit_fee(prices: List[int], fee: int) -> int:
+    hold, cash = -prices[0], 0
+    for price in prices[1:]:
+        hold = max(hold, cash - price)
+        cash = max(cash, hold + price - fee)
+    return cash
+
+# Example
+print(maxProfit_fee([1,3,2,8,4,9], 2))  # 8
+>>>>>>> 4ca1e85 (readme)
 ```
 
 ---
