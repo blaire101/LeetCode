@@ -199,8 +199,10 @@ Output: [[0,1]]
 Solution (HashMap / Dictionary)
 
 ```python
+from typing import List
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    @staticmethod
+    def twoSum(nums: List[int], target: int) -> List[int]:
         hashmap = {}
         for i, num in enumerate(nums):
             if target - num in hashmap:
@@ -210,7 +212,7 @@ class Solution:
 
 nums = [2, 7, 10, 15]
 target = 9
-print(Solution.twoSum(nums, target))  
+print(Solution.twoSum(nums, target))
 # Output: [0, 1]   (2 + 7 = 9)
 ```
 
