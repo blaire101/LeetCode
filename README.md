@@ -1,6 +1,5 @@
 # 🌅 LeetCode Handbook 
 
-<<<<<<< HEAD
 ```python
 from collections import deque # dq = deque()  dq.popleft()  dq.pop()  dq.append(i)  # maintain decreasing values
 from typing import List
