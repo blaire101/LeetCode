@@ -120,15 +120,11 @@ class ListNode:
 
 
 ## Phase 3: Linked List
-<<<<<<< HEAD
 
-=======
->>>>>>> 4ca1e85 (readme)
 - Merge Two Sorted Lists (21) - HF  
 - Reverse Linked List (206) - HF  
 - Remove Duplicates from Sorted List II (82)  
 - Linked List Cycle (141) - HF  
-
 
 ## Phase 4: Dynamic Programming
 
@@ -173,10 +169,7 @@ class ListNode:
 
 
 ## Phase 7: Backtracking
-<<<<<<< HEAD
 
-=======
->>>>>>> 4ca1e85 (readme)
 - Subsets (78) - HF  
 - Subsets II (90) - HF  
 - Permutations (46) - HF  
