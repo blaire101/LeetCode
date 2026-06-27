@@ -246,6 +246,7 @@ class Solution:
 print(Solution().maxSubArray([-2,1,-3,4,-1,2,1,-5,4])) 
 ```
 
+One sentence: "At each step, decide: start fresh or keep going?"
 
 ```python
 from typing import List
@@ -253,8 +254,8 @@ from typing import List
 def max_subarray(nums: List[int]) -> int:
     curr = best = nums[0]
     for x in nums[1:]:
-        curr = max(x, curr + x)
-        best = max(best, curr)
+        curr = max(x, curr + x)   # reset or extend?
+        best = max(best, curr)     # update best streak
     return best
 
 print(max_subarray([-2,1,-3,4,-1,2,1,-5,4]))  
@@ -952,7 +953,7 @@ def smallest_k(nums, k):
     return heapq.nsmallest(k, nums)
 
 # Example:
-print("Smallest k numbers (k=3):", smallest_k([3, 2, 1, 5, 6, 4], 3))
+print("Smallest k numbers (k=3):", smallest_k([3, 2, 1, 5, 6, 4], 3)) # [1, 2, 3]
 ```
 
 
