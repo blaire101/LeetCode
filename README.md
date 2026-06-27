@@ -1012,13 +1012,9 @@ def mergeTwoLists(l1, l2):
 Reverse a singly linked list.
 
 **Sample**  
-<<<<<<< HEAD
+
 - Input: [1,2,3,4,5]   ：  **1 → 2 → 3 → 4 → 5 → None**
 - Output: [5,4,3,2,1]  ：  **5 → 4 → 3 → 2 → 1 → None**
-=======
-- Input: [1,2,3,4,5]  
-- Output: [5,4,3,2,1]
->>>>>>> 4ca1e85 (readme)
 
 **Approach**  
 Iterative: track `prev, cur`. At each step reverse `cur.next`.  
