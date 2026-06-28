@@ -1517,6 +1517,46 @@ print(maxProfit_II([7,1,5,3,6,4]))  # 7
 
 ![Stock II](docs/stock2.png)
 
+---
+
+DP is the general framework. Greedy is what you get when you notice the pattern and simplify.
+In interviews: greedy is the fast answer, DP shows you understand the deeper structure. 👍
+
+```python
+def maxProfit_II(prices):
+    n = len(prices)
+    hold = [-float('inf')] * n   # max profit while holding stock
+    cash = [0] * n               # max profit while not holding stock
+
+    hold[0] = -prices[0]         # buy on day 0
+
+    for i in range(1, n):
+        # keep holding  OR  buy today (must have sold before)
+        hold[i] = max(hold[i-1], cash[i-1] - prices[i])
+
+        # do nothing  OR  sell today
+        cash[i] = max(cash[i-1], hold[i-1] + prices[i])
+
+    return cash[-1]
+```
+
+Space OPT
+
+```python
+def maxProfit_II(prices):
+    hold = -prices[0]   # max profit while holding stock
+    cash = 0            # max profit while not holding stock
+
+    for price in prices[1:]:
+        hold = max(hold, cash - price)   # keep holding OR buy today
+        cash = max(cash, hold + price)   # do nothing  OR sell today
+
+    return cash
+```
+
+
+![Stock II DP](docs/stock2_dp.png)
+
 #### 3) Best Time to Buy and Sell Stock with Cooldown — LeetCode 309
 
 **Problem**
