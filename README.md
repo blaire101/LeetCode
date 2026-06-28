@@ -1381,26 +1381,22 @@ from typing import List
 def uniquePathsWithObstacles(obstacleGrid: List[List[int]]) -> int:
     m, n = len(obstacleGrid), len(obstacleGrid[0])
     dp = [[0] * n for _ in range(m)]
-    
-    # Start position
-    dp[0][0] = 1 if obstacleGrid[0][0] == 0 else 0
-    
-    # Fill dp table
+    dp[0][0] = 1 - obstacleGrid[0][0]  # 1 if free, 0 if blocked
+
     for i in range(m):
         for j in range(n):
             if obstacleGrid[i][j] == 1:
                 dp[i][j] = 0
-            else:
-                if i > 0:
-                    dp[i][j] += dp[i - 1][j]
-                if j > 0:
-                    dp[i][j] += dp[i][j - 1]
-    
+                continue
+            if i > 0: dp[i][j] += dp[i - 1][j]
+            if j > 0: dp[i][j] += dp[i][j - 1]
+
     return dp[-1][-1]
 
-# Example
 print(uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]]))  # 2
 ```
+
+![Unique Paths II DP](unique_paths2_dp.png)
 
 
 #### 3) Minimum Path Sum — LeetCode 64
