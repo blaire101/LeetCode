@@ -1833,6 +1833,19 @@ def wordBreak(s: str, wordDict: List[str]) -> bool:
 
 # Example
 print(wordBreak("leetcode", ["leet","code"]))  # True
+
+# meaning
+s = "leetcode"
+
+dp[0] = True   →  "" (empty string) — always True, base case
+dp[1] = False  →  "l" — not in dict
+dp[2] = False  →  "le" — not in dict
+dp[3] = False  →  "lee" — not in dict
+dp[4] = True   →  "leet" — found in dict ✓
+dp[5] = False  →  "leetc" — no valid split
+dp[6] = False  →  "leetco" — no valid split
+dp[7] = False  →  "leetcod" — no valid split
+dp[8] = True   →  "leetcode" — split as "leet"+"code" ✓
 ```
 
 ## Phase 5: DFS / BFS
@@ -1886,6 +1899,8 @@ A robot starts at (0,0) in an m×n grid. It can move up/down/left/right, but can
 
 * Input: m=2, n=3, k=1
 * Output: 3
+
+![Robot & Islands](docs/robot_islands.png)
 
 **Approach**
 
