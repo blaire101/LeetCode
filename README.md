@@ -1,6 +1,7 @@
 # 🌅 LeetCode Handbook 
 
 ```python
+min_price = float('inf')
 from collections import deque # dq = deque()  dq.popleft()  dq.pop()  dq.append(i)  # maintain decreasing values
 from typing import List
 strs = list(map(str, nums)) # map(func, iterable)
