@@ -1452,6 +1452,7 @@ def minPathSum(grid: List[List[int]]) -> int:
 print(minPathSum([[1,3,1],[1,5,1],[4,2,1]]))  # 7
 ```
 
+![Min Path Sum](docs/min_path_sum.png)
 
 ### 4.3 Stocks
 
