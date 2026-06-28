@@ -1519,8 +1519,8 @@ print(maxProfit_II([7,1,5,3,6,4]))  # 7
 
 ---
 
-DP is the general framework. Greedy is what you get when you notice the pattern and simplify.
-In interviews: greedy is the fast answer, DP shows you understand the deeper structure. 👍
+- DP is the general framework. Greedy is what you get when you notice the pattern and simplify.
+- In interviews: greedy is the fast answer, DP shows you understand the deeper structure. 👍
 
 ```python
 def maxProfit_II(prices):
