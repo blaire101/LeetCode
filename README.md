@@ -1335,7 +1335,8 @@ A robot is located at the top-left of an `m x n` grid and can only move right or
 **Approach**  
 - DP with `dp[i][j] = dp[i-1][j] + dp[i][j-1]`.     
 - Initialize the first row/column to 1.  
-<<<<<<< HEAD
+
+![Unique Paths DP](docs/unique_paths_dp.png)
 
 ```python
 def uniquePaths(m: int, n: int) -> int:
