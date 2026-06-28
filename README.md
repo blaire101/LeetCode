@@ -1540,6 +1540,8 @@ def maxProfit_II(prices):
     return cash[-1]
 ```
 
+![Stock II DP](docs/stock2_dp.png)
+
 Space OPT
 
 ```python
@@ -1553,9 +1555,6 @@ def maxProfit_II(prices):
 
     return cash
 ```
-
-
-![Stock II DP](docs/stock2_dp.png)
 
 #### 3) Best Time to Buy and Sell Stock with Cooldown — LeetCode 309
 
