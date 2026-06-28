@@ -1396,7 +1396,7 @@ def uniquePathsWithObstacles(obstacleGrid: List[List[int]]) -> int:
 print(uniquePathsWithObstacles([[0,0,0],[0,1,0],[0,0,0]]))  # 2
 ```
 
-![Unique Paths II DP](unique_paths2_dp.png)
+![Unique Paths II DP](docs/unique_paths2_dp.png)
 
 
 #### 3) Minimum Path Sum — LeetCode 64
