@@ -1603,12 +1603,15 @@ def maxProfit_cooldown(prices: List[int]) -> int:
 
     hold[0] = -prices[0]
     for i in range(1, n):
-        # 1. Keep holding from yesterday OR buy today — but you can only buy from rest, not from sold (cooldown rule)
         hold[i] = max(hold[i - 1], rest[i - 1] - prices[i])
-        # 2. Only one way to sell: you were holding yesterday, sell today
+        # 1. Keep holding from yesterday OR buy today — but you can only buy from rest, not from sold (cooldown rule)
+
         sold[i] = hold[i - 1] + prices[i]
-        # 3. Stay in rest OR cooldown just ended (came from sold yesterday)
+        # 2. Only one way to sell: you were holding yesterday, sell today
+
         rest[i] = max(rest[i - 1], sold[i - 1])
+        # 3. Stay in rest OR cooldown just ended (came from sold yesterday)
+
     return max(sold[-1], rest[-1])
 
 # Example
