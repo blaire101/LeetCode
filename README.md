@@ -1249,7 +1249,13 @@ dp[x] = min(dp[x], dp[x - c] + 1)
 
 **Solution 2: BFS**
 
-**Core idea:** Treat each amount as a node. Each coin is an edge. BFS finds the shortest path from `amount` to `0` — shortest path = fewest coins.
+**Core idea:**
+ 
+- Treat each amount as a node. Each coin is an edge. 
+- BFS finds the shortest path from `amount` to `0` — shortest path = fewest coins.
+- The problem becomes "how many steps from amount to 0?" → classic BFS.
+
+**Minimum steps / shortest path → BFS**
 
 ```python
 from collections import deque
