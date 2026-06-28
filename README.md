@@ -1556,7 +1556,7 @@ def maxProfit_II(prices):
     return cash
 ```
 
-#### 3) Best Time to Buy and Sell Stock with Cooldown — LeetCode 309
+#### 3) Best Time to Buy and Sell Stock with Cooldown — LeetCode 309 - Hard
 
 **Problem**
 You may not buy stock the day right after selling (cooldown 1 day).
@@ -1635,6 +1635,28 @@ You pay a transaction fee for each trade.
 * `hold`: max profit when holding stock.
 * `cash`: max profit when not holding.
 
+DP array version first:
+
+```python
+def maxProfit_fee(prices: List[int], fee: int) -> int:
+    n = len(prices)
+    hold = [-float('inf')] * n   # max profit while holding stock
+    cash = [0] * n               # max profit while not holding
+
+    hold[0] = -prices[0]         # buy on day 0
+
+    for i in range(1, n):
+        # keep holding OR buy today
+        hold[i] = max(hold[i-1], cash[i-1] - prices[i])
+
+        # do nothing OR sell today (pay fee on sell)
+        cash[i] = max(cash[i-1], hold[i-1] + prices[i] - fee)
+
+    return cash[-1]
+```
+
+Then simplified to O(1) space:
+ 
 ```python
 def maxProfit_fee(prices: List[int], fee: int) -> int:
     hold, cash = -prices[0], 0
@@ -1647,6 +1669,7 @@ def maxProfit_fee(prices: List[int], fee: int) -> int:
 print(maxProfit_fee([1,3,2,8,4,9], 2))  # 8
 ```
 
+![Stock with Fee](docs/stock_fee.png)
 
 #### 5) Best Time to Buy and Sell Stock III — LeetCode 123
 
