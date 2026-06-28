@@ -1810,6 +1810,8 @@ Given a string and a dictionary of words, determine if the string can be segment
 * Input: `s = "leetcode"`, `wordDict = ["leet","code"]`
 * Output: `True`
 
+![Word Break](docs/word_break.png)
+
 **Approach (DP)**
 
 * `dp[i]`: can `s[:i]` be segmented.
