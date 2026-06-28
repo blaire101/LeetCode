@@ -1561,12 +1561,32 @@ def maxProfit_II(prices):
 **Problem**
 You may not buy stock the day right after selling (cooldown 1 day).
 
+You have stock prices by day. You can buy and sell multiple times, but after you sell, you must wait one cooldown day before buying again. Find the maximum profit.
+
 **Sample**
 
 * Input: `prices = [1,2,3,0,2]`
 * Output: `3`
 
 **Approach (DP)**
+
+- Why 3 states?
+- Every day you're in exactly one of these situations:
+
+```buildoutcfg
+hold = you're holding a stock right now
+sold = you just sold today (triggers cooldown tomorrow)
+rest = you're in cooldown, or just doing nothing
+
+buy
+rest  ─────────→  hold
+ ↑                  │
+ │                  │ sell
+ │      sold  ←─────┘
+ │        │
+ └────────┘
+    cooldown ends (rest = max of staying rest OR coming from sold)
+```
 
 * `hold[i]`: max profit when holding stock.
 * `sold[i]`: max profit when just sold.
@@ -1583,8 +1603,11 @@ def maxProfit_cooldown(prices: List[int]) -> int:
 
     hold[0] = -prices[0]
     for i in range(1, n):
+        # 1. Keep holding from yesterday OR buy today — but you can only buy from rest, not from sold (cooldown rule)
         hold[i] = max(hold[i - 1], rest[i - 1] - prices[i])
+        # 2. Only one way to sell: you were holding yesterday, sell today
         sold[i] = hold[i - 1] + prices[i]
+        # 3. Stay in rest OR cooldown just ended (came from sold yesterday)
         rest[i] = max(rest[i - 1], sold[i - 1])
     return max(sold[-1], rest[-1])
 
