@@ -1941,6 +1941,8 @@ Given a 2D grid of '1' (land) and '0' (water), count the number of islands.
 
 * Output: 1
 
+![Number of Islands](docs/islands.png)
+
 **Approach**
 
 * DFS flood fill. Mark visited as '0'.
