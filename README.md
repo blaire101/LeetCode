@@ -1515,6 +1515,8 @@ def maxProfit_II(prices: List[int]) -> int:
 print(maxProfit_II([7,1,5,3,6,4]))  # 7
 ```
 
+![Stock II](docs/stock2.png)
+
 #### 3) Best Time to Buy and Sell Stock with Cooldown — LeetCode 309
 
 **Problem**
@@ -1551,6 +1553,7 @@ def maxProfit_cooldown(prices: List[int]) -> int:
 print(maxProfit_cooldown([1,2,3,0,2]))  # 3
 ```
 
+![Stock Cooldown](docs/stock_cooldown.png)
 
 #### 4) Best Time to Buy and Sell Stock with Fee — LeetCode 714
 
@@ -1577,10 +1580,8 @@ def maxProfit_fee(prices: List[int], fee: int) -> int:
 
 # Example
 print(maxProfit_fee([1,3,2,8,4,9], 2))  # 8
->>>>>>> 4ca1e85 (readme)
 ```
 
----
 
 #### 5) Best Time to Buy and Sell Stock III — LeetCode 123
 
