@@ -1190,11 +1190,8 @@ def lengthOfLIS(nums: List[int]) -> int:
     return max(dp)
 ```
 
-<<<<<<< HEAD
 #### 4) Coin Change — LeetCode 322 （Unbounded knapsack DP）
-=======
-#### 4) Coin Change — LeetCode 322
->>>>>>> 4ca1e85 (readme)
+
 
 **Problem**  
 Given coins of different denominations and a total amount, return the fewest number of coins to make up that amount. If not possible, return `-1`.
@@ -1207,8 +1204,11 @@ Given coins of different denominations and a total amount, return the fewest num
 **Approach**  
 
 - Unbounded knapsack DP.  
+- Core idea: dp[x] = fewest coins to make amount x
 - Initialize `dp = [0] + [inf] * amount`.  
 - Transition: `dp[x] = min(dp[x], dp[x - c] + 1)` for each coin `c` and `x >= c`.
+
+**Solution 1: DP (Bottom-Up)**
 
 ```python
 from typing import List
@@ -1217,11 +1217,98 @@ import math
 def coinChange(coins: List[int], amount: int) -> int:
     dp = [math.inf] * (amount + 1)
     dp[0] = 0
-    for c in coins:
-        for x in range(c, amount + 1):
-            dp[x] = min(dp[x], dp[x - c] + 1)
+    for x in range(1, amount + 1):
+        for c in coins:
+            if x >= c:
+                dp[x] = min(dp[x], dp[x - c] + 1)
     return dp[amount] if dp[amount] != math.inf else -1
 ```
+
+**Trace through coins=[1,2,5], amount=11:**
+
+```
+Init:
+index:  0    1    2    3    4    5    6    7    8    9   10   11
+dp:    [0]  [∞]  [∞]  [∞]  [∞]  [∞]  [∞]  [∞]  [∞]  [∞]  [∞]  [∞]
+
+After filling:
+index:  0    1    2    3    4    5    6    7    8    9   10   11
+dp:    [0]  [1]  [1]  [2]  [2]  [1]  [2]  [2]  [3]  [3]  [2]  [3]
+
+Answer: dp[11] = 3  →  5 + 5 + 1
+```
+
+Transition logic:
+
+```
+dp[x] = min(dp[x], dp[x - c] + 1)
+
+→ "I use one coin c, then the remaining (x - c) is already solved"
+→ take the minimum across all coins
+```
+
+**Solution 2: BFS**
+
+**Core idea:** Treat each amount as a node. Each coin is an edge. BFS finds the shortest path from `amount` to `0` — shortest path = fewest coins.
+
+```python
+from collections import deque
+from typing import List
+
+def coinChange(coins: List[int], amount: int) -> int:
+    if amount == 0:
+        return 0
+    queue = deque([amount])
+    visited = {amount}
+    steps = 0
+
+    while queue:
+        steps += 1
+        for _ in range(len(queue)):
+            x = queue.popleft()
+            for c in coins:
+                nxt = x - c
+                if nxt == 0:
+                    return steps
+                if nxt > 0 and nxt not in visited:
+                    visited.add(nxt)
+                    queue.append(nxt)
+    return -1
+```
+
+**How BFS works here:**
+
+```
+coins = [1, 2, 5], amount = 11
+
+                        [11]                   ← start
+                 /        |        \
+              -1          -2         -5
+              /           |           \
+           [10]          [9]          [6]       ← layer 1 (steps=1)
+          /  |  \       / | \        / | \
+        -1  -2  -5   -1  -2  -5   -1  -2  -5
+        /    |    \   ...
+      [9]  [8]   [5]                            ← layer 2 (steps=2)
+                  |
+                  -5
+                  |
+                 [0]  ✅ reached 0!             ← layer 3 (steps=3)
+
+Answer: 3 coins  →  5 + 5 + 1
+```
+
+Each "layer" = one more coin used. The first time we hit `0` is guaranteed to be the minimum.
+
+**Why BFS can be faster than DP:**
+
+```
+DP always fills every cell 0 → amount
+BFS stops the moment it finds the answer → early exit
+```
+
+**Complexity:** Time `O(amount × len(coins))` · Space `O(amount)`
+
 
 ### 4.2 Grid / Paths
 - Unique Paths
